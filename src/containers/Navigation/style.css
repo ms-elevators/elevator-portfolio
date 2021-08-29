@@ -1,0 +1,13 @@
+.floor-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  margin: 0.5rem;
+}
+
+/* buttons */
+input[type="button"] {
+  padding: 0.5rem 0.5rem;
+  border-radius: 100%;
+  border: solid #000 1px;
+}

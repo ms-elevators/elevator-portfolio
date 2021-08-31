@@ -1,5 +1,9 @@
 import React from "react";
 
-export default function Screen() {
-  return <div className="screen">Screen</div>;
+export default function Screen({ hoverValue }) {
+  return (
+    <div className="screen">
+      <h1>{hoverValue}</h1>
+    </div>
+  );
 }

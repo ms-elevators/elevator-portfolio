@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useSound from "use-sound";
 
 import "./App.css";
@@ -24,6 +24,8 @@ function App() {
 
   const [floor, setFloor] = useState(1);
   const [isReady, setReady] = useState(false);
+
+  const [hoverValue, setHover] = useState(0);
 
   const [bgm] = useSound(bgmSrc, { volume: 0.3, interrupt: true });
 
@@ -59,7 +61,10 @@ function App() {
 
         setTimeout(() => movePlay(), 2000);
 
-        setTimeout(() => setFloor(floorNum), 3400);
+        setTimeout(() => {
+          setFloor(floorNum);
+          setHover(floorNum);
+        }, 3400);
 
         setTimeout(() => arrivePlay(), 3500);
 
@@ -70,16 +75,30 @@ function App() {
       } else {
         setReady(false);
 
-        setTimeout(() => setFloor(floorNum), 2000);
+        setTimeout(() => {
+          setFloor(floorNum);
+          setHover(floorNum);
+        }, 3400);
 
         setTimeout(() => setReady(true), 4500);
       }
     }
   };
 
-  const initialOpen = () => {
-    setReady(true);
+  const onButtonHover = (e) => {
+    setHover(e.target.value);
   };
+
+  const onButtonHoverOut = (e) => {
+    setHover(floor);
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setReady(true);
+    }, 1500);
+    return;
+  }, []);
 
   return (
     <div>
@@ -91,9 +110,13 @@ function App() {
         <main className="main-container">
           <FloorSign floor={floor} />
           <section className="bottom">
-            <Screen />
-            <Door floor={floor} isReady={isReady} initialOpen={initialOpen} />
-            <Navigation changeFloor={changeFloor} />
+            <Screen hoverValue={hoverValue} />
+            <Door floor={floor} isReady={isReady} />
+            <Navigation
+              changeFloor={changeFloor}
+              onButtonHover={onButtonHover}
+              onButtonHoverOut={onButtonHoverOut}
+            />
           </section>
         </main>
       )}

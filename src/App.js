@@ -34,6 +34,9 @@ function App() {
     setSound(allow);
     if (allow) {
       bgm();
+      setTimeout(() => {
+        openPlay();
+      }, 1500);
     }
   };
 

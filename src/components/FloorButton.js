@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function FloorButton({
-  floor,
   floorNum,
   changeFloor,
   onButtonHover,

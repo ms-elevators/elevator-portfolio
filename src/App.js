@@ -25,14 +25,16 @@ function App() {
   const [floor, setFloor] = useState(1);
   const [isReady, setReady] = useState(false);
 
-  const [hoverValue, setHover] = useState(0);
+  const [hoverValue, setHover] = useState(1);
 
   const [bgm] = useSound(bgmSrc, { volume: 0.3, interrupt: true });
 
   // set sound state, play bgm if sound is true
   const soundSettings = (allow) => {
     setSound(allow);
-    if (allow) bgm();
+    if (allow) {
+      bgm();
+    }
   };
 
   // set sfx

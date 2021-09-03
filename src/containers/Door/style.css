@@ -1,24 +1,6 @@
-/* elevator */
-.door-container {
-  position: relative;
-  overflow: hidden;
-  height: 100%;
-  margin: auto;
-}
-
-.door-inner-content {
-  color: #000000;
-}
-
 /* left-door */
 .door-left {
-  background: #1f122c;
-  width: 50%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  transition: left 2s ease-in-out;
-  z-index: 2;
+  left: 0;
 }
 
 .door-left-enter {
@@ -34,22 +16,15 @@
   left: -50%;
 }
 
-.door-left-exit-active {
+.door-left-exit-active,
+.door-left-exit-done {
   left: 0;
 }
 
 /* right-door */
 .door-right {
-  background: #1f122c;
-  width: 50%;
-  height: 100%;
-  position: absolute;
-  top: 0;
   right: 0;
-  transition: right 2s ease-in-out;
-  z-index: 2;
 }
-
 .door-right-enter {
   right: 0;
 }
@@ -63,6 +38,7 @@
   right: -50%;
 }
 
-.door-right-exit-active {
+.door-right-exit-active,
+.door-right-exit-done {
   right: 0;
 }

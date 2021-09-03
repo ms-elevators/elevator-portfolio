@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   padding: 0;
   margin: 0;
@@ -34,13 +35,6 @@ body {
   bottom: 0;
 }
 
-.Door {
-  border: solid 2px #cccccc;
-  width: 65%;
-  height: 100%;
-  margin: auto;
-}
-
 .floor-sign {
   border: solid 2px #cccccc;
   width: 50%;
@@ -50,7 +44,6 @@ body {
   position: absolute;
 }
 
-.screen,
 .navigation {
   width: 15%;
   border: solid 2px #cccccc;

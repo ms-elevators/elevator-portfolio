@@ -1,11 +1,14 @@
 import React from "react";
 import { screenData } from "./Data";
 import {
+  LeftContainer,
   ScreenContainer,
   ScreenTitle,
   ScreenDesc,
   StackList,
   StackIcon,
+  SocialContainer,
+  SocialIcon,
 } from "./Screen.elements";
 
 export default function Screen({ hoverValue }) {
@@ -15,13 +18,21 @@ export default function Screen({ hoverValue }) {
     const icon = `fab fa-${s}`;
     return <StackIcon key={s} className={icon}></StackIcon>;
   });
+
   return (
     <>
-      <ScreenContainer>
-        <ScreenTitle>{title}</ScreenTitle>
-        <ScreenDesc>{description}</ScreenDesc>
-        <StackList>{stacks}</StackList>
-      </ScreenContainer>
+      <LeftContainer>
+        <ScreenContainer>
+          <ScreenTitle>{title}</ScreenTitle>
+          <ScreenDesc>{description}</ScreenDesc>
+          <StackList>{stacks}</StackList>
+        </ScreenContainer>
+        <SocialContainer>
+          <SocialIcon key="instagram" className="fab fa-instagram"></SocialIcon>
+          <SocialIcon key="github" className="fab fa-github"></SocialIcon>
+          <SocialIcon key="linkedin" className="fab fa-linkedin"></SocialIcon>
+        </SocialContainer>
+      </LeftContainer>
     </>
   );
 }

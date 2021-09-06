@@ -7,6 +7,7 @@ import Door from "./containers/Door/Door";
 import FloorSign from "./containers/FloorSign/FloorSign";
 import Navigation from "./containers/Navigation/Navigation";
 import Screen from "./containers/Screen/Screen";
+import FloorGuides from "./containers/FloorGuides";
 
 // import bgm
 import bgmSrc from "./sound/bgm.mp3";
@@ -20,10 +21,11 @@ import arriveSfx from "./sound/arrive.wav";
 import bgi from "./base.png";
 
 function App() {
-  const [sound, setSound] = useState(null);
+  const [sound, setSound] = useState(true);
 
   const [floor, setFloor] = useState(1);
   const [isReady, setReady] = useState(false);
+  
 
   const [bgm] = useSound(bgmSrc, { volume: 0.3, interrupt: true });
 
@@ -38,7 +40,8 @@ function App() {
   const [closePlay] = useSound(closeSfx, { playbackRate: 1.1 });
   const [movePlay] = useSound(moveSfx, { playbackRate: 2, volume: 0.3 });
   const [arrivePlay] = useSound(arriveSfx);
-
+  
+  //------------------------------------function------------------------------------------------------------------------------------------------------------------------
   // open and close door sfx
   const doorSound = () => {
     if (isReady && sound) {
@@ -52,6 +55,8 @@ function App() {
   const changeFloor = (floorNum) => {
     // if different floor
     if (floor !== floorNum) {
+      
+      
       if (sound) {
         setReady(false);
 
@@ -89,7 +94,13 @@ function App() {
         <SoundButtons soundSettings={soundSettings} />
       ) : (
         <main className="main-container">
-          <FloorSign floor={floor} />
+          <div className="top">
+            <FloorGuides floor={floor}  isReady={isReady}/>     
+            
+            <FloorSign floor={floor} />
+
+          </div>
+          
           <section className="bottom">
             <Screen />
             <Door floor={floor} isReady={isReady} initialOpen={initialOpen} />
@@ -102,3 +113,4 @@ function App() {
 }
 
 export default App;
+

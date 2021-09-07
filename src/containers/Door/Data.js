@@ -6,37 +6,37 @@ import img4 from "../../image/img4.png";
 export const content = {
   1: {
     img: [img1, img2, img3, img4],
-    demo: "google.com",
-    code: "github.com",
+    demo: "https://www.google.com/",
+    code: "https://github.com/",
   },
   2: {
     img: [img2, img3, img4],
-    demo: "google.com",
-    code: "github.com",
+    demo: "https://www.google.com/",
+    code: "https://github.com/",
   },
   3: {
     img: [img3, img4],
-    demo: "google.com",
-    code: "github.com",
+    demo: "https://www.google.com/",
+    code: "https://github.com/",
   },
   4: {
     img: [img2, img3, img4],
-    demo: "google.com",
-    code: "github.com",
+    demo: "https://www.google.com/",
+    code: "https://github.com/",
   },
   5: {
     img: [img4],
-    demo: "google.com",
-    code: "github.com",
+    demo: "https://www.google.com/",
+    code: "https://github.com/",
   },
   6: {
     img: [img3, img4],
-    demo: "google.com",
-    code: "github.com",
+    demo: "https://www.google.com/",
+    code: "https://github.com/",
   },
   7: {
     img: [img1, img2, img3, img4],
-    demo: "google.com",
-    code: "github.com",
+    demo: "https://www.google.com/",
+    code: "https://github.com/",
   },
 };

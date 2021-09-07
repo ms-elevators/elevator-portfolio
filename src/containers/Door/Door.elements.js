@@ -33,6 +33,13 @@ export const ContentLink = styled.a`
   border-radius: 5px;
   border: #ffffff 1px solid;
   width: 10rem;
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: #ffffff;
+    color: #000000;
+    border: #000000 1px solid;
+  }
 `;
 
 export const CoverDoor = styled.div`

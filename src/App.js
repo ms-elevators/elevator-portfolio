@@ -25,7 +25,6 @@ function App() {
 
   const [floor, setFloor] = useState(1);
   const [isReady, setReady] = useState(false);
-  
 
   const [hoverValue, setHover] = useState(1);
 
@@ -47,7 +46,7 @@ function App() {
   const [closePlay] = useSound(closeSfx, { playbackRate: 1.1 });
   const [movePlay] = useSound(moveSfx, { playbackRate: 2, volume: 0.3 });
   const [arrivePlay] = useSound(arriveSfx);
-  
+
   //------------------------------------function------------------------------------------------------------------------------------------------------------------------
   // open and close door sfx
   const doorSound = () => {
@@ -61,36 +60,58 @@ function App() {
   // when floor button is clicked
   const changeFloor = (floorNum) => {
     // if different floor
-    if (floor !== floorNum) {
-      
-      
-      if (sound) {
-        setReady(false);
+    if (floor < floorNum) {
+      // for (let i = floor; i <= floorNum; i++) {
+      //   setTimeout(() => {
+      //     setFloor(i);
+      //   }, 4000);
+      // }
+      let i = floor;
+      while (i <= floorNum) {
+        setTimeout((i) => {
+          setFloor(i++);
+        }, 2000);
+      }
 
-        doorSound();
+      // if (sound) {
+      //   setReady(false);
 
-        setTimeout(() => movePlay(), 2000);
+      //   doorSound();
 
-        setTimeout(() => {
-          setFloor(floorNum);
-          setHover(floorNum);
-        }, 3400);
+      //   setTimeout(() => movePlay(), 2000);
 
-        setTimeout(() => arrivePlay(), 3500);
+      //   setTimeout(() => {
+      //     setFloor(floorNum);
+      //     setHover(floorNum);
+      //   }, 3400);
 
-        setTimeout(() => {
-          setReady(true);
-          doorSound();
-        }, 4500);
-      } else {
-        setReady(false);
+      //   setTimeout(() => arrivePlay(), 3500);
 
-        setTimeout(() => {
-          setFloor(floorNum);
-          setHover(floorNum);
-        }, 3400);
+      //   setTimeout(() => {
+      //     setReady(true);
+      //     doorSound();
+      //   }, 4500);
+      // } else {
+      //   setReady(false);
 
-        setTimeout(() => setReady(true), 4500);
+      //   setTimeout(() => {
+      //     setFloor(floorNum);
+      //     setHover(floorNum);
+      //   }, 3400);
+
+      //   setTimeout(() => setReady(true), 4500);
+      // }
+    } else if (floor > floorNum) {
+      // for (let i = floor; i >= floorNum; i--) {
+      //   setTimeout(() => {
+      //     setFloor(i);
+      //   }, 4000);
+      // }
+
+      let i = floor;
+      while (i >= floorNum) {
+        setFloor(i--);
+        setTimeout(() => {}, 2000);
       }
     }
   };
@@ -119,12 +140,11 @@ function App() {
       ) : (
         <main className="main-container">
           <div className="top">
-            <FloorGuides floor={floor}  isReady={isReady}/>     
-            
-            <FloorSign floor={floor} />
+            <FloorGuides floor={floor} isReady={isReady} />
 
+            <FloorSign floor={floor} />
           </div>
-          
+
           <section className="bottom">
             <Screen hoverValue={hoverValue} />
             <Door floor={floor} isReady={isReady} />
@@ -141,4 +161,3 @@ function App() {
 }
 
 export default App;
-

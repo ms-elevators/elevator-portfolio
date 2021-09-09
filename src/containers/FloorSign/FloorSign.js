@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-// import { useSpring, animated } from "react-spring";
 
 const FloorSignStyle = styled.div`
   @font-face {
@@ -21,8 +20,7 @@ const FloorSignStyle = styled.div`
   text-align: center;
   padding: 1%;
 `;
-export default function FloorSign({ floor }) {
-  // const props = useSpring({ number: floor, from: { number: 0 } });
 
+export default function FloorSign({ floor }) {
   return <FloorSignStyle>{floor}</FloorSignStyle>;
 }

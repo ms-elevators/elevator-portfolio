@@ -9,7 +9,8 @@ const FloorGuideStyle = styled.div`
   padding: 2%;
   font-size: 0.5rem;
   height: 100%;
-  background-color: ${(props) => props.currentColor || ""};
+  background-color: ${(props) =>
+    props.currentColor || ""}; // if props exist add the color as background
   h4 {
     margin: 0;
   }
@@ -23,9 +24,9 @@ export default function FloorGuide({
 }) {
   return (
     <FloorGuideStyle currentColor={currentColor}>
-      <h4>{floor}</h4> <br />
-      {projectname} <br />
-      {children}
+      <h4>{floor}</h4>
+      <p>{projectname}</p>
+      <p>{children}</p>
     </FloorGuideStyle>
   );
 }

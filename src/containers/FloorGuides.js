@@ -3,7 +3,7 @@ import styled from "styled-components";
 import FloorGuide from "../components/FloorGuide";
 const FloorGuidesStyle = styled.div`
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, 1fr); // grid with 7 equal width
   position: absolute;
   left: 20%;
   top: 9%;
@@ -17,19 +17,21 @@ const FloorGuidesStyle = styled.div`
 
 const currentColor = "rgba(255, 255, 0, 0.3)";
 
-export default function FloorGuides({ isReady, floor }) {
+export default function FloorGuides({ floor }) {
+  // dynamically create guides
   const guides = [];
   for (let i = 1; i < 8; i++) {
     const guide = (
       <FloorGuide
         floor={i}
         projectname={`project${i}`}
-        currentColor={i === floor ? currentColor : ""}
+        currentColor={i === floor ? currentColor : ""} // props to add yellow bg color only on current floor
       >
         description for project {i}
       </FloorGuide>
     );
     guides.push(guide);
   }
+
   return <FloorGuidesStyle>{guides}</FloorGuidesStyle>;
 }

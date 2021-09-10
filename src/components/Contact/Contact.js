@@ -8,17 +8,19 @@ export default function Contact() {
     const [email, onChangeEmail] = useInput(''); 
     const [message, onChangeMessage] = useInput(''); 
     const [send, setSend] = useState(false);
-    
+    let chk = false;
+
     const sendEmail = useCallback((e) => { 
         e.preventDefault(); 
-        
+
         const inputNum = e.target.childElementCount - 1; // [D] 버튼한개 제외 
         const data = new FormData(e.target); 
         const entries = data.entries(); 
         let failNum = 0; 
 
+        if(!chk){
         for (let i = 0; i < inputNum; i++) { // input 개수만큼 돌며 value 확인
-            let next = entries.next(); 
+            const next = entries.next(); 
             const key = next.value[0]; 
             const value = next.value[1]; 
             if (!value) { 
@@ -40,7 +42,9 @@ export default function Contact() {
                     console.log('error.text', error.text); 
                 }); 
                 setSend(true);
+                chk = true;
             } 
+        }
         }, []);
 
     return (

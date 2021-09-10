@@ -12,6 +12,8 @@ import {
 
 import { content } from "./Data";
 
+import Contact from "../../components/Contact/Contact"
+
 // import css
 import "./style.css";
 
@@ -28,6 +30,7 @@ export default function Door({ floor, isReady }) {
             Source Code
           </ContentLink>
         </ContentButtonContainer>
+        {/* <Contact/> */}
       </DoorInnerContent>
       <CSSTransition in={isReady} timeout={2000} classNames="door-left">
         <DoorLeft className="door-left"></DoorLeft>

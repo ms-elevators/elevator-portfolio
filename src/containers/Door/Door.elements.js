@@ -11,10 +11,15 @@ export const DoorContainer = styled.div`
 
 export const DoorInnerContent = styled.div``;
 
+export const ContentImgContainer = styled.section`
+  display: flex;
+  overflow: hidden;
+`;
 export const ContentImg = styled.img`
   width: 80%;
   margin: 1rem auto;
   border: 1px solid #000000;
+  display: ${(props) => props.current};
 `;
 
 export const ContentButtonContainer = styled.section`

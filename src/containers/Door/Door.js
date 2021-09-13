@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { CSSTransition } from "react-transition-group";
 import {
   ContentButtonContainer,
   ContentLink,
@@ -12,9 +11,6 @@ import {
 } from "./Door.elements";
 
 import { content } from "./Data";
-
-// import css
-import "./style.css";
 
 export default function Door({ floor, isReady }) {
   const [imgIdx, setImgIdx] = useState(0);
@@ -59,12 +55,8 @@ export default function Door({ floor, isReady }) {
           </ContentLink>
         </ContentButtonContainer>
       </DoorInnerContent>
-      <CSSTransition in={isReady} timeout={2000} classNames="door-left">
-        <DoorLeft className="door-left"></DoorLeft>
-      </CSSTransition>
-      <CSSTransition in={isReady} timeout={2000} classNames="door-right">
-        <DoorRight className="door-right"></DoorRight>
-      </CSSTransition>
+      <DoorLeft status={isReady ? "open" : "close"}></DoorLeft>
+      <DoorRight status={isReady ? "open" : "close"}></DoorRight>
     </DoorContainer>
   );
 }

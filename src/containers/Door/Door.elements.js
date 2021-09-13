@@ -57,9 +57,15 @@ export const CoverDoor = styled.div`
 `;
 
 export const DoorLeft = styled(CoverDoor)`
+  left: ${(props) => {
+    return props.status === "open" ? "-50%" : 0;
+  }};
   transition: left 2s ease-in-out;
 `;
 
 export const DoorRight = styled(CoverDoor)`
+  right: ${(props) => {
+    return props.status === "open" ? "-50%" : 0;
+  }};
   transition: right 2s ease-in-out;
 `;

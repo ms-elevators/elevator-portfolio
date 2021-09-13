@@ -7,6 +7,7 @@ export const DoorContainer = styled.div`
   position: relative;
   overflow: hidden;
   border: solid 2px #cccccc;
+
 `;
 
 export const DoorInnerContent = styled.div``;
@@ -14,12 +15,38 @@ export const DoorInnerContent = styled.div``;
 export const ContentImgContainer = styled.section`
   display: flex;
   overflow: hidden;
+  width: 90%;
+  margin-top: 7%;
+  margin-left: 5%;
+
 `;
+
+export const Button = styled.button`
+  margin-top: 25%;
+  font-size: 1.2rem;
+  padding: 10px;
+  width: 3.5rem;
+  height: 2.5rem;
+  background-color: #323232;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+
+
+`;
+
 export const ContentImg = styled.img`
   width: 80%;
+  height: 380px;
   margin: 1rem auto;
+  margin-left: none;
+  margin-right: none;
+  padding: none;
   border: 1px solid #000000;
-  display: ${(props) => props.current};
+  // display: ${(props) => props.current};
+  display: ${props => props.current};
+
+
 `;
 
 export const ContentButtonContainer = styled.section`
@@ -27,6 +54,7 @@ export const ContentButtonContainer = styled.section`
   text-align: center;
   display: flex;
   justify-content: center;
+
 `;
 
 export const ContentLink = styled.a`
@@ -62,4 +90,9 @@ export const DoorLeft = styled(CoverDoor)`
 
 export const DoorRight = styled(CoverDoor)`
   transition: right 2s ease-in-out;
+`;
+
+export const Text = styled.div`
+  fontsize: 10px; 
+  color: white;
 `;

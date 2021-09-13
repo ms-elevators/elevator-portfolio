@@ -9,6 +9,8 @@ import {
   DoorInnerContent,
   DoorLeft,
   DoorRight,
+  Button,
+  Text,
 } from "./Door.elements";
 
 import { content } from "./Data";
@@ -16,11 +18,14 @@ import { content } from "./Data";
 // import css
 import "./style.css";
 
+
+
+// isReady- App.js에서 받아온 것
 export default function Door({ floor, isReady }) {
   const [imgIdx, setImgIdx] = useState(0);
 
   const previews = [];
-  const imgLen = content[floor].img.length;
+  const imgLen = content[floor].img.length; // 층 수 별로 다른 이미지 개수 
 
   for (let i = 0; i < imgLen; i++) {
     previews.push(
@@ -44,12 +49,22 @@ export default function Door({ floor, isReady }) {
 
   return (
     <DoorContainer>
+
       <DoorInnerContent>
+
         <ContentImgContainer>
-          <button onClick={() => handlePrev()}>prev</button>
+          <Button onClick={() => handlePrev()}>＜</Button>
+
           {previews}
-          <button onClick={() => handleNext()}>next</button>
+          
+          <Button onClick={() => handleNext()}>＞</Button>
         </ContentImgContainer>
+        <Text>{imgIdx+1} / {imgLen}</Text> 
+        
+
+
+        
+
         <ContentButtonContainer>
           <ContentLink href={content[floor].demo} target="_blank">
             Demo
@@ -58,13 +73,17 @@ export default function Door({ floor, isReady }) {
             Source Code
           </ContentLink>
         </ContentButtonContainer>
+
       </DoorInnerContent>
+      
       <CSSTransition in={isReady} timeout={2000} classNames="door-left">
         <DoorLeft className="door-left"></DoorLeft>
       </CSSTransition>
+
       <CSSTransition in={isReady} timeout={2000} classNames="door-right">
         <DoorRight className="door-right"></DoorRight>
       </CSSTransition>
+
     </DoorContainer>
   );
 }

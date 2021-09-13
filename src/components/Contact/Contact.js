@@ -48,13 +48,26 @@ export default function Contact() {
         }, []);
 
     return (
-        <form className="contact-form" onSubmit={sendEmail}>
-            <input id="name" type="text" name="name" placeholder="name" value={name} onChange={onChangeName}/>
-            <input id="email" type="email" name="email" placeholder="email" value={email} onChange={onChangeEmail}/>
-            <textarea id="message" name="message" placeholder="message" value={message} onChange={onChangeMessage}/>
-            <input type="submit" value="Send"/> 
-            {send && <span>Thanks, I'll reply ASAP :)</span>}
-        </form>
+        <div className="wrap">
+            <div className="flex-container-left">
+                <span id="title">Contact</span>
+            </div>
+            
+            <form className="contact-form" onSubmit={sendEmail}>
+                <div className="flex-container"> 
+                    <input id="name" className="input" type="text" name="name" placeholder="Name" value={name} onChange={onChangeName} autocomplete="off"/>
+                    <input id="email" className="input" type="email" name="email" placeholder="Email" value={email} onChange={onChangeEmail} autocomplete="off"/>
+                </div>
+                <div className="flex-container">
+                    <textarea id="message" className="input" name="message" placeholder="Message" value={message} onChange={onChangeMessage} autocomplete="off"/>
+                </div>
+                <div className="flex-container-right">
+                    <input className="button" type="submit" value="Send"/> 
+                </div>
+                {send && <span>Thanks, I'll reply ASAP :)</span>}
+            </form>
+        </div>
+        
     );
 };
 

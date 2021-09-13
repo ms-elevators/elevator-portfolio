@@ -62,9 +62,12 @@ export default function Contact() {
                     <textarea id="message" className="input" name="message" placeholder="Message" value={message} onChange={onChangeMessage} autocomplete="off"/>
                 </div>
                 <div className="flex-container-right">
+                    <div className="span-container">
+                        {send && <span id="reply" >Thanks, I'll reply ASAP :)</span>}
+                    </div>
                     <input className="button" type="submit" value="Send"/> 
                 </div>
-                {send && <span>Thanks, I'll reply ASAP :)</span>}
+                
             </form>
         </div>
         

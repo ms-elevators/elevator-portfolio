@@ -7,6 +7,7 @@ import Door from "./containers/Door/Door";
 import FloorSign from "./containers/FloorSign/FloorSign";
 import Navigation from "./containers/Navigation/Navigation";
 import Screen from "./containers/Screen/Screen";
+import FloorGuides from "./containers/FloorGuides";
 
 // import bgm
 import bgmSrc from "./sound/bgm.mp3";
@@ -56,38 +57,98 @@ function App() {
   };
 
   // when floor button is clicked
-  const changeFloor = (floorNum) => {
-    // if different floor
-    if (floor !== floorNum) {
-      if (sound) {
-        setReady(false);
+  const changeFloor = async (floorNum) => {
+    // destination is not current floor
+    if (floorNum !== floor) {
+      try {
+        // get difference between destination and current location
+        const diff = floorNum - floor;
 
-        doorSound();
+        const handleClose = await closeDoor();
 
-        setTimeout(() => movePlay(), 2000);
+        const handleMovement =
+          // if destination is higher floor, go up, else go down
+          diff > 0
+            ? await upEachFloor(handleClose, floorNum)
+            : await downEachFloor(handleClose, floorNum);
 
-        setTimeout(() => {
-          setFloor(floorNum);
-          setHover(floorNum);
-        }, 3400);
+        const handleArrival = await setFloorData(
+          handleMovement,
+          diff,
+          floorNum
+        );
 
-        setTimeout(() => arrivePlay(), 3500);
-
-        setTimeout(() => {
-          setReady(true);
-          doorSound();
-        }, 4500);
-      } else {
-        setReady(false);
-
-        setTimeout(() => {
-          setFloor(floorNum);
-          setHover(floorNum);
-        }, 3400);
-
-        setTimeout(() => setReady(true), 4500);
+        const handleOpen = await openDoor(handleArrival);
+        console.log(handleOpen);
+      } catch (err) {
+        console.log(err);
       }
     }
+  };
+
+  // go up floors
+  function upEachFloor(message, floorNum) {
+    return new Promise((resolve, reject) => {
+      if (sound) movePlay();
+      // call function on every floor until destination
+      for (let i = floor; i <= floorNum; i++) {
+        delayedFloorChange(i, "up");
+      }
+      resolve("success");
+    });
+  }
+
+  // go down floors
+  function downEachFloor(message, floorNum) {
+    return new Promise((resolve, reject) => {
+      if (sound) movePlay();
+      // call function on every floor until destination
+      for (let i = floor; i >= floorNum; i--) {
+        delayedFloorChange(i, "down");
+      }
+      resolve("success");
+    });
+  }
+
+  // set floor on arrival
+  function setFloorData(message, diff, floorNum) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        setFloor(floorNum);
+        setHover(floorNum);
+        if (sound) arrivePlay();
+        resolve("success");
+      }, 500 * (Math.abs(diff) + 2)); // calculate time until destination + 1 sec
+    });
+  }
+
+  // close door
+  function closeDoor() {
+    return new Promise((resolve, reject) => {
+      setReady(false);
+      doorSound();
+      setTimeout(() => {
+        resolve("success");
+      }, 2000); // wait for door to close
+    });
+  }
+
+  // open door
+  function openDoor(message) {
+    return new Promise((resolve, reject) => {
+      setReady(true);
+      doorSound();
+      resolve("success"); // wait for door to open
+    });
+  }
+
+  // wait 0.5s on each floor
+  const delayedFloorChange = (i, move) => {
+    const timerVar = move === "up" ? i : floor - i;
+    console.log(timerVar);
+    setTimeout(() => {
+      setFloor(i);
+    }, 500 * timerVar);
   };
 
   const onButtonHover = (e) => {
@@ -113,7 +174,12 @@ function App() {
         <SoundButtons soundSettings={soundSettings} />
       ) : (
         <main className="main-container">
-          <FloorSign floor={floor} />
+          <div className="top">
+            <FloorGuides floor={floor} isReady={isReady} />
+
+            <FloorSign floor={floor} />
+          </div>
+
           <section className="bottom">
             <Screen hoverValue={hoverValue} />
             <Door floor={floor} isReady={isReady} />

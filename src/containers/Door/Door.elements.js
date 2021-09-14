@@ -11,10 +11,27 @@ export const DoorContainer = styled.div`
 
 export const DoorInnerContent = styled.div``;
 
+export const ContentImgSection = styled.section`
+  display: flex;
+  overflow: hidden;
+`;
+
+export const ContentImgContainer = styled.section`
+  width: 100%;
+  height: 50vh;
+  border: 1px solid #000000;
+  position: relative;
+  overflow: hidden;
+`;
+
 export const ContentImg = styled.img`
   width: 80%;
   margin: 1rem auto;
-  border: 1px solid #000000;
+
+  opacity: ${(props) => props.current};
+  position: absolute;
+  left: 10%;
+  transition: opacity 1s ease-in-out;
 `;
 
 export const ContentButtonContainer = styled.section`
@@ -52,9 +69,15 @@ export const CoverDoor = styled.div`
 `;
 
 export const DoorLeft = styled(CoverDoor)`
+  left: ${(props) => {
+    return props.status === "open" ? "-50%" : 0;
+  }};
   transition: left 2s ease-in-out;
 `;
 
 export const DoorRight = styled(CoverDoor)`
+  right: ${(props) => {
+    return props.status === "open" ? "-50%" : 0;
+  }};
   transition: right 2s ease-in-out;
 `;

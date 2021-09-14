@@ -1,8 +1,9 @@
-import React from "react";
-import { CSSTransition } from "react-transition-group";
+import React, { useState } from "react";
 import {
   ContentButtonContainer,
   ContentLink,
+  ContentImgSection,
+  ContentImgContainer,
   ContentImg,
   DoorContainer,
   DoorInnerContent,
@@ -12,17 +13,43 @@ import {
 
 import { content } from "./Data";
 
-import Contact from "../../components/Contact/Contact"
-
-// import css
-import "./style.css";
+import Contact from "../../components/Contact/Contact";
 
 export default function Door({ floor, isReady }) {
+  const [imgIdx, setImgIdx] = useState(0);
+
+  const previews = [];
+  const imgLen = content[floor].img.length;
+
+  for (let i = 0; i < imgLen; i++) {
+    previews.push(
+      <ContentImg
+        src={content[floor].img[i]}
+        alt={`img${i}`}
+        current={i === imgIdx ? 1 : 0}
+      />
+    );
+  }
+
+  const handlePrev = () => {
+    const prev = imgIdx === 0 ? imgLen - 1 : imgIdx - 1;
+    setImgIdx(prev);
+  };
+
+  const handleNext = () => {
+    const next = imgIdx === imgLen - 1 ? 0 : imgIdx + 1;
+    setImgIdx(next);
+  };
+
   return (
     <DoorContainer>
       <DoorInnerContent>
-        <ContentImg src={content[floor].img[0]} alt="img" />
+        <ContentImgSection>
+          <ContentImgContainer>{previews}</ContentImgContainer>
+        </ContentImgSection>
         <ContentButtonContainer>
+          <button onClick={() => handlePrev()}>prev</button>
+          <button onClick={() => handleNext()}>next</button>
           <ContentLink href={content[floor].demo} target="_blank">
             Demo
           </ContentLink>
@@ -32,12 +59,8 @@ export default function Door({ floor, isReady }) {
         </ContentButtonContainer>
         {/* <Contact/> */}
       </DoorInnerContent>
-      <CSSTransition in={isReady} timeout={2000} classNames="door-left">
-        <DoorLeft className="door-left"></DoorLeft>
-      </CSSTransition>
-      <CSSTransition in={isReady} timeout={2000} classNames="door-right">
-        <DoorRight className="door-right"></DoorRight>
-      </CSSTransition>
+      <DoorLeft status={isReady ? "open" : "close"}></DoorLeft>
+      <DoorRight status={isReady ? "open" : "close"}></DoorRight>
     </DoorContainer>
   );
 }

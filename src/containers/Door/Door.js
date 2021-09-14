@@ -13,6 +13,8 @@ import {
 
 import { content } from "./Data";
 
+import Contact from "../../components/Contact/Contact";
+
 export default function Door({ floor, isReady }) {
   const [imgIdx, setImgIdx] = useState(0);
 
@@ -55,6 +57,7 @@ export default function Door({ floor, isReady }) {
             Source Code
           </ContentLink>
         </ContentButtonContainer>
+        {/* <Contact/> */}
       </DoorInnerContent>
       <DoorLeft status={isReady ? "open" : "close"}></DoorLeft>
       <DoorRight status={isReady ? "open" : "close"}></DoorRight>

@@ -8,17 +8,19 @@ export default function Contact() {
     const [email, onChangeEmail] = useInput(''); 
     const [message, onChangeMessage] = useInput(''); 
     const [send, setSend] = useState(false);
-    
+    let chk = false;
+
     const sendEmail = useCallback((e) => { 
         e.preventDefault(); 
-        
+
         const inputNum = e.target.childElementCount - 1; // [D] 버튼한개 제외 
         const data = new FormData(e.target); 
         const entries = data.entries(); 
         let failNum = 0; 
 
+        if(!chk){
         for (let i = 0; i < inputNum; i++) { // input 개수만큼 돌며 value 확인
-            let next = entries.next(); 
+            const next = entries.next(); 
             const key = next.value[0]; 
             const value = next.value[1]; 
             if (!value) { 
@@ -40,17 +42,35 @@ export default function Contact() {
                     console.log('error.text', error.text); 
                 }); 
                 setSend(true);
+                chk = true;
             } 
+        }
         }, []);
 
     return (
-        <form className="contact-form" onSubmit={sendEmail}>
-            <input id="name" type="text" name="name" placeholder="name" value={name} onChange={onChangeName}/>
-            <input id="email" type="email" name="email" placeholder="email" value={email} onChange={onChangeEmail}/>
-            <textarea id="message" name="message" placeholder="message" value={message} onChange={onChangeMessage}/>
-            <input type="submit" value="Send"/> 
-            {send && <span>Thanks, I'll reply ASAP :)</span>}
-        </form>
+        <div className="wrap">
+            <div className="flex-container-left">
+                <span id="title">Contact</span>
+            </div>
+            
+            <form className="contact-form" onSubmit={sendEmail}>
+                <div className="flex-container"> 
+                    <input id="name" className="input" type="text" name="name" placeholder="Name" value={name} onChange={onChangeName} autocomplete="off"/>
+                    <input id="email" className="input" type="email" name="email" placeholder="Email" value={email} onChange={onChangeEmail} autocomplete="off"/>
+                </div>
+                <div className="flex-container">
+                    <textarea id="message" className="input" name="message" placeholder="Message" value={message} onChange={onChangeMessage} autocomplete="off"/>
+                </div>
+                <div className="flex-container-right">
+                    <div className="span-container">
+                        {send && <span id="reply" >Thanks, I'll reply ASAP :)</span>}
+                    </div>
+                    <input className="button" type="submit" value="Send"/> 
+                </div>
+                
+            </form>
+        </div>
+        
     );
 };
 

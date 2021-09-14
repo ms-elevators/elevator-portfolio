@@ -20,7 +20,7 @@ const currentColor = "rgba(255, 255, 0, 0.3)";
 export default function FloorGuides({ floor }) {
   // dynamically create guides
   const guides = [];
-  for (let i = 1; i < 8; i++) {
+  for (let i = 1; i < 7; i++) {
     const guide = (
       <FloorGuide
         floor={i}
@@ -32,6 +32,17 @@ export default function FloorGuides({ floor }) {
     );
     guides.push(guide);
   }
+
+  const contactFloor = (
+    <FloorGuide
+      floor={7}
+      projectname="Contact Me"
+      currentColor={7 === floor ? currentColor : ""}
+    >
+      Do you want to contact me?
+    </FloorGuide>
+  );
+  guides.push(contactFloor);
 
   return <FloorGuidesStyle>{guides}</FloorGuidesStyle>;
 }

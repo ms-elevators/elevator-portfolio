@@ -25,6 +25,7 @@ function App() {
 
   const [floor, setFloor] = useState(1);
   const [isReady, setReady] = useState(false);
+  const contactFloor = 7;
 
   const [hoverValue, setHover] = useState(1);
 
@@ -182,7 +183,7 @@ function App() {
 
           <section className="bottom">
             <Screen hoverValue={hoverValue} />
-            <Door floor={floor} isReady={isReady} />
+            <Door floor={floor} isReady={isReady} contactFloor={contactFloor} />
             <Navigation
               changeFloor={changeFloor}
               onButtonHover={onButtonHover}

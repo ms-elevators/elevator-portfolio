@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   ContentButtonContainer,
   ContentLink,
+  ContentImgSection,
   ContentImgContainer,
   ContentImg,
   DoorContainer,
@@ -23,7 +24,7 @@ export default function Door({ floor, isReady }) {
       <ContentImg
         src={content[floor].img[i]}
         alt={`img${i}`}
-        current={i === imgIdx ? "block" : "none"}
+        current={i === imgIdx ? 1 : 0}
       />
     );
   }
@@ -41,12 +42,12 @@ export default function Door({ floor, isReady }) {
   return (
     <DoorContainer>
       <DoorInnerContent>
-        <ContentImgContainer>
-          <button onClick={() => handlePrev()}>prev</button>
-          {previews}
-          <button onClick={() => handleNext()}>next</button>
-        </ContentImgContainer>
+        <ContentImgSection>
+          <ContentImgContainer>{previews}</ContentImgContainer>
+        </ContentImgSection>
         <ContentButtonContainer>
+          <button onClick={() => handlePrev()}>prev</button>
+          <button onClick={() => handleNext()}>next</button>
           <ContentLink href={content[floor].demo} target="_blank">
             Demo
           </ContentLink>

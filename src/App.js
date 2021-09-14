@@ -89,7 +89,7 @@ function App() {
   // go up floors
   function upEachFloor(message, floorNum) {
     return new Promise((resolve, reject) => {
-      movePlay();
+      if (sound) movePlay();
       // call function on every floor until destination
       for (let i = floor; i <= floorNum; i++) {
         delayedFloorChange(i, "up");
@@ -101,7 +101,7 @@ function App() {
   // go down floors
   function downEachFloor(message, floorNum) {
     return new Promise((resolve, reject) => {
-      movePlay();
+      if (sound) movePlay();
       // call function on every floor until destination
       for (let i = floor; i >= floorNum; i--) {
         delayedFloorChange(i, "down");
@@ -116,7 +116,7 @@ function App() {
       setTimeout(() => {
         setFloor(floorNum);
         setHover(floorNum);
-        arrivePlay();
+        if (sound) arrivePlay();
         resolve("success");
       }, 500 * (Math.abs(diff) + 2)); // calculate time until destination + 1 sec
     });

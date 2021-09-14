@@ -20,19 +20,17 @@ export default function Screen({ hoverValue }) {
   });
 
   return (
-    <>
-      <LeftContainer>
-        <ScreenContainer>
-          <ScreenTitle>{title}</ScreenTitle>
-          <ScreenDesc>{description}</ScreenDesc>
-          <StackList>{stacks}</StackList>
-        </ScreenContainer>
-        <SocialContainer>
-          <SocialIcon key="instagram" className="fab fa-instagram"></SocialIcon>
-          <SocialIcon key="github" className="fab fa-github"></SocialIcon>
-          <SocialIcon key="linkedin" className="fab fa-linkedin"></SocialIcon>
-        </SocialContainer>
-      </LeftContainer>
-    </>
+    <LeftContainer>
+      <ScreenContainer>
+        <ScreenTitle>{title}</ScreenTitle>
+        <ScreenDesc>{description}</ScreenDesc>
+        <StackList>{stacks}</StackList>
+      </ScreenContainer>
+      <SocialContainer>
+        <SocialIcon key="instagram" className="fab fa-instagram"></SocialIcon>
+        <SocialIcon key="github" className="fab fa-github"></SocialIcon>
+        <SocialIcon key="linkedin" className="fab fa-linkedin"></SocialIcon>
+      </SocialContainer>
+    </LeftContainer>
   );
 }

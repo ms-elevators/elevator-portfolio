@@ -9,17 +9,20 @@ import {
   DoorInnerContent,
   DoorLeft,
   DoorRight,
+  Button,
+  Text,
 } from "./Door.elements";
 
 import { content } from "./Data";
 
 import Contact from "../../components/Contact/Contact";
 
+// isReady- App.js에서 받아온 것
 export default function Door({ floor, isReady, contactFloor }) {
   const [imgIdx, setImgIdx] = useState(0);
 
   const previews = [];
-  const imgLen = content[floor].img.length;
+  const imgLen = content[floor].img.length; // 층 수 별로 다른 이미지 개수
   if (content[floor]) {
     for (let i = 0; i < imgLen; i++) {
       previews.push(
@@ -31,7 +34,6 @@ export default function Door({ floor, isReady, contactFloor }) {
       );
     }
   }
-
   const handlePrev = () => {
     const prev = imgIdx === 0 ? imgLen - 1 : imgIdx - 1;
     setImgIdx(prev);

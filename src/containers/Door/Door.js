@@ -53,11 +53,14 @@ export default function Door({ floor, isReady, contactFloor }) {
       ) : (
         <DoorInnerContent>
           <ContentImgSection>
+            <Button onClick={() => handlePrev()}>＜</Button>
             <ContentImgContainer>{previews}</ContentImgContainer>
+            <Button onClick={() => handleNext()}>＞</Button>
           </ContentImgSection>
+          <Text>
+            {imgIdx + 1} / {imgLen}
+          </Text>
           <ContentButtonContainer>
-            <button onClick={() => handlePrev()}>prev</button>
-            <button onClick={() => handleNext()}>next</button>
             <ContentLink href={content[floor].demo} target="_blank">
               Demo
             </ContentLink>

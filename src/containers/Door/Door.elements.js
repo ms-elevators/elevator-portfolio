@@ -99,6 +99,6 @@ export const DoorRight = styled(CoverDoor)`
 `;
 
 export const Text = styled.div`
-  fontsize: 10px;
+  font-size: 10px;
   color: white;
 `;

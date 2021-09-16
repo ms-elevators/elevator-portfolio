@@ -1,18 +1,22 @@
 import React from "react";
 
+import { StyledButton } from "./FloorButton.elements";
+
 export default function FloorButton({
   floorNum,
   changeFloor,
   onButtonHover,
   onButtonHoverOut,
+  showValue,
 }) {
   return (
-    <input
-      type="button"
+    <StyledButton
       value={floorNum}
       onClick={() => changeFloor(floorNum)}
       onMouseOver={(e) => onButtonHover(e)}
       onMouseOut={() => onButtonHoverOut()}
-    />
+    >
+      {showValue}
+    </StyledButton>
   );
 }

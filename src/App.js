@@ -153,6 +153,7 @@ function App() {
   };
 
   const onButtonHover = (e) => {
+    console.log(e.target.value);
     setHover(e.target.value);
   };
 
@@ -188,6 +189,7 @@ function App() {
               changeFloor={changeFloor}
               onButtonHover={onButtonHover}
               onButtonHoverOut={onButtonHoverOut}
+              contactFloor={contactFloor}
             />
           </section>
         </main>

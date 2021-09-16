@@ -1,13 +1,16 @@
 import React from "react";
 
-import "./style.css";
-
-import FloorButton from "../../components/FloorButton";
+import FloorButton from "../../components/FloorButton/FloorButton";
+import {
+  FloorButtonsOutline,
+  FloorButtonsContainer,
+} from "./Navigation.elements";
 
 export default function Navigation({
   changeFloor,
   onButtonHover,
   onButtonHoverOut,
+  contactFloor,
 }) {
   // floor buttons array
   const FloorButtons = [];
@@ -19,12 +22,15 @@ export default function Navigation({
         changeFloor={changeFloor}
         onButtonHover={onButtonHover}
         onButtonHoverOut={onButtonHoverOut}
+        showValue={i === contactFloor ? <i className="fas fa-phone"></i> : i}
       />
     );
   }
   return (
     <div className="navigation">
-      <div className="floor-buttons">{FloorButtons}</div>
+      <FloorButtonsOutline>
+        <FloorButtonsContainer>{FloorButtons}</FloorButtonsContainer>
+      </FloorButtonsOutline>
     </div>
   );
 }

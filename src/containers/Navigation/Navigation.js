@@ -8,6 +8,7 @@ export default function Navigation({
   onButtonHover,
   onButtonHoverOut,
   contactFloor,
+  destination,
 }) {
   // floor buttons array
   const FloorButtons = [];
@@ -20,6 +21,7 @@ export default function Navigation({
         onButtonHover={onButtonHover}
         onButtonHoverOut={onButtonHoverOut}
         showValue={i - 1}
+        destination={i - 1 === destination ? true : false}
       />
     );
     FloorButtons.push(
@@ -30,6 +32,7 @@ export default function Navigation({
         onButtonHover={onButtonHover}
         onButtonHoverOut={onButtonHoverOut}
         showValue={i}
+        destination={i === destination ? true : false}
       />
     );
   }
@@ -42,6 +45,7 @@ export default function Navigation({
       onButtonHover={onButtonHover}
       onButtonHoverOut={onButtonHoverOut}
       showValue={<i className="fas fa-phone"></i>}
+      destination={contactFloor === destination ? true : false}
     />
   );
   return (

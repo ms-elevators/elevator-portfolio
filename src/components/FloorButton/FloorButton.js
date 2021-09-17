@@ -8,6 +8,7 @@ export default function FloorButton({
   onButtonHover,
   onButtonHoverOut,
   showValue,
+  destination,
 }) {
   return (
     <StyledButton
@@ -15,6 +16,7 @@ export default function FloorButton({
       onClick={() => changeFloor(floorNum)}
       onMouseOver={(e) => onButtonHover(e)}
       onMouseOut={() => onButtonHoverOut()}
+      destination={destination}
     >
       {showValue}
     </StyledButton>

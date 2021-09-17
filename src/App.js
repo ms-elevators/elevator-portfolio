@@ -25,6 +25,7 @@ function App() {
 
   const [floor, setFloor] = useState(1);
   const [isReady, setReady] = useState(false);
+  const [destination, setDestination] = useState(null);
   const contactFloor = 7;
 
   const [hoverValue, setHover] = useState(1);
@@ -64,6 +65,7 @@ function App() {
       try {
         // get difference between destination and current location
         const diff = floorNum - floor;
+        setDestination(floorNum);
 
         const handleClose = await closeDoor();
 
@@ -117,6 +119,7 @@ function App() {
       setTimeout(() => {
         setFloor(floorNum);
         setHover(floorNum);
+        setDestination(null);
         if (sound) arrivePlay();
         resolve("success");
       }, 500 * (Math.abs(diff) + 2)); // calculate time until destination + 1 sec
@@ -146,14 +149,12 @@ function App() {
   // wait 0.5s on each floor
   const delayedFloorChange = (i, move) => {
     const timerVar = move === "up" ? i : floor - i;
-    console.log(timerVar);
     setTimeout(() => {
       setFloor(i);
     }, 500 * timerVar);
   };
 
   const onButtonHover = (e) => {
-    console.log(e.target.value);
     setHover(e.target.value);
   };
 
@@ -190,6 +191,7 @@ function App() {
               onButtonHover={onButtonHover}
               onButtonHoverOut={onButtonHoverOut}
               contactFloor={contactFloor}
+              destination={destination}
             />
           </section>
         </main>

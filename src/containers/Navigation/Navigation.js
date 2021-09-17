@@ -6,6 +6,7 @@ import {
   DoorButton,
   FloorButtonsContainer,
   NavbarSection,
+  ContactButton,
 } from "./Navigation.elements";
 
 export default function Navigation({
@@ -18,18 +19,7 @@ export default function Navigation({
 }) {
   // floor buttons array
   const FloorButtons = [];
-  for (let i = contactFloor - 1; i > 1; i -= 2) {
-    FloorButtons.push(
-      <FloorButton
-        key={i - 1}
-        floorNum={i - 1}
-        changeFloor={changeFloor}
-        onButtonHover={onButtonHover}
-        onButtonHoverOut={onButtonHoverOut}
-        showValue={i - 1}
-        destination={i - 1 === destination ? true : false}
-      />
-    );
+  for (let i = 1; i < 7; i++) {
     FloorButtons.push(
       <FloorButton
         key={i}
@@ -43,20 +33,19 @@ export default function Navigation({
     );
   }
 
-  FloorButtons.push(
-    <FloorButton
-      key={contactFloor}
-      floorNum={contactFloor}
-      changeFloor={changeFloor}
-      onButtonHover={onButtonHover}
-      onButtonHoverOut={onButtonHoverOut}
-      showValue={<i className="fas fa-phone"></i>}
-      destination={contactFloor === destination ? true : false}
-    />
-  );
+  FloorButtons.push();
   return (
     <NavbarSection>
       <FloorButtonsContainer>{FloorButtons}</FloorButtonsContainer>
+      <ContactButton
+        value={contactFloor}
+        onClick={() => changeFloor(contactFloor)}
+        onMouseOver={(e) => onButtonHover(e)}
+        onMouseOut={() => onButtonHoverOut()}
+        destination={contactFloor === destination ? true : false}
+      >
+        <i className="fas fa-phone"></i>
+      </ContactButton>
       <DoorButtonContainer>
         <DoorButton onClick={() => (destination ? {} : doorActivate("open"))}>
           <i class="fas fa-chevron-left"></i>

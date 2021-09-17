@@ -1,10 +1,7 @@
 import React from "react";
 
 import FloorButton from "../../components/FloorButton/FloorButton";
-import {
-  FloorButtonsOutline,
-  FloorButtonsContainer,
-} from "./Navigation.elements";
+import { FloorButtonsContainer } from "./Navigation.elements";
 
 export default function Navigation({
   changeFloor,
@@ -14,7 +11,17 @@ export default function Navigation({
 }) {
   // floor buttons array
   const FloorButtons = [];
-  for (let i = 1; i < 8; i++) {
+  for (let i = contactFloor - 1; i > 1; i -= 2) {
+    FloorButtons.push(
+      <FloorButton
+        key={i - 1}
+        floorNum={i - 1}
+        changeFloor={changeFloor}
+        onButtonHover={onButtonHover}
+        onButtonHoverOut={onButtonHoverOut}
+        showValue={i - 1}
+      />
+    );
     FloorButtons.push(
       <FloorButton
         key={i}
@@ -22,15 +29,24 @@ export default function Navigation({
         changeFloor={changeFloor}
         onButtonHover={onButtonHover}
         onButtonHoverOut={onButtonHoverOut}
-        showValue={i === contactFloor ? <i className="fas fa-phone"></i> : i}
+        showValue={i}
       />
     );
   }
+
+  FloorButtons.push(
+    <FloorButton
+      key={contactFloor}
+      floorNum={contactFloor}
+      changeFloor={changeFloor}
+      onButtonHover={onButtonHover}
+      onButtonHoverOut={onButtonHoverOut}
+      showValue={<i className="fas fa-phone"></i>}
+    />
+  );
   return (
     <div className="navigation">
-      <FloorButtonsOutline>
-        <FloorButtonsContainer>{FloorButtons}</FloorButtonsContainer>
-      </FloorButtonsOutline>
+      <FloorButtonsContainer>{FloorButtons}</FloorButtonsContainer>
     </div>
   );
 }

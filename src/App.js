@@ -18,7 +18,7 @@ import closeSfx from "./sound/close.mp3";
 import moveSfx from "./sound/move.mp3";
 import arriveSfx from "./sound/arrive.wav";
 
-import bgi from "./base.png";
+import bgi from "./wall.png";
 
 function App() {
   const [sound, setSound] = useState(null);

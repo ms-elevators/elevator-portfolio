@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  FloorBackground,
   ContentButtonContainer,
   ContentLink,
   ContentImgSection,
@@ -11,11 +12,22 @@ import {
   DoorRight,
   Button,
   Text,
+  DoorFrameTop,
+  DoorFrameBottom,
+  DoorFrameLeft,
+  DoorFrameRight,
 } from "./Door.elements";
 
 import { content } from "./Data";
 
 import Contact from "../../components/Contact/Contact";
+
+import frameRight from "./frame-right.png";
+import frameLeft from "./frame-left.png";
+import frameTop from "./frame-top.png";
+import frameBottom from "./frame-bottom.png";
+
+import bgi from "./office.jpg"; //Photo by <a href="https://unsplash.com/@sunday_digital?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nastuh Abootalebi</a> on <a href="https://unsplash.com/s/photos/office?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
 // isReady- App.js에서 받아온 것
 export default function Door({ floor, isReady, contactFloor }) {
@@ -29,6 +41,7 @@ export default function Door({ floor, isReady, contactFloor }) {
         <ContentImg
           src={content[floor].img[i]}
           alt={`img${i}`}
+          key={`img${i}`}
           current={i === imgIdx ? 1 : 0}
         />
       );
@@ -46,6 +59,11 @@ export default function Door({ floor, isReady, contactFloor }) {
 
   return (
     <DoorContainer>
+      <FloorBackground src={bgi} alt="background" />
+      <DoorFrameTop src={frameTop} alt="frame-top" />
+      <DoorFrameBottom src={frameBottom} alt="frame-bottom" />
+      <DoorFrameLeft src={frameLeft} alt="frame-left" />
+      <DoorFrameRight src={frameRight} alt="frame-right" />
       {floor === contactFloor ? (
         <DoorInnerContent>
           <Contact />

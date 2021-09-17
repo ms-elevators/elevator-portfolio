@@ -162,6 +162,10 @@ function App() {
     setHover(floor);
   };
 
+  const doorActivate = (action) => {
+    action === "open" ? openDoor() : closeDoor();
+  };
+
   useEffect(() => {
     setTimeout(() => {
       setReady(true);
@@ -192,6 +196,7 @@ function App() {
               onButtonHoverOut={onButtonHoverOut}
               contactFloor={contactFloor}
               destination={destination}
+              doorActivate={doorActivate}
             />
           </section>
         </main>

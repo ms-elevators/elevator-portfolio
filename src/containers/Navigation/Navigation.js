@@ -1,7 +1,12 @@
 import React from "react";
 
 import FloorButton from "../../components/FloorButton/FloorButton";
-import { FloorButtonsContainer } from "./Navigation.elements";
+import {
+  DoorButtonContainer,
+  DoorButton,
+  FloorButtonsContainer,
+  NavbarSection,
+} from "./Navigation.elements";
 
 export default function Navigation({
   changeFloor,
@@ -9,6 +14,7 @@ export default function Navigation({
   onButtonHoverOut,
   contactFloor,
   destination,
+  doorActivate,
 }) {
   // floor buttons array
   const FloorButtons = [];
@@ -49,8 +55,20 @@ export default function Navigation({
     />
   );
   return (
-    <div className="navigation">
+    <NavbarSection>
       <FloorButtonsContainer>{FloorButtons}</FloorButtonsContainer>
-    </div>
+      <DoorButtonContainer>
+        <DoorButton onClick={() => doorActivate("open")}>
+          <i class="fas fa-chevron-left"></i>
+          <i class="fas fa-grip-lines-vertical"></i>
+          <i class="fas fa-chevron-right"></i>
+        </DoorButton>
+        <DoorButton onClick={() => doorActivate("close")}>
+          <i class="fas fa-chevron-right"></i>
+          <i class="fas fa-grip-lines-vertical"></i>
+          <i class="fas fa-chevron-left"></i>
+        </DoorButton>
+      </DoorButtonContainer>
+    </NavbarSection>
   );
 }

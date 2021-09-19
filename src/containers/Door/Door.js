@@ -21,7 +21,7 @@ export default function Door({ floor, isReady }) {
   return (
     <DoorContainer>
       <DoorInnerContent>
-        <ContentImg src={content[floor].img[0]} alt="img" />
+        {/* <ContentImg src={content[floor].img[0]} alt="img" />
         <ContentButtonContainer>
           <ContentLink href={content[floor].demo} target="_blank">
             Demo
@@ -29,8 +29,8 @@ export default function Door({ floor, isReady }) {
           <ContentLink href={content[floor].code} target="_blank">
             Source Code
           </ContentLink>
-        </ContentButtonContainer>
-        {/* <Contact/> */}
+        </ContentButtonContainer> */}
+        <Contact/>
       </DoorInnerContent>
       <CSSTransition in={isReady} timeout={2000} classNames="door-left">
         <DoorLeft className="door-left"></DoorLeft>

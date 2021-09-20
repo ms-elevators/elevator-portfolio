@@ -148,7 +148,7 @@ function App() {
 
   // wait 0.5s on each floor
   const delayedFloorChange = (i, move) => {
-    const timerVar = move === "up" ? i : floor - i;
+    const timerVar = move === "up" ? i - floor : floor - i;
     setTimeout(() => {
       setFloor(i);
     }, 500 * timerVar);

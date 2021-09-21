@@ -11,11 +11,11 @@ export const LeftContainer = styled.section`
 export const ScreenOutline = styled.div`
   width: 100%;
   height: 45vh;
-  border-radius: 15px;
+  border-radius: 5px;
   margin: 1rem 0;
-  padding: 0.5rem;
+  padding: 5%;
   align-self: flex-start;
-  background-color: #555555;
+  background-color: #121212;
   box-shadow: 1px 3px 3px #000000;
 `;
 
@@ -23,12 +23,10 @@ export const ScreenContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 0 0.5rem;
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: #252525;
-  color: #ffffff;
+  background-color: #f0f8ff;
 `;
 
 export const ScreenTitle = styled.h1`

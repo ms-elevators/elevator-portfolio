@@ -17,7 +17,7 @@ body {
 
 .background {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   z-index: -1;
   top: 0;
@@ -30,7 +30,9 @@ body {
   margin: 5vh auto 0 auto;
   text-align: center;
   position: relative;
-  background-color: #b4b4b4;
+  background: #969696;
+  border: 2px solid #494949dd;
+  box-shadow: inset 0px 0px 99px #6a6a6a;
 }
 
 .bottom {
@@ -54,11 +56,11 @@ body {
 
 .navigation {
   width: 15%;
-  border: solid 2px #cccccc;
   height: 50vh;
   margin: 1rem;
   align-self: flex-start;
 }
+
 .top {
   display: flex;
   width: 100%;

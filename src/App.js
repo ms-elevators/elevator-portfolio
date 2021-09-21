@@ -7,7 +7,7 @@ import Door from "./containers/Door/Door";
 import FloorSign from "./containers/FloorSign/FloorSign";
 import Navigation from "./containers/Navigation/Navigation";
 import Screen from "./containers/Screen/Screen";
-import FloorGuides from "./containers/FloorGuides";
+import FloorGuides from "./containers/FloorGuides/FloorGuides";
 
 // import bgm
 import bgmSrc from "./sound/bgm.mp3";
@@ -18,13 +18,14 @@ import closeSfx from "./sound/close.mp3";
 import moveSfx from "./sound/move.mp3";
 import arriveSfx from "./sound/arrive.wav";
 
-import bgi from "./base.png";
+import bgi from "./wall.png";
 
 function App() {
   const [sound, setSound] = useState(null);
 
   const [floor, setFloor] = useState(1);
   const [isReady, setReady] = useState(false);
+  const [destination, setDestination] = useState(null);
   const contactFloor = 7;
 
   const [hoverValue, setHover] = useState(1);
@@ -64,6 +65,7 @@ function App() {
       try {
         // get difference between destination and current location
         const diff = floorNum - floor;
+        setDestination(floorNum);
 
         const handleClose = await closeDoor();
 
@@ -117,6 +119,7 @@ function App() {
       setTimeout(() => {
         setFloor(floorNum);
         setHover(floorNum);
+        setDestination(null);
         if (sound) arrivePlay();
         resolve("success");
       }, 500 * (Math.abs(diff) + 2)); // calculate time until destination + 1 sec
@@ -145,8 +148,7 @@ function App() {
 
   // wait 0.5s on each floor
   const delayedFloorChange = (i, move) => {
-    const timerVar = move === "up" ? i : floor - i;
-    console.log(timerVar);
+    const timerVar = move === "up" ? i - floor : floor - i;
     setTimeout(() => {
       setFloor(i);
     }, 500 * timerVar);
@@ -158,6 +160,10 @@ function App() {
 
   const onButtonHoverOut = (e) => {
     setHover(floor);
+  };
+
+  const doorActivate = (action) => {
+    action === "open" ? openDoor() : closeDoor();
   };
 
   useEffect(() => {
@@ -175,8 +181,8 @@ function App() {
         <SoundButtons soundSettings={soundSettings} />
       ) : (
         <main className="main-container">
-          <div className="top">
-            <FloorGuides floor={floor} isReady={isReady} />
+          <div className="top">   
+            <FloorGuides floor={floor} floors='7' />  {/* floors에 총 층수 입력*/}
 
             <FloorSign floor={floor} />
           </div>
@@ -188,6 +194,9 @@ function App() {
               changeFloor={changeFloor}
               onButtonHover={onButtonHover}
               onButtonHoverOut={onButtonHoverOut}
+              contactFloor={contactFloor}
+              destination={destination}
+              doorActivate={doorActivate}
             />
           </section>
         </main>

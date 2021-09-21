@@ -25,7 +25,7 @@ export default function FloorGuides({ floor, floors }) {
       projectname="Contact"
       currentColor={floors == floor ? "#FCFF608A" : ""} //floors는 문자열 "7" floor은 숫자 -> === 대신 ==사용
     >
-      Do you want to contact me?ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+      Do you want to contact me?
     </FloorGuide>
   );
   guides.push(contactFloor);

@@ -7,7 +7,7 @@ import Door from "./containers/Door/Door";
 import FloorSign from "./containers/FloorSign/FloorSign";
 import Navigation from "./containers/Navigation/Navigation";
 import Screen from "./containers/Screen/Screen";
-import FloorGuides from "./containers/FloorGuides";
+import FloorGuides from "./containers/FloorGuides/FloorGuides";
 
 // import bgm
 import bgmSrc from "./sound/bgm.mp3";
@@ -181,8 +181,8 @@ function App() {
         <SoundButtons soundSettings={soundSettings} />
       ) : (
         <main className="main-container">
-          <div className="top">
-            <FloorGuides floor={floor} isReady={isReady} />
+          <div className="top">   
+            <FloorGuides floor={floor} floors='7' />  {/* floors에 총 층수 입력*/}
 
             <FloorSign floor={floor} />
           </div>

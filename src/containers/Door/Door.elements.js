@@ -152,16 +152,18 @@ export const Text = styled.div`
   color: white;
 `;
 
+export const IndicatorContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
 
-export const ContainerDot = styled(dot)`
+export const ContainerDot = styled.div`
   width: 20px;
   height: 20px;
   border-radius: 50%;
   border: 3px solid #f1f1f1;
   margin: 0 5px;
-  background: #f1f1f1;
-`;
-
-export const ContainerDot = styled(dotActive)`
-  background: rgb(32, 32, 32);
+  background: ${(props) =>
+    props.active === "dotActive" ? "rgb(32, 32, 32)" : "#f1f1f1"};
 `;

@@ -16,6 +16,7 @@ import {
   DoorFrameBottom,
   DoorFrameLeft,
   DoorFrameRight,
+  IndicatorContainer,
   ContainerDot,
 } from "./Door.elements";
 
@@ -33,6 +34,7 @@ import bgi from "./office.jpg"; //Photo by <a href="https://unsplash.com/@sunday
 // isReady- App.js에서 받아온 것
 export default function Door({ floor, isReady, contactFloor }) {
   const [imgIdx, setImgIdx] = useState(0);
+  const [slideIdx, setSlideIdx] = useState(0);
 
   const previews = [];
   const imgLen = content[floor].img.length; // 층 수 별로 다른 이미지 개수
@@ -51,15 +53,18 @@ export default function Door({ floor, isReady, contactFloor }) {
   const handlePrev = () => {
     const prev = imgIdx === 0 ? imgLen - 1 : imgIdx - 1;
     setImgIdx(prev);
+    setSlideIdx(prev);
   };
 
   const handleNext = () => {
     const next = imgIdx === imgLen - 1 ? 0 : imgIdx + 1;
     setImgIdx(next);
+    setSlideIdx(next);
   };
 
-  const Dot = imgIdx => {
-    setSlideIndex(imgIdx)
+  const Dot = (imgIdx) => {
+    setImgIdx(imgIdx);
+    setSlideIdx(imgIdx);
   };
 
   return (
@@ -83,14 +88,14 @@ export default function Door({ floor, isReady, contactFloor }) {
           <Text>
             {imgIdx + 1} / {imgLen}
           </Text>
-          <ContainerDot>
-            {Array.from({length: imgLen}).map((item, imgIdx) => (
-                    <div 
-                    onClick={() => Dot(imgIdx + 1)}
-                    className={slideIndex === imgIdx + 1 ? "dotActive" : "dot"}
-                    ></div>
-              ))}
-          </ContainerDot>
+          <IndicatorContainer>
+            {Array.from({ length: imgLen }).map((item, imgIdx) => (
+              <ContainerDot
+                onClick={() => Dot(imgIdx)}
+                active={slideIdx === imgIdx ? "dotActive" : "dotInactive"}
+              ></ContainerDot>
+            ))}
+          </IndicatorContainer>
 
           <ContentButtonContainer>
             <ContentLink href={content[floor].demo} target="_blank">

@@ -16,6 +16,7 @@ import {
   DoorFrameBottom,
   DoorFrameLeft,
   DoorFrameRight,
+  ContainerDot,
 } from "./Door.elements";
 
 import { content } from "./Data";
@@ -57,6 +58,10 @@ export default function Door({ floor, isReady, contactFloor }) {
     setImgIdx(next);
   };
 
+  const Dot = imgIdx => {
+    setSlideIndex(imgIdx)
+  };
+
   return (
     <DoorContainer>
       <FloorBackground src={bgi} alt="background" />
@@ -78,6 +83,15 @@ export default function Door({ floor, isReady, contactFloor }) {
           <Text>
             {imgIdx + 1} / {imgLen}
           </Text>
+          <ContainerDot>
+            {Array.from({length: imgLen}).map((item, imgIdx) => (
+                    <div 
+                    onClick={() => Dot(imgIdx + 1)}
+                    className={slideIndex === imgIdx + 1 ? "dotActive" : "dot"}
+                    ></div>
+              ))}
+          </ContainerDot>
+
           <ContentButtonContainer>
             <ContentLink href={content[floor].demo} target="_blank">
               Demo

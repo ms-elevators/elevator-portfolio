@@ -151,3 +151,17 @@ export const Text = styled.div`
   font-size: 10px;
   color: white;
 `;
+
+
+export const ContainerDot = styled(dot)`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid #f1f1f1;
+  margin: 0 5px;
+  background: #f1f1f1;
+`;
+
+export const ContainerDot = styled(dotActive)`
+  background: rgb(32, 32, 32);
+`;

@@ -2,6 +2,7 @@ import React from "react";
 import { screenData } from "./Data";
 import {
   LeftContainer,
+  ScreenOutline,
   ScreenContainer,
   ScreenTitle,
   ScreenDesc,
@@ -21,11 +22,14 @@ export default function Screen({ hoverValue }) {
 
   return (
     <LeftContainer>
-      <ScreenContainer>
-        <ScreenTitle>{title}</ScreenTitle>
-        <ScreenDesc>{description}</ScreenDesc>
-        <StackList>{stacks}</StackList>
-      </ScreenContainer>
+      <ScreenOutline>
+        <ScreenContainer>
+          <ScreenTitle>{title}</ScreenTitle>
+          <ScreenDesc>{description}</ScreenDesc>
+          <StackList>{stacks}</StackList>
+        </ScreenContainer>
+      </ScreenOutline>
+
       <SocialContainer>
         <SocialIcon key="instagram" className="fab fa-instagram"></SocialIcon>
         <SocialIcon key="github" className="fab fa-github"></SocialIcon>

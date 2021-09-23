@@ -48,14 +48,14 @@ export default function Navigation({
       </ContactButton>
       <DoorButtonContainer>
         <DoorButton onClick={() => (destination ? {} : doorActivate("open"))}>
-          <i class="fas fa-chevron-left"></i>
-          <i class="fas fa-grip-lines-vertical"></i>
-          <i class="fas fa-chevron-right"></i>
+          <i className="fas fa-chevron-left"></i>
+          <i className="fas fa-grip-lines-vertical"></i>
+          <i className="fas fa-chevron-right"></i>
         </DoorButton>
         <DoorButton onClick={() => (destination ? {} : doorActivate("close"))}>
-          <i class="fas fa-chevron-right"></i>
-          <i class="fas fa-grip-lines-vertical"></i>
-          <i class="fas fa-chevron-left"></i>
+          <i className="fas fa-chevron-right"></i>
+          <i className="fas fa-grip-lines-vertical"></i>
+          <i className="fas fa-chevron-left"></i>
         </DoorButton>
       </DoorButtonContainer>
     </NavbarSection>

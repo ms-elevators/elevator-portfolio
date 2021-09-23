@@ -89,10 +89,11 @@ export default function Door({ floor, isReady, contactFloor }) {
             </ContentImgSection>
 
             <IndicatorContainer>
-              {Array.from({ length: imgLen }).map((item, imgIdx) => (
+              {Array.from({ length: imgLen }).map((item, dotIdx) => (
                 <ContainerDot
-                  onClick={() => Dot(imgIdx)}
-                  active={slideIdx === imgIdx ? "dotActive" : "dotInactive"}
+                  onClick={() => Dot(dotIdx)}
+                  active={slideIdx === dotIdx ? "dotActive" : "dotInactive"}
+                  key={dotIdx}
                 ></ContainerDot>
               ))}
             </IndicatorContainer>

@@ -182,8 +182,8 @@ function App() {
           <img src={bgi} alt="background" className="background" />
           <main className="main-container">
             <div className="top">
-              <FloorGuides floor={floor} floors="7" />{" "}
-              {/* floors에 총 층수 입력 */}
+              <FloorGuides floor={floor} totalFloors="7" />{" "}
+              {/* totalFloors에 총 층수 입력 */}
             </div>
 
             <section className="bottom">

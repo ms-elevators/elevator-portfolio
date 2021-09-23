@@ -93,7 +93,7 @@ export const ContentLink = styled.a`
 export const CoverDoor = styled.div`
   width: 48%;
   height: 96%;
-  margin: 1.2% 0;
+  margin: 1.35% 0;
   position: absolute;
   top: 0;
   z-index: 3;

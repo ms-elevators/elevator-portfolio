@@ -1,5 +1,7 @@
 import React from "react";
 import { screenData } from "./Data";
+
+// import styled components
 import {
   LeftContainer,
   ScreenOutline,
@@ -13,8 +15,10 @@ import {
 } from "./Screen.elements";
 
 export default function Screen({ hoverValue }) {
+  // deconstruct screenData
   const { title, description, stack } = screenData[hoverValue];
 
+  // dynamically create stack icons
   const stacks = stack.map((s) => {
     const icon = `fab fa-${s}`;
     return <StackIcon key={s} className={icon}></StackIcon>;

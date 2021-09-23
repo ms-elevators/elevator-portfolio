@@ -1,6 +1,9 @@
 import React from "react";
 
+// import button component
 import FloorButton from "../../components/FloorButton/FloorButton";
+
+// import styled components
 import FloorSign from "../FloorSign/FloorSign";
 import {
   NavContentsContainer,
@@ -20,7 +23,7 @@ export default function Navigation({
   destination,
   doorActivate,
 }) {
-  // floor buttons array
+  // dynamically create floor buttons
   const FloorButtons = [];
   for (let i = 1; i < 7; i++) {
     FloorButtons.push(

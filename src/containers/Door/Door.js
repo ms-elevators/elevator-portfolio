@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FloorBackground,
   ContentButtonContainer,
@@ -50,6 +50,7 @@ export default function Door({ floor, isReady, contactFloor }) {
       );
     }
   }
+
   const handlePrev = () => {
     const prev = imgIdx === 0 ? imgLen - 1 : imgIdx - 1;
     setImgIdx(prev);
@@ -66,6 +67,12 @@ export default function Door({ floor, isReady, contactFloor }) {
     setImgIdx(imgIdx); // Dot 눌렀을 때 이미지 변환 여부를 결정 -> 해당 코드 없으면 Dot은 눌려도 이미지는 바뀌지 않음.
     setSlideIdx(imgIdx); // Dot 눌림 여부를 결정
   };
+
+  // 층이 바뀌면 imgIdx를 초기화, 처음 그림이 표시
+  useEffect(() => {
+    setSlideIdx(0);
+    setImgIdx(0);
+  }, [floor]);
 
   return (
     <DoorContainer>

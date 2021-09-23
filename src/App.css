@@ -40,25 +40,8 @@ body {
   height: 75vh;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
   position: absolute;
   bottom: 0;
-}
-
-.floor-sign {
-  border: solid 2px #cccccc;
-  width: 50%;
-  height: 13vh;
-  left: 25%;
-  top: 1%;
-  position: absolute;
-}
-
-.navigation {
-  width: 15%;
-  height: 50vh;
-  margin: 1rem;
-  align-self: flex-start;
 }
 
 .top {

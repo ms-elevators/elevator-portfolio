@@ -175,31 +175,37 @@ function App() {
 
   return (
     <div>
-      <img src={bgi} alt="background" className="background" />
       {/* if sound state is null, show buttons */}
       {sound === null ? (
         <SoundButtons soundSettings={soundSettings} />
       ) : (
-        <main className="main-container">
-          <div className="top">   
-            <FloorGuides floor={floor} floors='7' />  {/* floors에 총 층수 입력*/}
+        <>
+          <img src={bgi} alt="background" className="background" />
+          <main className="main-container">
+            <div className="top">
+              <FloorGuides floor={floor} floors="7" />{" "}
+              {/* floors에 총 층수 입력 */}
+              <FloorSign floor={floor} />
+            </div>
 
-            <FloorSign floor={floor} />
-          </div>
-
-          <section className="bottom">
-            <Screen hoverValue={hoverValue} />
-            <Door floor={floor} isReady={isReady} contactFloor={contactFloor} />
-            <Navigation
-              changeFloor={changeFloor}
-              onButtonHover={onButtonHover}
-              onButtonHoverOut={onButtonHoverOut}
-              contactFloor={contactFloor}
-              destination={destination}
-              doorActivate={doorActivate}
-            />
-          </section>
-        </main>
+            <section className="bottom">
+              <Screen hoverValue={hoverValue} />
+              <Door
+                floor={floor}
+                isReady={isReady}
+                contactFloor={contactFloor}
+              />
+              <Navigation
+                changeFloor={changeFloor}
+                onButtonHover={onButtonHover}
+                onButtonHoverOut={onButtonHoverOut}
+                contactFloor={contactFloor}
+                destination={destination}
+                doorActivate={doorActivate}
+              />
+            </section>
+          </main>
+        </>
       )}
     </div>
   );

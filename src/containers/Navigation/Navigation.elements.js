@@ -5,7 +5,7 @@ export const NavbarSection = styled.section`
   width: 15%;
   height: 50vh;
   margin: 1rem;
-  align-self: flex-start;
+  align-self: center;
   padding: 2rem 1.5rem;
   border-radius: 10px;
   box-shadow: 0px 0px 5px 2px #e7e7e740 inset;

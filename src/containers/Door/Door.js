@@ -80,24 +80,24 @@ export default function Door({ floor, isReady, contactFloor }) {
         </DoorInnerContent>
       ) : (
         <DoorInnerContent>
-        <ImageBackground>
-          <ContentImgSection>
-            {/* 이전 버튼 */}
-            <Button onClick={() => handlePrev()}>＜</Button> 
-            <ContentImgContainer>{previews}</ContentImgContainer>
-            {/* 다음 버튼 */}
-            <Button onClick={() => handleNext()}>＞</Button>
-          </ContentImgSection>
+          <ImageBackground>
+            <ContentImgSection>
+              {/* 이전 버튼 */}
+              <Button onClick={() => handlePrev()}>＜</Button>
+              <ContentImgContainer>{previews}</ContentImgContainer>
+              {/* 다음 버튼 */}
+              <Button onClick={() => handleNext()}>＞</Button>
+            </ContentImgSection>
 
-          <IndicatorContainer>
-            {Array.from({ length: imgLen }).map((item, imgIdx) => (
-              <ContainerDot
-                onClick={() => Dot(imgIdx)}
-                active={slideIdx === imgIdx ? "dotActive" : "dotInactive"}
-              ></ContainerDot>
-            ))}
-          </IndicatorContainer>
-        </ImageBackground>
+            <IndicatorContainer>
+              {Array.from({ length: imgLen }).map((item, imgIdx) => (
+                <ContainerDot
+                  onClick={() => Dot(imgIdx)}
+                  active={slideIdx === imgIdx ? "dotActive" : "dotInactive"}
+                ></ContainerDot>
+              ))}
+            </IndicatorContainer>
+          </ImageBackground>
 
           <ContentButtonContainer>
             <ContentLink href={content[floor].demo} target="_blank">

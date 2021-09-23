@@ -3,6 +3,7 @@ import useSound from "use-sound";
 
 import "./App.css";
 import SoundButtons from "./components/SoundButtons/SoundButtons";
+import Speaker from "./components/Speaker/Speaker";
 import Door from "./containers/Door/Door";
 import Navigation from "./containers/Navigation/Navigation";
 import Screen from "./containers/Screen/Screen";
@@ -29,14 +30,15 @@ function App() {
 
   const [hoverValue, setHover] = useState(1);
 
-  const [bgm] = useSound(bgmSrc, { volume: 0.3, interrupt: true });
+  const [bgm, { stop }] = useSound(bgmSrc, { volume: 0.3, interrupt: true });
 
   // set sound state, play bgm if sound is true
-  const soundSettings = (allow) => {
+  const initialSoundSettings = (allow) => {
     setSound(allow);
-    if (allow) {
+    if (allow === true) {
       bgm();
       setTimeout(() => {
+        setReady(true);
         openPlay();
       }, 1500);
     }
@@ -165,10 +167,17 @@ function App() {
     action === "open" ? openDoor() : closeDoor();
   };
 
+  const soundToggle = (sound) => {
+    if (sound === true) {
+      setSound(false);
+      stop();
+    } else {
+      setSound(true);
+      bgm();
+    }
+  };
+
   useEffect(() => {
-    setTimeout(() => {
-      setReady(true);
-    }, 1500);
     return;
   }, []);
 
@@ -176,14 +185,15 @@ function App() {
     <div>
       {/* if sound state is null, show buttons */}
       {sound === null ? (
-        <SoundButtons soundSettings={soundSettings} />
+        <SoundButtons initialSoundSettings={initialSoundSettings} />
       ) : (
         <>
           <img src={bgi} alt="background" className="background" />
           <main className="main-container">
             <div className="top">
-              <FloorGuides floor={floor} totalFloors="7" />{" "}
+              <Speaker sound={sound} soundToggle={soundToggle} />
               {/* totalFloors에 총 층수 입력 */}
+              <FloorGuides floor={floor} totalFloors="7" />{" "}
             </div>
 
             <section className="bottom">

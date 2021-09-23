@@ -6,7 +6,7 @@ import {
   SoundSettingButton,
 } from "./SoundButtons.elements";
 
-export default function SoundButtons({ soundSettings }) {
+export default function SoundButtons({ initialSoundSettings }) {
   return (
     <SoundSettingContainer className="intro-container">
       <SoundSettingTitle>Would you like to allow sounds?</SoundSettingTitle>
@@ -15,13 +15,13 @@ export default function SoundButtons({ soundSettings }) {
           type="button"
           value="YES"
           onClick={() => {
-            soundSettings(true);
+            initialSoundSettings(true);
           }}
         ></SoundSettingButton>
         <SoundSettingButton
           type="button"
           value="NO"
-          onClick={() => soundSettings(false)}
+          onClick={() => initialSoundSettings(false)}
         ></SoundSettingButton>
       </SoundSettingButtonWrapper>
     </SoundSettingContainer>

@@ -51,6 +51,14 @@ export const DoorContainer = styled.div`
   overflow: hidden;
 `;
 
+// 아래는 이미지를 감싸고 있는 불투명한 흰색 배경화면
+export const ImageBackground = styled.div`
+  width: 85%;
+  height: 420px;
+  background: rgba(255, 255, 255, 0.47);
+  margin-left: 7%;
+`;
+
 export const DoorInnerContent = styled.div`
   position: relative;
   z-index: 2;
@@ -64,15 +72,13 @@ export const ContentImgSection = styled.section`
   margin-left: 5%;
 `;
 
-export const Button = styled.button`
+// 이전, 다음 버튼
+export const Button = styled.div`
   margin-top: 25%;
-  font-size: 1.2rem;
+  font-size: 2.5rem;
   padding: 10px;
-  width: 3.5rem;
   height: 2.5rem;
-  background-color: #323232;
-  color: white;
-  border: 1px solid white;
+  color: black;
   border-radius: 5px;
 `;
 
@@ -82,18 +88,20 @@ export const ContentImgContainer = styled.section`
   border: 1px solid #000000;
   position: relative;
   overflow: hidden;
+  margin-top: 15px;
+
 `;
 
 export const ContentImg = styled.img`
-  width: 80%;
-  height: 380px;
+  width: 75%;
+  height: 320px;
   margin: 1rem auto;
-
   opacity: ${(props) => props.current};
   position: absolute;
   left: 10%;
   transition: opacity 1s ease-in-out;
 `;
+
 
 export const ContentButtonContainer = styled.section`
   width: 100%;
@@ -111,7 +119,6 @@ export const ContentLink = styled.a`
   border-radius: 5px;
   border: #ffffff 1px solid;
   width: 10rem;
-
   &:hover {
     transform: scale(1.1);
     background-color: #ffffff;
@@ -147,7 +154,22 @@ export const DoorRight = styled(CoverDoor)`
   transition: right 2s ease-in-out;
 `;
 
-export const Text = styled.div`
-  font-size: 10px;
-  color: white;
+
+export const IndicatorContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
 `;
+
+export const ContainerDot = styled.div`
+  border-radius: 50%;
+  margin: 0 5px;
+  background: ${(props) =>
+    props.active === "dotActive" ? "#B2DAE7" : "rgba(89, 89, 89, 0.93)"};
+  width: ${(props) =>
+    props.active === "dotActive" ? "11px" : "10px"};
+  height: ${(props) =>
+    props.active === "dotActive" ? "11px" : "10px"};
+`;
+

@@ -26,7 +26,7 @@ export default function Screen({ hoverValue }) {
         <ScreenContainer>
           <ScreenTitle>{title}</ScreenTitle>
           <ScreenDesc>{description}</ScreenDesc>
-          <StackList>{stacks}</StackList>
+          <StackList length={stacks.length}>{stacks}</StackList>
         </ScreenContainer>
       </ScreenOutline>
 

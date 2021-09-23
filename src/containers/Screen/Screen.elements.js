@@ -72,12 +72,15 @@ export const ScreenDesc = styled.p`
 
 export const StackList = styled.div`
   border-top: solid 3px #555555;
+  padding: 0.5rem 0;
+  display: grid;
+  grid-template-columns: ${(props) => {
+    return `repeat(${props.length}, 1fr);`;
+  }};
 `;
 
 export const StackIcon = styled.i`
   font-size: 1.5rem;
-  margin: 0.3rem;
-  padding: 0.3rem;
 `;
 
 export const SocialContainer = styled.div`

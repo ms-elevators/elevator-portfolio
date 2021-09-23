@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import useSound from "use-sound";
 
-import "./App.css";
+import GlobalStyle, { BackgroundImg } from "./globalStyles";
 import SoundButtons from "./components/SoundButtons/SoundButtons";
-import Door from "./containers/Door/Door";
-import FloorSign from "./containers/FloorSign/FloorSign";
-import Navigation from "./containers/Navigation/Navigation";
-import Screen from "./containers/Screen/Screen";
-import FloorGuides from "./containers/FloorGuides/FloorGuides";
+import MainContent from "./containers/MainContent/MainContent";
 
 // import bgm
 import bgmSrc from "./sound/bgm.mp3";
@@ -18,26 +14,34 @@ import closeSfx from "./sound/close.mp3";
 import moveSfx from "./sound/move.mp3";
 import arriveSfx from "./sound/arrive.wav";
 
+// import background image
 import bgi from "./wall.png";
 
 function App() {
+  // sound state
   const [sound, setSound] = useState(null);
 
+  // elevator states
   const [floor, setFloor] = useState(1);
   const [isReady, setReady] = useState(false);
   const [destination, setDestination] = useState(null);
   const contactFloor = 7;
 
+  // screen state
   const [hoverValue, setHover] = useState(1);
 
-  const [bgm] = useSound(bgmSrc, { volume: 0.3, interrupt: true });
+  // SOUND FUNCTIONS
+
+  // sound hook
+  const [bgm, { stop }] = useSound(bgmSrc, { volume: 0.3, interrupt: true });
 
   // set sound state, play bgm if sound is true
-  const soundSettings = (allow) => {
+  const initialSoundSettings = (allow) => {
     setSound(allow);
-    if (allow) {
+    if (allow === true) {
       bgm();
       setTimeout(() => {
+        setReady(true);
         openPlay();
       }, 1500);
     }
@@ -57,6 +61,19 @@ function App() {
       closePlay();
     }
   };
+
+  // sound settings toggle
+  const soundToggle = (sound) => {
+    if (sound === true) {
+      setSound(false);
+      stop();
+    } else {
+      setSound(true);
+      bgm();
+    }
+  };
+
+  // FLOOR CHANGE MECHANISM
 
   // when floor button is clicked
   const changeFloor = async (floorNum) => {
@@ -154,52 +171,46 @@ function App() {
     }, 500 * timerVar);
   };
 
-  const onButtonHover = (e) => {
-    setHover(e.target.value);
-  };
-
-  const onButtonHoverOut = (e) => {
-    setHover(floor);
-  };
-
+  // toggle door
   const doorActivate = (action) => {
     action === "open" ? openDoor() : closeDoor();
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      setReady(true);
-    }, 1500);
-    return;
-  }, []);
+  // SCREEN FUNCTION
+
+  // set screen data to hover data
+  const onButtonHover = (e) => {
+    setHover(e.target.value);
+  };
+
+  // set screen data to current floor data
+  const onButtonHoverOut = (e) => {
+    setHover(floor);
+  };
 
   return (
     <div>
-      <img src={bgi} alt="background" className="background" />
+      <GlobalStyle />
       {/* if sound state is null, show buttons */}
       {sound === null ? (
-        <SoundButtons soundSettings={soundSettings} />
+        <SoundButtons initialSoundSettings={initialSoundSettings} />
       ) : (
-        <main className="main-container">
-          <div className="top">   
-            <FloorGuides floor={floor} floors='7' />  {/* floors에 총 층수 입력*/}
-
-            <FloorSign floor={floor} />
-          </div>
-
-          <section className="bottom">
-            <Screen hoverValue={hoverValue} />
-            <Door floor={floor} isReady={isReady} contactFloor={contactFloor} />
-            <Navigation
-              changeFloor={changeFloor}
-              onButtonHover={onButtonHover}
-              onButtonHoverOut={onButtonHoverOut}
-              contactFloor={contactFloor}
-              destination={destination}
-              doorActivate={doorActivate}
-            />
-          </section>
-        </main>
+        <>
+          <BackgroundImg src={bgi} alt="background" />
+          <MainContent
+            sound={sound}
+            soundToggle={soundToggle}
+            floor={floor}
+            hoverValue={hoverValue}
+            isReady={isReady}
+            contactFloor={contactFloor}
+            changeFloor={changeFloor}
+            onButtonHover={onButtonHover}
+            onButtonHoverOut={onButtonHoverOut}
+            destination={destination}
+            doorActivate={doorActivate}
+          />
+        </>
       )}
     </div>
   );

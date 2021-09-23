@@ -1,10 +1,16 @@
 import styled from "styled-components";
 
+export const NavContentsContainer = styled.div`
+  width: 18%;
+  height: 100%;
+  margin: auto;
+`;
+
 export const NavbarSection = styled.section`
   background-color: #c1c1c1;
-  width: 15%;
+  width: 85%;
   height: 50vh;
-  margin: 1rem;
+  margin: 5% auto;
   align-self: flex-start;
   padding: 2rem 1.5rem;
   border-radius: 10px;

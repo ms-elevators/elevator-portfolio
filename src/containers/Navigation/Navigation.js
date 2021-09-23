@@ -1,7 +1,12 @@
 import React from "react";
 
+// import button component
 import FloorButton from "../../components/FloorButton/FloorButton";
+
+// import styled components
+import FloorSign from "../FloorSign/FloorSign";
 import {
+  NavContentsContainer,
   DoorButtonContainer,
   DoorButton,
   FloorButtonsContainer,
@@ -10,6 +15,7 @@ import {
 } from "./Navigation.elements";
 
 export default function Navigation({
+  floor,
   changeFloor,
   onButtonHover,
   onButtonHoverOut,
@@ -17,7 +23,7 @@ export default function Navigation({
   destination,
   doorActivate,
 }) {
-  // floor buttons array
+  // dynamically create floor buttons
   const FloorButtons = [];
   for (let i = 1; i < 7; i++) {
     FloorButtons.push(
@@ -35,29 +41,34 @@ export default function Navigation({
 
   FloorButtons.push();
   return (
-    <NavbarSection>
-      <FloorButtonsContainer>{FloorButtons}</FloorButtonsContainer>
-      <ContactButton
-        value={contactFloor}
-        onClick={() => changeFloor(contactFloor)}
-        onMouseOver={(e) => onButtonHover(e)}
-        onMouseOut={() => onButtonHoverOut()}
-        destination={contactFloor === destination ? true : false}
-      >
-        <i className="fas fa-phone"></i>
-      </ContactButton>
-      <DoorButtonContainer>
-        <DoorButton onClick={() => (destination ? {} : doorActivate("open"))}>
-          <i class="fas fa-chevron-left"></i>
-          <i class="fas fa-grip-lines-vertical"></i>
-          <i class="fas fa-chevron-right"></i>
-        </DoorButton>
-        <DoorButton onClick={() => (destination ? {} : doorActivate("close"))}>
-          <i class="fas fa-chevron-right"></i>
-          <i class="fas fa-grip-lines-vertical"></i>
-          <i class="fas fa-chevron-left"></i>
-        </DoorButton>
-      </DoorButtonContainer>
-    </NavbarSection>
+    <NavContentsContainer>
+      <FloorSign floor={floor} />
+      <NavbarSection>
+        <FloorButtonsContainer>{FloorButtons}</FloorButtonsContainer>
+        <ContactButton
+          value={contactFloor}
+          onClick={() => changeFloor(contactFloor)}
+          onMouseOver={(e) => onButtonHover(e)}
+          onMouseOut={() => onButtonHoverOut()}
+          destination={contactFloor === destination ? true : false}
+        >
+          <i className="fas fa-phone"></i>
+        </ContactButton>
+        <DoorButtonContainer>
+          <DoorButton onClick={() => (destination ? {} : doorActivate("open"))}>
+            <i className="fas fa-chevron-left"></i>
+            <i className="fas fa-grip-lines-vertical"></i>
+            <i className="fas fa-chevron-right"></i>
+          </DoorButton>
+          <DoorButton
+            onClick={() => (destination ? {} : doorActivate("close"))}
+          >
+            <i className="fas fa-chevron-right"></i>
+            <i className="fas fa-grip-lines-vertical"></i>
+            <i className="fas fa-chevron-left"></i>
+          </DoorButton>
+        </DoorButtonContainer>
+      </NavbarSection>
+    </NavContentsContainer>
   );
 }

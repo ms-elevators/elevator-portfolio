@@ -1,7 +1,8 @@
 export const screenData = {
   1: {
-    title: "first floor",
-    description: "this is the description for the first floor",
+    title: "First Floor",
+    description:
+      "this is the description for the first floor, let's make this really long to check if the scroll function works correctly when the description is way to long. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, vitae.",
     stack: ["react", "html5", "css3-alt"],
   },
   2: {

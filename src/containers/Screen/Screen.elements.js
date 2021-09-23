@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const LeftContainer = styled.section`
-  width: 15%;
-  margin: 1rem;
+  width: 18%;
+  padding: 1rem;
   align-self: flex-start;
   font-family: "Pretendard-Regular";
   line-height: 1.5;

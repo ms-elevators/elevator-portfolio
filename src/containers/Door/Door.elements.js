@@ -11,9 +11,9 @@ export const FloorBackground = styled.img`
 `;
 
 export const DoorContainer = styled.div`
-  width: 65%;
+  width: 66%;
   height: 100%;
-  margin: auto;
+  margin: 0;
   position: relative;
   overflow: hidden;
 `;

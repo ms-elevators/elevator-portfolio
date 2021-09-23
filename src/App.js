@@ -4,7 +4,6 @@ import useSound from "use-sound";
 import "./App.css";
 import SoundButtons from "./components/SoundButtons/SoundButtons";
 import Door from "./containers/Door/Door";
-import FloorSign from "./containers/FloorSign/FloorSign";
 import Navigation from "./containers/Navigation/Navigation";
 import Screen from "./containers/Screen/Screen";
 import FloorGuides from "./containers/FloorGuides/FloorGuides";
@@ -185,7 +184,6 @@ function App() {
             <div className="top">
               <FloorGuides floor={floor} floors="7" />{" "}
               {/* floors에 총 층수 입력 */}
-              <FloorSign floor={floor} />
             </div>
 
             <section className="bottom">
@@ -196,6 +194,7 @@ function App() {
                 contactFloor={contactFloor}
               />
               <Navigation
+                floor={floor}
                 changeFloor={changeFloor}
                 onButtonHover={onButtonHover}
                 onButtonHoverOut={onButtonHoverOut}

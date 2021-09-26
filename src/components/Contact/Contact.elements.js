@@ -8,11 +8,14 @@ export const Wrap = styled.div`
     justify-content: center;
     
     .back{
-        margin-top:50px;
+        margin-top:5%;
         width: 80%;
         height: 100%;
         background-color: rgba( 255, 255, 255, 0.6 );
         border-radius:6px;
+        @media(max-width:1024px){
+            margin-top:30%;
+        }
     }
 `;
 
@@ -42,7 +45,10 @@ export const Form = styled.form`
         justify-content: center;
         flex-direction: row;
     }
-
+    #name{
+        display:inline-block;
+        width:100%;
+    }
     .input {
         margin: 5px;
         border-style: solid;

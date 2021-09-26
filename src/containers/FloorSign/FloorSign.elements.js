@@ -10,25 +10,24 @@ export const FloorSignStyle = styled.div`
   }
 
   position: relative;
-  right: 0;
+  
   margin: auto;
-  width: 55%;
-  height: 15%;
+  width: 7rem;
+  height: 4rem;
 
   background: #2c2c2c;
-  border: 7px solid #bebebe;
+  border: 0.5rem solid #bebebe;
   box-sizing: border-box;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   p {
-    margin: 0px;
+    margin: 0 ;
     position: absolute;
-    right: 30%;
-    top: 15%;
+    right: 2rem;
+    top: 0.5rem;
 
     font-family: "LAB디지털"; //폰트 수정
-    font-size: 33px;
-    line-height: 43px;
+    font-size: 2rem;
 
     color: #cf3434;
     z-index: 1;
@@ -37,4 +36,5 @@ export const FloorSignStyle = styled.div`
     color: #343434;
     z-index: 0;
   }
+
 `;

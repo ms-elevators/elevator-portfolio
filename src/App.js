@@ -16,6 +16,9 @@ import arriveSfx from "./sound/arrive.wav";
 
 // import background image
 import bgi from "./wall.png";
+import { ThemeProvider } from "styled-components";
+// import theme(colors)
+import theme from "./config/theme";
 
 function App() {
   // sound state
@@ -190,30 +193,34 @@ function App() {
 
   return (
     <div>
-      <GlobalStyle />
+      <ThemeProvider theme = {theme}>
+        <GlobalStyle />
       {/* if sound state is null, show buttons */}
-      {sound === null ? (
-        <SoundButtons initialSoundSettings={initialSoundSettings} />
-      ) : (
-        <>
-          <BackgroundImg src={bgi} alt="background" />
-          <MainContent
-            sound={sound}
-            soundToggle={soundToggle}
-            floor={floor}
-            hoverValue={hoverValue}
-            isReady={isReady}
-            contactFloor={contactFloor}
-            changeFloor={changeFloor}
-            onButtonHover={onButtonHover}
-            onButtonHoverOut={onButtonHoverOut}
-            destination={destination}
-            doorActivate={doorActivate}
-          />
-        </>
-      )}
+        {sound === null ? (
+          <SoundButtons initialSoundSettings={initialSoundSettings} />
+        ) : (
+          <>
+            <BackgroundImg src={bgi} alt="background" />
+            <MainContent
+              sound={sound}
+              soundToggle={soundToggle}
+              floor={floor}
+              hoverValue={hoverValue}
+              isReady={isReady}
+              contactFloor={contactFloor}
+              changeFloor={changeFloor}
+              onButtonHover={onButtonHover}
+              onButtonHoverOut={onButtonHoverOut}
+              destination={destination}
+              doorActivate={doorActivate}
+            />
+          </>
+        )}
+
+      </ThemeProvider>
     </div>
-  );
-}
+    
+    );
+  }
 
 export default App;

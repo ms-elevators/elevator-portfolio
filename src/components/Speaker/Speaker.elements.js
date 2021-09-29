@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { ThemeProvider } from "styled-components";
+// import theme(colors)
+import theme from "../../style/theme";
 
 export const SpeakerContainer = styled.div`
   position: fixed;
@@ -12,6 +15,6 @@ export const SpeakerContainer = styled.div`
 `;
 
 export const SoundStateLabel = styled.p`
-  background-color: #e0e0e0;
-  border: solid 2px #000000;
+  background-color: ${theme.SoundState};
+  border: solid 2px ${theme.Black};
 `;

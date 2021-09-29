@@ -1,5 +1,5 @@
 import React from "react";
-import { screenData } from "./Data";
+import { screenData } from "../Data";
 
 // import styled components
 import {

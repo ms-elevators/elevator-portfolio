@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { ThemeProvider } from "styled-components";
+// import theme(colors)
+import theme from "../../style/theme";
 
 export const MainContainer = styled.div`
   width: 90%;
@@ -6,9 +9,9 @@ export const MainContainer = styled.div`
   margin: 5vh auto 0 auto;
   text-align: center;
   position: relative;
-  background: #969696;
-  border: 2px solid #494949dd;
-  box-shadow: inset 0px 0px 99px #6a6a6a;
+  background: ${theme.MainContainer};
+  border: 2px solid ${theme.MainContainerBorder};
+  box-shadow: inset 0px 0px 99px ${theme.MainContainerShadow};
 `;
 
 export const TopSection = styled.section`

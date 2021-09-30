@@ -13,10 +13,18 @@ font-size: 0.5rem;
 height: 100%;
 background-color: ${(props) => props.currentColor || ""}; // if props exist add the color as background
 overflow: hidden;
-/* ::after{
-  content:'|';
-  display:inline-block;
-} */
+text-overflow:ellipsis;
+position:relative;
+::after{
+  content:"";
+  border-left:solid;
+  border-left-width: ${(props)=>props.borderLine*2}px;
+  position:absolute;
+  right:0;
+  top:15%;
+  height:70%;
+}
+
 .floor{
   font-size:0.9rem;
   font-weight: 700;

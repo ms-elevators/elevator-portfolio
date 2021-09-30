@@ -7,6 +7,7 @@ export const StyledButton = styled.button`
   padding: 0.5rem 1rem;
   height: 23%;
   margin: 7% 5%;
+
   cursor: pointer;
   position: relative;
   z-index: 0;
@@ -20,6 +21,9 @@ export const StyledButton = styled.button`
   border-radius: 5px;
 
   font-size: 1.1rem;
+  @media(max-width:1024px){
+    width:5rem;
+  }
 
   // prevent hover crash for contact button with overlay
   &::after {

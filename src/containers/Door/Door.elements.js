@@ -39,6 +39,9 @@ export const ContentImgSection = styled.section`
   overflow: hidden;
   width: 100%;
   margin: auto;
+  @media(max-width:1024px){
+  margin-top:3rem;
+  }
 `;
 
 // 이전, 다음 버튼
@@ -64,6 +67,10 @@ export const ContentImg = styled.img`
   left: 0;
   transition: opacity 1s ease-in-out;
   object-fit: cover;
+  @media(max-width:1024px){
+  padding:1rem;
+  height:60%;
+  }
 `;
 
 export const ContentButtonContainer = styled.section`

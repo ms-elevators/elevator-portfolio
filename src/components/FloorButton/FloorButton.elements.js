@@ -25,6 +25,10 @@ export const StyledButton = styled.button`
     width:5rem;
   }
 
+  @media (min-width: 1440px) {
+    font-size: 1.2vw;
+  }
+
   // prevent hover crash for contact button with overlay
   &::after {
     content: "";

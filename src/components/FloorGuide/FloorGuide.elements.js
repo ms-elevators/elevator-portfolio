@@ -25,13 +25,26 @@ position:relative;
   height:70%;
 }
 
+@media(min-width:1440px){
+    font-size: 0.7vw;
+}
+
 .floor{
   font-size:0.9rem;
   font-weight: 700;
+
+  @media(min-width:1440px){
+    font-size: 1.2vw;
+}
+
 }
 .title{
   margin-left:0.5rem;
   font-size:0.8rem;
+
+  @media(min-width:1440px){
+    font-size: 1vw;
+}
 }
 
 `;

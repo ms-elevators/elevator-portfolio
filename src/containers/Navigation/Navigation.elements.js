@@ -52,6 +52,11 @@ export const ContactButton = styled.button`
     inset -1px -1px 3px 1px rgba(220, 232, 231, 0.6);
   border-radius: 100%;
 
+  @media(min-width:1440px){
+    margin: 1.2vw auto;
+    transform: scale(1.2);
+  }
+
   // prevent hover crash for contact button with overlay
   &::after {
     content: "";
@@ -65,8 +70,13 @@ export const ContactButton = styled.button`
 `;
 
 export const DoorButtonContainer = styled.div`
-display:flex;
-justify-content: center;
+  display:flex;
+  justify-content: center;
+
+  @media(min-width:1440px){
+    justify-content: space-around;
+    padding: 0 10%;
+  }
 `;
 
 export const DoorButton = styled.button`
@@ -87,7 +97,10 @@ export const DoorButton = styled.button`
   @media(max-width:1024px){
     height:30px;
     width:50%;
-    
+  }
+
+  @media(min-width:1440px){
+    font-size : 1vw;
   }
 
   // prevent hover crash for contact button with overlay

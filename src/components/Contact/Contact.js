@@ -57,11 +57,11 @@ export default function Contact() {
                     <span id="title">Contact</span>
                 </Title>
                 <Form className="contact-form" onSubmit={sendEmail}>
-                    <div className="flex-container"> 
+                    <div className="flex-container" id="top"> 
                         <input id="name" className="input" type="text" name="name" placeholder="Name" value={name} onChange={onChangeName} autoComplete="off"/>
                         <input id="email" className="input" type="email" name="email" placeholder="Email" value={email} onChange={onChangeEmail} autoComplete="off"/>
                     </div>
-                    <div className="flex-container">
+                    <div className="flex-container" id="bottom">
                         <textarea id="message" className="input" name="message" placeholder="Message" value={message} onChange={onChangeMessage} autoComplete="off"/>
                     </div>
                     <div className="flex-container-right">

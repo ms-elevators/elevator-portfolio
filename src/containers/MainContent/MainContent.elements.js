@@ -16,6 +16,7 @@ export const MainContainer = styled.div`
 
 export const TopSection = styled.section`
   display: flex;
+  height:15vh;
 `;
 
 export const BottomSection = styled.section`

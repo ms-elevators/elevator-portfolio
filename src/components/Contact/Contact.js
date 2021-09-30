@@ -16,7 +16,7 @@ export default function Contact() {
     // 메일 전송
     const sendEmail = useCallback((e) => { 
         e.preventDefault(); 
-        
+
         const inputNum = e.target.childElementCount - 1; // 버튼한개 제외 
         const data = new FormData(e.target); 
         const entries = data.entries(); // form data를 iterator 객체화
@@ -36,10 +36,10 @@ export default function Contact() {
         
         if (!failNum) { // 오류 없을 경우 전송
             emailjs.sendForm( 
-                'service_xnb36t9', // service ID
-                'template_kvzpw2d',  // template ID
+                '', // service ID
+                '',  // template ID
                 e.target, 
-                'user_hLdfycQUhf6WNkGulrqIo' // user ID
+                '' // user ID
                 ).then((result) => { 
                     console.log('result.text', result.text); 
                 }, (error) => { 

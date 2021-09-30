@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ThemeProvider } from "styled-components";
 // import theme(colors)
 import theme from "../../style/theme";
 
@@ -44,10 +43,10 @@ export const ContactButton = styled.button`
   z-index: 0;
   background: ${theme.ContactButton};
   color:  ${theme.White};
-  border: 1px solid ${(props) => (props.destination ? "${theme.StyleButtonBorder1}" : "${theme.StyleButtonBorder2}")};
+  border: 1px solid ${(props) => (props.destination ? `${theme.StyleButtonBorder1}` : `${theme.StyleButtonBorder2}`)};
   box-sizing: border-box;
   box-shadow: 0.3px 0.3px 1px 0.5px rgba(100, 100, 100, 0.25),
-    ${(props) => (props.destination ? "0px 0px 10px #99EDFF," : "")} inset 1.3px
+    ${(props) => (props.destination ? `0px 0px 10px #99EDFF,` : "")} inset 1.3px
       1.3px 2px rgba(35, 35, 35, 0.18),
     inset -1px -1px 3px 1px rgba(220, 232, 231, 0.6);
   border-radius: 100%;

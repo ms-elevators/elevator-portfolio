@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import "./fonts.css"
-import { ThemeProvider } from "styled-components";
 // import theme(colors)
 import theme from "../../style/theme";
 
@@ -106,6 +105,9 @@ export const Form = styled.form`
         font-family: Arial, Helvetica, sans-serif;
         color:${theme.Reply};
         
+        @media(min-width:1440px){
+            font-size: 1.2vw;
+        }
     }
 
     .button {

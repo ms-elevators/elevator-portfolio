@@ -46,9 +46,7 @@ export const ContactButton = styled.button`
   color: ${theme.White};
   border: 1px solid
     ${(props) =>
-      props.destination
-        ? "${theme.StyleButtonBorder1}"
-        : "${theme.StyleButtonBorder2}"};
+      props.destination ? theme.StyleButtonBorder1 : theme.StyleButtonBorder2};
   box-sizing: border-box;
   box-shadow: 0.3px 0.3px 1px 0.5px rgba(100, 100, 100, 0.25),
     ${(props) => (props.destination ? "0px 0px 10px #99EDFF," : "")} inset 1.3px

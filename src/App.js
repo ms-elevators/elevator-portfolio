@@ -18,7 +18,7 @@ import arriveSfx from "./sound/arrive.wav";
 import bgi from "./wall.png";
 import { ThemeProvider } from "styled-components";
 // import theme(colors)
-import theme from "./config/theme";
+import theme from "./style/theme";
 
 function App() {
   // sound state
@@ -193,9 +193,9 @@ function App() {
 
   return (
     <div>
-      <ThemeProvider theme = {theme}>
+      <ThemeProvider theme={theme}>
         <GlobalStyle />
-      {/* if sound state is null, show buttons */}
+        {/* if sound state is null, show buttons */}
         {sound === null ? (
           <SoundButtons initialSoundSettings={initialSoundSettings} />
         ) : (
@@ -216,11 +216,9 @@ function App() {
             />
           </>
         )}
-
       </ThemeProvider>
     </div>
-    
-    );
-  }
+  );
+}
 
 export default App;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 // import theme(colors)
-import theme from "../../config/theme";
+import theme from "../../style/theme";
 
 export const FloorSignStyle = styled.div`
   @font-face {
@@ -13,7 +13,7 @@ export const FloorSignStyle = styled.div`
   }
 
   position: relative;
-  
+
   margin: auto;
   width: 7rem;
   height: 4rem;
@@ -24,7 +24,7 @@ export const FloorSignStyle = styled.div`
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   p {
-    margin: 0 ;
+    margin: 0;
     position: absolute;
     right: 2rem;
     top: 0.5rem;
@@ -39,5 +39,4 @@ export const FloorSignStyle = styled.div`
     color: ${theme.FloorSignGray};
     z-index: 0;
   }
-
 `;

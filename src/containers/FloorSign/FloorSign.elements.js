@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 // import theme(colors)
-import theme from "../../config/theme";
+import theme from "../../style/theme";
 
 export const FloorSignStyle = styled.div`
   @font-face {

@@ -18,7 +18,7 @@ import arriveSfx from "./sound/arrive.wav";
 import bgi from "./wall.png";
 import { ThemeProvider } from "styled-components";
 // import theme(colors)
-import theme from "./config/theme";
+import theme from "./style/theme";
 
 function App() {
   // sound state

@@ -33,7 +33,7 @@ const MainContent = ({
         <TopSection>
           <Speaker sound={sound} soundToggle={soundToggle} />
           {/* totalFloors에 총 층수 입력 */}
-          <FloorGuides floor={floor} totalFloors="7" />{" "}
+          <FloorGuides floor={floor} totalFloors="7" />
         </TopSection>
 
         <BottomSection>

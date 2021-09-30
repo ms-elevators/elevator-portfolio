@@ -17,6 +17,10 @@ export const ScreenOutline = styled.div`
   align-self: flex-start;
   background-color: #121212;
   box-shadow: 1px 3px 3px #000000;
+  @media (max-width:1080px){
+    height:25vh;
+    
+  }
 `;
 
 export const ScreenContainer = styled.div`
@@ -50,6 +54,8 @@ export const ScreenDesc = styled.p`
   height: 50%;
   text-align: left;
   overflow-y: scroll;
+  word-break: break-all;
+
 
   /* Hide scrollbar for Chrome, Safari and Opera */
   &::-webkit-scrollbar {

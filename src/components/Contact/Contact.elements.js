@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import "./fonts.css"
+import { ThemeProvider } from "styled-components";
+// import theme(colors)
+import theme from "../../style/theme";
 
 export const Wrap = styled.div`
 
@@ -28,7 +31,7 @@ export const Title = styled.div`
 
     #title {
         font-size: 25px;
-        color: #252525;
+        color: ${theme.Title};
         font-family: 'ONE-Mobile-Title';
     }
 `;
@@ -58,7 +61,7 @@ export const Form = styled.form`
 
         :focus {
             border-style: solid;
-            border-color: #88CCE1;
+            border-color: ${theme.Focus};
         }
     }
 
@@ -79,7 +82,7 @@ export const Form = styled.form`
 
     #reply {
         font-family: Arial, Helvetica, sans-serif;
-        color:#010101;
+        color:${theme.Reply};
         
     }
 
@@ -90,13 +93,13 @@ export const Form = styled.form`
         cursor: pointer;
         font-size: 18px;
         font-family: Arial, Helvetica, sans-serif;
-        color: #FAFAFA;
+        color: ${theme.Button};
 
         background-color: rgba(9,9,10,0.8);
 
         border-style: solid;
         border-radius: 6px;
-        border-color: rgba(251,251,251);
+        border-color: ${theme.LightGray};
         transition: all 0.1s ease-in-out;
         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 1px 1px 0 rgba(0, 0, 0, 0.07);
 

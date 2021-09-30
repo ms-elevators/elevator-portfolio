@@ -1,6 +1,6 @@
 import React from "react";
 import FloorGuide from "../../components/FloorGuide/FloorGuide";
-import { guideData } from "./Data";
+import { guideData } from "../Data";
 import { FloorGuidesStyle } from "./FloorGuides.elements.js";
 
 export default function FloorGuides({ floor, totalFloors }) {

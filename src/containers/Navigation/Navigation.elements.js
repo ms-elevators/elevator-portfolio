@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { ThemeProvider } from "styled-components";
+// import theme(colors)
+import theme from "../../style/theme";
 
 export const NavContentsContainer = styled.div`
   width: 18%;
@@ -7,15 +10,15 @@ export const NavContentsContainer = styled.div`
 `;
 
 export const NavbarSection = styled.section`
-  background-color: #c1c1c1;
+  background-color: ${theme.Navbar};
   width: 85%;
   height: 50vh;
   margin: 5% auto;
   align-self: flex-start;
   padding:  1.5rem;
   border-radius: 10px;
-  box-shadow: 0px 0px 5px 2px #e7e7e740 inset;
-  box-shadow: 1px 1px 4px 0px #00000040;
+  box-shadow: 0px 0px 5px 2px ${theme.Navbar1} inset;
+  box-shadow: 1px 1px 4px 0px ${theme.Navbar2};
   @media(max-width:1024px){
     height:auto;
   }
@@ -39,9 +42,9 @@ export const ContactButton = styled.button`
   cursor: pointer;
   position: relative;
   z-index: 0;
-  background: #ff3333;
-  color: #ffffff;
-  border: 1px solid ${(props) => (props.destination ? "#99edff" : "#e6e6e6")};
+  background: ${theme.ContactButton};
+  color:  ${theme.White};
+  border: 1px solid ${(props) => (props.destination ? "${theme.StyleButtonBorder1}" : "${theme.StyleButtonBorder2}")};
   box-sizing: border-box;
   box-shadow: 0.3px 0.3px 1px 0.5px rgba(100, 100, 100, 0.25),
     ${(props) => (props.destination ? "0px 0px 10px #99EDFF," : "")} inset 1.3px
@@ -73,8 +76,8 @@ export const DoorButton = styled.button`
   cursor: pointer;
   position: relative;
   z-index: 0;
-  background: #eff4f4;
-  border: 1px solid #e6e6e6;
+  background: ${theme.StyleButton};
+  border: 1px solid  ${theme.StyleButtonBorder2};
   
   box-sizing:border-box;
   box-shadow: 0.3px 0.3px 1px 0.5px rgba(100, 100, 100, 0.25),

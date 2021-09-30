@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { ThemeProvider } from "styled-components";
+// import theme(colors)
+import theme from "../../style/theme";
 
 export const LeftContainer = styled.section`
   width: 18%;
@@ -15,8 +18,8 @@ export const ScreenOutline = styled.div`
   margin: 1rem 0;
   padding: 5%;
   align-self: flex-start;
-  background-color: #121212;
-  box-shadow: 1px 3px 3px #000000;
+  background-color: ${theme.ScreenOutline};
+  box-shadow: 1px 3px 3px ${theme.Black};
   @media (max-width:1080px){
     height:25vh;
     
@@ -30,13 +33,14 @@ export const ScreenContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: #f0f8ff;
+  // background-color: #f0f8ff;
+  background-color: ${theme.ScreenContainer};
 `;
 
 export const ScreenTitle = styled.h1`
   padding: 0;
   margin: 0;
-  border-bottom: solid 3px #555555;
+  border-bottom: solid 3px ${theme.DavyGray};
   font-size: 2.5rem;
 
   @media screen and (max-width: 1400px) {
@@ -77,7 +81,7 @@ export const ScreenDesc = styled.p`
 `;
 
 export const StackList = styled.div`
-  border-top: solid 3px #555555;
+  border-top: solid 3px ${theme.DavyGray};
   padding: 0.5rem 0;
   display: grid;
   grid-template-columns: ${(props) => {
@@ -90,12 +94,12 @@ export const StackIcon = styled.i`
 `;
 
 export const SocialContainer = styled.div`
-  border: solid 2px #000000;
+  border: solid 2px ${theme.Black};
   margin: 2rem auto;
   padding: 0.5rem;
   align-self: flex-end;
-  background-color: #e0e0e0;
-  box-shadow: 1px 1px 1px #000000;
+  background-color: ${theme.SoundState};
+  box-shadow: 1px 1px 1px ${theme.Black};
   transform: rotate(5deg);
 `;
 

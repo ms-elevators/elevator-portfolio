@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { ThemeProvider } from "styled-components";
+// import theme(colors)
+import theme from "../../config/theme";
 
 export const FloorSignStyle = styled.div`
   @font-face {
@@ -15,8 +18,8 @@ export const FloorSignStyle = styled.div`
   width: 7rem;
   height: 4rem;
 
-  background: #2c2c2c;
-  border: 0.5rem solid #bebebe;
+  background: ${theme.FloorSign};
+  border: 0.5rem solid ${theme.FloorSignBorder};
   box-sizing: border-box;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
@@ -29,11 +32,11 @@ export const FloorSignStyle = styled.div`
     font-family: "LAB디지털"; //폰트 수정
     font-size: 2rem;
 
-    color: #cf3434;
+    color: ${theme.FloorSignFont};
     z-index: 1;
   }
   .gray {
-    color: #343434;
+    color: ${theme.FloorSignGray};
     z-index: 0;
   }
 

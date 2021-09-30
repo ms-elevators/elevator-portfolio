@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { ThemeProvider } from "styled-components";
+// import theme(colors)
+import theme from "../../style/theme";
 
 export const SoundSettingContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
@@ -10,7 +13,7 @@ export const SoundSettingContainer = styled.div`
 `;
 
 export const SoundSettingTitle = styled.h1`
-  color: #ffffff;
+  color: ${theme.White};
 `;
 
 export const SoundSettingButtonWrapper = styled.div``;
@@ -20,8 +23,8 @@ export const SoundSettingButton = styled.input`
   padding: 0.5rem 1rem;
   width: 4rem;
   border-radius: 3px;
-  border: 2px #c4c4c4 solid;
-  background-color: #555555;
-  color: #ffffff;
+  border: 2px ${theme.SoundButtonBorder} solid;
+  background-color: ${theme.DavyGray};
+  color: ${theme.White};
   font-weight: 600;
 `;

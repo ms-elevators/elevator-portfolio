@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { ThemeProvider } from "styled-components";
+// import theme(colors)
+import theme from "../../style/theme";
 
 export const SpeakerContainer = styled.div`
   position: fixed;
@@ -50,7 +53,7 @@ export const SoundSwitch = styled.div`
   border-radius: 100%;
   border: 2px solid #aaaaaa;
 
-  background-color: #494949;
+  background-color: ${them.GrebeGray};
   box-shadow: 0 0 3px 1px #333333ef;
 
   cursor: pointer;

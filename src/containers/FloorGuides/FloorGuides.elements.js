@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { ThemeProvider } from "styled-components";
+// import theme(colors)
+import theme from "../../config/theme";
 
 export const FloorGuidesStyle = styled.div`
   display: grid;
@@ -7,9 +10,17 @@ export const FloorGuidesStyle = styled.div`
     1fr
   ); //app.js의 floors에 층 개수 설정 */
 
-  height: 11vh;
   width: 66%;
   margin: 1% auto;
-  border: solid #494949 3px;
-  background-color: #fffefa;
+  border: solid ${theme.GrebeGray} 3px;
+  background-color: ${theme.FloorGuides};
+  @media(max-width:1024px) {
+    margin-top:5vh;
+    height:6vh;
+    width:70%;
+  }
+  @media(max-width:900px){
+    
+  }
 `;
+

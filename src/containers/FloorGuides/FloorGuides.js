@@ -1,6 +1,6 @@
 import React from "react";
 import FloorGuide from "../../components/FloorGuide/FloorGuide";
-import { guideData } from "./Data";
+import { guideData } from "../Data";
 import { FloorGuidesStyle } from "./FloorGuides.elements.js";
 
 export default function FloorGuides({ floor, totalFloors }) {
@@ -20,13 +20,14 @@ export default function FloorGuides({ floor, totalFloors }) {
     );
     guides.push(guide);
   }
-
+  const last=" ";
   const contactFloor = (
     <FloorGuide
       floor={totalFloors}
       key={totalFloors}
       projectname="Contact"
-      currentColor={totalFloors == floor ? "#FCFF608A" : ""} //floors는 문자열 "7" floor은 숫자 -> === 대신 ==사용
+      currentColor={totalFloors*1 === floor ? "#FCFF608A" : ""} 
+      last={last}
     >
       Do you want to contact me?
     </FloorGuide>

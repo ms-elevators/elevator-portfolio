@@ -16,7 +16,7 @@ import {
   ImageBackground,
 } from "./Door.elements";
 
-import { content } from "./Data";
+import { content } from "../Data";
 import { DoorFrame } from "../../components/DoorFrame/DoorFrame";
 import Contact from "../../components/Contact/Contact";
 

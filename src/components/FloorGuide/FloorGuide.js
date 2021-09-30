@@ -7,9 +7,11 @@ export default function FloorGuide({
   projectname,
   children,
   currentColor,
+  last
 }) {
+  const borderLine = (last)?0:1;
   return (
-    <FloorGuideStyle currentColor={currentColor}>
+    <FloorGuideStyle currentColor={currentColor} borderLine={borderLine}>
       <span className="floor">{floor}F</span><span className="title">{projectname}</span> 
       <p>{children}</p>
     </FloorGuideStyle>

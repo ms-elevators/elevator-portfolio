@@ -53,7 +53,7 @@ export const SoundSwitch = styled.div`
   border-radius: 100%;
   border: 2px solid #aaaaaa;
 
-  background-color: ${them.GrebeGray};
+  background-color: ${theme.GrebeGray};
   box-shadow: 0 0 3px 1px #333333ef;
 
   cursor: pointer;

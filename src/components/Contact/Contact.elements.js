@@ -22,7 +22,7 @@ export const Wrap = styled.div`
 `;
 
 export const Title = styled.div`
-  margin: 50px auto 0 auto;
+  margin: 6% auto 0 auto;
   width: 80%;
   display: flex;
   justify-content: start;
@@ -133,7 +133,7 @@ export const Form = styled.form`
     }
     @media (max-height: 900px) {
       height: 100%;
-      font-size: 1.3rem;
+      font-size: 1rem;
     }
   }
 

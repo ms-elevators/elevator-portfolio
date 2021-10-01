@@ -1,5 +1,5 @@
 import React from "react";
-import { screenData } from "../Data";
+import { content } from "../Data";
 
 // import styled components
 import {
@@ -15,8 +15,8 @@ import {
 } from "./Screen.elements";
 
 export default function Screen({ hoverValue }) {
-  // deconstruct screenData
-  const { title, description, stack } = screenData[hoverValue];
+  // deconstruct content
+  const { name, description, stack } = content[hoverValue];
 
   // dynamically create stack icons
   const stacks = stack.map((s) => {
@@ -28,7 +28,7 @@ export default function Screen({ hoverValue }) {
     <LeftContainer>
       <ScreenOutline>
         <ScreenContainer>
-          <ScreenTitle>{title}</ScreenTitle>
+          <ScreenTitle>{name}</ScreenTitle>
           <ScreenDesc>{description}</ScreenDesc>
           <StackList length={stacks.length}>{stacks}</StackList>
         </ScreenContainer>

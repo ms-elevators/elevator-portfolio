@@ -22,7 +22,7 @@ export const ImageBackground = styled.div`
 
 // 이전, 다음 버튼
 export const ImgChangeButton = styled.div`
-  margin: auto 4%;
+  margin: auto 2%;
   font-size: 2.5rem;
   height: 2.5rem;
 
@@ -33,8 +33,8 @@ export const ContentImgSection = styled.section`
   display: flex;
   overflow: hidden;
   width: 100%;
-  margin: 3% auto;
-  height: 80%;
+  margin: 3% auto 0 auto;
+  height: 90%;
 
   @media (max-width: 800px) {
     height: 40%;
@@ -42,22 +42,24 @@ export const ContentImgSection = styled.section`
 `;
 
 export const ContentImgContainer = styled.section`
-  width: 80%;
+  width: 100%;
   height: 100%;
   position: relative;
   overflow: hidden;
   margin: auto;
-  padding: 3%;
+  padding: 2% 0 0 0;
 `;
 
 export const ContentImg = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 96%;
+  height: 90%;
   opacity: ${(props) => props.current};
   position: absolute;
-  left: 0;
+  left: 2%;
   transition: opacity 1s ease-in-out;
   object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 1px 1px 4px 4px #00000033;
 `;
 
 export const ContentButtonContainer = styled.section`
@@ -102,7 +104,7 @@ export const IndicatorContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 5%;
+  margin-top: 1%;
 `;
 
 export const Indicator = styled.div`

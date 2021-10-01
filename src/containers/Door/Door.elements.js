@@ -9,6 +9,7 @@ export const FloorBackground = styled.img`
   top: 0;
   left: 0;
   opacity: 50%;
+  object-fit: cover;
 `;
 
 export const DoorContainer = styled.div`

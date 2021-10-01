@@ -1,20 +1,19 @@
 import styled from "styled-components";
-// import theme(colors)
-import theme from "../../style/theme";
+// import theme from "../../style/theme";
 
 export const SpeakerContainer = styled.div`
   position: fixed;
-  width: 10%;
+  width: 12%;
   top: 8%;
-  left: 8%;
+  left: 7%;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   img {
-    width: 55%;
-    height: 55%;
+    width: 50%;
+    height: 59%;
   }
 `;
 
@@ -53,18 +52,19 @@ export const SoundLED = styled.div`
 `;
 
 export const SoundSwitch = styled.div`
-  width: 1.8vh;
-  padding-bottom: 1.3vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.3rem 0.5rem;
   margin: 30% auto 10% auto;
-
-  border-radius: 100%;
-  border: 2px solid #aaaaaa;
-
-  background-color: ${theme.GrebeGray};
-  box-shadow: 0 0 3px 1px #333333ef;
-
   cursor: pointer;
+  background: #b4bec1;
 
+  border: 1px solid #c9cdce;
+
+  border-radius: 3px;
+
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
   @media (min-width: 1440px) {
     margin: 35% auto 15% auto;
     transform: scale(1.2);
@@ -72,5 +72,25 @@ export const SoundSwitch = styled.div`
 
   &:active {
     box-shadow: none;
+  }
+
+  i,
+  p {
+    font-size: 1.3rem;
+    color: ${(props) => (props.light === "on" ? "#3C9D46ee" : "#DB3A24ee")};
+    filter: drop-shadow(
+      0 0 0.5px ${(props) => (props.light === "on" ? "#3C9D46ee" : "#DB3A24ee")}
+    );
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+  p {
+    margin: 0;
+    margin-left: 15%;
+    padding: 0;
+    font-size: 0.8rem;
   }
 `;

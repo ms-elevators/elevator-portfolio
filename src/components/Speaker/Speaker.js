@@ -2,7 +2,6 @@ import React from "react";
 import {
   SpeakerContainer,
   SoundStateContainer,
-  SoundLED,
   SoundSwitch,
 } from "./Speaker.elements";
 import speakerImg from "../../image/Speaker.png";
@@ -12,17 +11,24 @@ const Speaker = ({ sound, soundToggle }) => {
     <SpeakerContainer>
       <img src={speakerImg} alt="speaker"></img>
       <SoundStateContainer>
-        <SoundLED light={sound ? "on" : "off"} />
         <SoundSwitch
           onClick={() => {
             soundToggle(sound);
           }}
-        />
-        <p>
-          Sound
-          {/* <br />
-          Switch */}
-        </p>
+          light={sound ? "on" : "off"}
+        >
+          {sound ? (
+            <>
+              <i class="fas fa-volume-up"></i>
+              <p>On</p>
+            </>
+          ) : (
+            <>
+              <i class="fas fa-volume-mute"></i>
+              <p>Off</p>
+            </>
+          )}
+        </SoundSwitch>
       </SoundStateContainer>
     </SpeakerContainer>
   );

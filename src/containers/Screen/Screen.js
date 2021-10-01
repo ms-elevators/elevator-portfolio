@@ -35,9 +35,19 @@ export default function Screen({ hoverValue }) {
       </ScreenOutline>
 
       <SocialContainer>
-        <SocialIcon key="instagram" className="fab fa-instagram"></SocialIcon>
-        <SocialIcon key="github" className="fab fa-github"></SocialIcon>
-        <SocialIcon key="linkedin" className="fab fa-linkedin"></SocialIcon>
+        <SocialIcon
+          key="instagram"
+          href="https://instagram.com"
+          target="_blank"
+        >
+          <i className="fab fa-instagram" />
+        </SocialIcon>
+        <SocialIcon key="github" href="https://github.com" target="_blank">
+          <i className="fab fa-github" />
+        </SocialIcon>
+        <SocialIcon key="linkedin" href="https://linkedin.com" target="_blank">
+          <i className="fab fa-linkedin" />
+        </SocialIcon>
       </SocialContainer>
     </LeftContainer>
   );

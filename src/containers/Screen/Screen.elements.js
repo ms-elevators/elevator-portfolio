@@ -5,7 +5,6 @@ export const LeftContainer = styled.section`
   width: 18%;
   padding: 1rem;
   align-self: flex-start;
-  font-family: "Pretendard-Regular";
   line-height: 1.5;
 `;
 
@@ -30,7 +29,6 @@ export const ScreenContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  // background-color: #f0f8ff;
   background-color: ${theme.ScreenContainer};
 `;
 
@@ -71,8 +69,8 @@ export const ScreenDesc = styled.p`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: darkgrey;
-    outline: 1px solid slategrey;
+    background-color: ${theme.GrebeGray};
+    outline: 1px solid ${theme.LightGray};
   }
 
   /* Hide scrollbar for IE, Edge and Firefox */
@@ -108,10 +106,14 @@ export const SocialContainer = styled.div`
   transform: rotate(5deg);
 `;
 
-export const SocialIcon = styled.i`
+export const SocialIcon = styled.a`
   font-size: 1.5rem;
   margin: 0.3rem;
   padding: 0.3rem;
+
+  &:visited {
+    color: #000000;
+  }
 
   @media screen and (min-width: 1440px) {
     font-size: 2vw;

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ThemeProvider } from "styled-components";
 // import theme(colors)
 import theme from "../../style/theme";
 
@@ -28,6 +27,10 @@ export const SoundStateContainer = styled.div`
 
     color: #494949;
     font-size: 0.7rem;
+
+    @media (min-width: 1440px) {
+      font-size: 0.9vw;
+    }
   }
 `;
 
@@ -43,6 +46,10 @@ export const SoundLED = styled.div`
     props.light === "on" ? "#00ff00ee" : "#ff0000ee"};
   box-shadow: 0 0 3px 3px
     ${(props) => (props.light === "on" ? "#00ff00aa" : "#ff0000aa")};
+
+  @media (min-width: 1440px) {
+    transform: scale(1.2);
+  }
 `;
 
 export const SoundSwitch = styled.div`
@@ -57,6 +64,11 @@ export const SoundSwitch = styled.div`
   box-shadow: 0 0 3px 1px #333333ef;
 
   cursor: pointer;
+
+  @media (min-width: 1440px) {
+    margin: 35% auto 15% auto;
+    transform: scale(1.2);
+  }
 
   &:active {
     box-shadow: none;

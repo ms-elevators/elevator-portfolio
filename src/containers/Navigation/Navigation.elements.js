@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ThemeProvider } from "styled-components";
 // import theme(colors)
 import theme from "../../style/theme";
 
@@ -43,16 +42,26 @@ export const ContactButton = styled.button`
   position: relative;
   z-index: 0;
   background: ${theme.ContactButton};
-  color: ${theme.White};
+
+  color:  ${theme.White};
+  border: 1px solid ${(props) => (props.destination ? `${theme.StyleButtonBorder1}` : `${theme.StyleButtonBorder2}`)};
+
+ {/* color: ${theme.White};
   border: 1px solid
     ${(props) =>
-      props.destination ? theme.StyleButtonBorder1 : theme.StyleButtonBorder2};
+      props.destination ? theme.StyleButtonBorder1 : theme.StyleButtonBorder2};*/}
+
   box-sizing: border-box;
   box-shadow: 0.3px 0.3px 1px 0.5px rgba(100, 100, 100, 0.25),
-    ${(props) => (props.destination ? "0px 0px 10px #99EDFF," : "")} inset 1.3px
+    ${(props) => (props.destination ? `0px 0px 10px #99EDFF,` : "")} inset 1.3px
       1.3px 2px rgba(35, 35, 35, 0.18),
     inset -1px -1px 3px 1px rgba(220, 232, 231, 0.6);
   border-radius: 100%;
+
+  @media(min-width:1440px){
+    margin: 1.2vw auto;
+    transform: scale(1.2);
+  }
 
   // prevent hover crash for contact button with overlay
   &::after {
@@ -67,8 +76,15 @@ export const ContactButton = styled.button`
 `;
 
 export const DoorButtonContainer = styled.div`
-  display: flex;
+
+  display:flex;
   justify-content: center;
+
+  @media(min-width:1440px){
+    justify-content: space-around;
+    padding: 0 10%;
+  }
+
 `;
 
 export const DoorButton = styled.button`
@@ -86,9 +102,15 @@ export const DoorButton = styled.button`
     inset 1.3px 1.3px 2px rgba(35, 35, 35, 0.18),
     inset -1.3px -1.3px 4px 2px rgba(220, 232, 231, 0.6);
   border-radius: 5px;
-  @media (max-width: 1024px) {
-    height: 30px;
-    width: 50%;
+
+  @media(max-width:1024px){
+    height:30px;
+    width:50%;
+  }
+
+  @media(min-width:1440px){
+    font-size : 1vw;
+
   }
 
   // prevent hover crash for contact button with overlay

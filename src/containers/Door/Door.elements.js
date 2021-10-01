@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ThemeProvider } from "styled-components";
 // import theme(colors)
 import theme from "../../style/theme";
 
@@ -15,7 +14,6 @@ export const FloorBackground = styled.img`
 
 export const DoorContainer = styled.div`
   width: 66%;
-  height: 100%;
   margin: 0;
   position: relative;
   overflow: hidden;
@@ -24,6 +22,7 @@ export const DoorContainer = styled.div`
 export const DoorInnerContent = styled.div`
   position: relative;
   z-index: 2;
+  height: 95%;
 `;
 
 // 이미지를 감싸고 있는 불투명한 흰색 배경화면
@@ -75,14 +74,21 @@ export const ContentImg = styled.img`
 
 export const ContentButtonContainer = styled.section`
   width: 100%;
+  height:10vh;
   text-align: center;
   display: flex;
   justify-content: center;
+  align-items: center;
+
+  @media(min-width:1440px){
+    justify-content: space-around;
+    padding: 0 10%;
+  }
 `;
 
 export const ContentLink = styled.a`
   margin: 2% 3%;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem;
   text-decoration: none;
   background-color: ${theme.ContentLink};
 
@@ -91,6 +97,10 @@ export const ContentLink = styled.a`
   border: ${theme.LightGray} 2px solid;
   width: 10rem;
   font-weight: 500;
+
+  @media(min-width:1440px){
+    font-size: 1.2vw;
+  }
 
   &:hover {
     transform: scale(1.1);

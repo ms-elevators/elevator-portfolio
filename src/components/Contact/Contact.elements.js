@@ -1,23 +1,24 @@
 import styled from 'styled-components';
 import "./fonts.css"
-import { ThemeProvider } from "styled-components";
 // import theme(colors)
 import theme from "../../style/theme";
 
 export const Wrap = styled.div`
 
-    text-align: center;
     display: flex;
     justify-content: center;
+
+    height: 100%;
     
     .back{
         margin-top:5%;
         width: 80%;
-        height: 100%;
+        height: 88%;
         background-color: rgba( 255, 255, 255, 0.6 );
         border-radius:6px;
+        
         @media(max-width:1024px){
-            margin-top:30%;
+            margin-top:10%;
         }
     }
 `;
@@ -30,24 +31,35 @@ export const Title = styled.div`
     justify-content: start;
 
     #title {
-        font-size: 25px;
+        font-size: 1.6rem;
         color: ${theme.Title};
         font-family: 'ONE-Mobile-Title';
+
+        @media (min-width: 1440px){
+            font-size: 1.8vw;
+        }
     }
 `;
 
 export const Form = styled.form`
 
     margin: 0 auto;
-    padding: 15px 0 45px 0;
+    padding: 15px 0;
     width: 80%;
+    height: 80%;
     text-align: center;
 
     .flex-container {
         display: flex;
         justify-content: center;
         flex-direction: row;
+
+        
     }
+    #bottom{
+        height:80%;
+    }
+
     #name{
         display:inline-block;
         width:100%;
@@ -59,6 +71,11 @@ export const Form = styled.form`
         border-radius: 3px;
         border-color: rgba(85,85,85,0.8);
 
+        @media (min-width: 1440px){
+            font-size: 1vw;
+            padding: 0.8vw;
+        }
+
         :focus {
             border-style: solid;
             border-color: ${theme.Focus};
@@ -66,10 +83,14 @@ export const Form = styled.form`
     }
 
     .flex-container-right {
-        margin-top: 20px;
         display: flex;
         flex-direction: row;
         justify-content: end;
+        height:15%;
+
+        @media (max-height:900px){
+            height:10%;
+        }
     }
 
     .span-container {
@@ -84,14 +105,16 @@ export const Form = styled.form`
         font-family: Arial, Helvetica, sans-serif;
         color:${theme.Reply};
         
+        @media(min-width:1440px){
+            font-size: 1.2vw;
+        }
     }
 
     .button {
-        margin-right: 0;
         width: 90px;
         height:35px;
         cursor: pointer;
-        font-size: 18px;
+        font-size: 1.2rem;
         font-family: Arial, Helvetica, sans-serif;
         color: ${theme.Button};
 
@@ -106,6 +129,16 @@ export const Form = styled.form`
         :hover {
             transform: scale(1.05);
             box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.09);
+        }
+        
+        @media (min-width:1440px){
+            width:7vw;
+            height:3vw;
+            font-size:1.4vw;
+        }
+        @media (max-height:900px){
+            height:100%;
+            font-size:1.3rem;
         }
     }
 
@@ -128,11 +161,16 @@ export const Form = styled.form`
         }
         padding: 10px 10px;
         width: 100%;
-        height: 200px;
+        height: 95%;
         min-height: 100px;
         resize: none;
         outline: none;
         background-color: rgba(251,254,254,0.8);
+
+        @media (min-width: 1440px){
+            font-size: 1vw;
+            padding: 0.8vw;
+        }
 }
 
 `;

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ThemeProvider } from "styled-components";
 // import theme(colors)
 import theme from "../../style/theme";
 
@@ -23,6 +22,13 @@ export const FloorSignStyle = styled.div`
   box-sizing: border-box;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
+
+  @media(min-width:1440px){
+    width: 7.5vw;
+    height: 4.5vw;
+    font-size : 2.2vw;
+  }
+
   p {
     margin: 0;
     position: absolute;
@@ -34,6 +40,12 @@ export const FloorSignStyle = styled.div`
 
     color: ${theme.FloorSignFont};
     z-index: 1;
+
+    @media(min-width:1440px){
+      font-size : 2.2vw;
+      right: 2.2vw;
+      top:0.7vw;
+    }
   }
   .gray {
     color: ${theme.FloorSignGray};

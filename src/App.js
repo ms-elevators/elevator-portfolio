@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import useSound from "use-sound";
 
-import GlobalStyle, { BackgroundImg } from "./globalStyles";
+// import components
 import SoundButtons from "./components/SoundButtons/SoundButtons";
 import MainContent from "./containers/MainContent/MainContent";
+
+// import styles
+import GlobalStyle, { BackgroundImg } from "./globalStyles";
 
 // import bgm
 import bgmSrc from "./sound/bgm.mp3";
@@ -16,11 +19,9 @@ import arriveSfx from "./sound/arrive.wav";
 
 // import background image
 import bgi from "./wall.png";
-import { ThemeProvider } from "styled-components";
-// import theme(colors)
-import theme from "./style/theme";
 
 function App() {
+  // Define States //
   // sound state
   const [sound, setSound] = useState(null);
 
@@ -33,12 +34,11 @@ function App() {
   // screen state
   const [hoverValue, setHover] = useState(1);
 
-  // SOUND FUNCTIONS
-
-  // sound hook
+  // Sound Functions //
+  // bgm hook
   const [bgm, { stop }] = useSound(bgmSrc, { volume: 0.3, interrupt: true });
 
-  // set sound state, play bgm if sound is true
+  // set sound state and play bgm if sound is true
   const initialSoundSettings = (allow) => {
     setSound(allow);
     if (allow === true) {
@@ -76,33 +76,25 @@ function App() {
     }
   };
 
-  // FLOOR CHANGE MECHANISM
-
+  // Floor Change Mechanism //
   // when floor button is clicked
   const changeFloor = async (floorNum) => {
-    // destination is not current floor
+    // if destination is not current floor
     if (floorNum !== floor) {
       try {
         // get difference between destination and current location
         const diff = floorNum - floor;
         setDestination(floorNum);
 
-        const handleClose = await closeDoor();
+        // close door when open
+        await closeDoor();
 
-        const handleMovement =
-          // if destination is higher floor, go up, else go down
-          diff > 0
-            ? await upEachFloor(handleClose, floorNum)
-            : await downEachFloor(handleClose, floorNum);
+        // if destination is higher floor, go up, else go down
+        diff > 0 ? await upEachFloor(floorNum) : await downEachFloor(floorNum);
 
-        const handleArrival = await setFloorData(
-          handleMovement,
-          diff,
-          floorNum
-        );
+        await setFloorData(diff, floorNum);
 
-        const handleOpen = await openDoor(handleArrival);
-        console.log(handleOpen);
+        await openDoor();
       } catch (err) {
         console.log(err);
       }
@@ -110,7 +102,7 @@ function App() {
   };
 
   // go up floors
-  function upEachFloor(message, floorNum) {
+  function upEachFloor(floorNum) {
     return new Promise((resolve, reject) => {
       if (sound) movePlay();
       // call function on every floor until destination
@@ -122,7 +114,7 @@ function App() {
   }
 
   // go down floors
-  function downEachFloor(message, floorNum) {
+  function downEachFloor(floorNum) {
     return new Promise((resolve, reject) => {
       if (sound) movePlay();
       // call function on every floor until destination
@@ -134,7 +126,7 @@ function App() {
   }
 
   // set floor on arrival
-  function setFloorData(message, diff, floorNum) {
+  function setFloorData(diff, floorNum) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         setFloor(floorNum);
@@ -148,17 +140,19 @@ function App() {
 
   // close door
   function closeDoor() {
-    return new Promise((resolve, reject) => {
-      setReady(false);
-      doorSound();
-      setTimeout(() => {
-        resolve("success");
-      }, 2000); // wait for door to close
-    });
+    return isReady
+      ? new Promise((resolve, reject) => {
+          setReady(false);
+          doorSound();
+          setTimeout(() => {
+            resolve("success");
+          }, 2000); // wait for door to close
+        })
+      : "";
   }
 
   // open door
-  function openDoor(message) {
+  function openDoor() {
     return new Promise((resolve, reject) => {
       setReady(true);
       doorSound();
@@ -179,8 +173,7 @@ function App() {
     action === "open" ? openDoor() : closeDoor();
   };
 
-  // SCREEN FUNCTION
-
+  // Screen Function //
   // set screen data to hover data
   const onButtonHover = (e) => {
     setHover(e.target.value);
@@ -193,30 +186,28 @@ function App() {
 
   return (
     <div>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        {/* if sound state is null, show buttons */}
-        {sound === null ? (
-          <SoundButtons initialSoundSettings={initialSoundSettings} />
-        ) : (
-          <>
-            <BackgroundImg src={bgi} alt="background" />
-            <MainContent
-              sound={sound}
-              soundToggle={soundToggle}
-              floor={floor}
-              hoverValue={hoverValue}
-              isReady={isReady}
-              contactFloor={contactFloor}
-              changeFloor={changeFloor}
-              onButtonHover={onButtonHover}
-              onButtonHoverOut={onButtonHoverOut}
-              destination={destination}
-              doorActivate={doorActivate}
-            />
-          </>
-        )}
-      </ThemeProvider>
+      <GlobalStyle />
+      {/* if sound state is null, show buttons */}
+      {sound === null ? (
+        <SoundButtons initialSoundSettings={initialSoundSettings} />
+      ) : (
+        <>
+          <BackgroundImg src={bgi} alt="background" />
+          <MainContent
+            sound={sound}
+            soundToggle={soundToggle}
+            floor={floor}
+            hoverValue={hoverValue}
+            isReady={isReady}
+            contactFloor={contactFloor}
+            changeFloor={changeFloor}
+            onButtonHover={onButtonHover}
+            onButtonHoverOut={onButtonHoverOut}
+            destination={destination}
+            doorActivate={doorActivate}
+          />
+        </>
+      )}
     </div>
   );
 }

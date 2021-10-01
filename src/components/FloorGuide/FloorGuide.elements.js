@@ -4,6 +4,10 @@ export const FloorGuideStyle = styled.div`
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');font-family:'PT Sans', sans-serif;
 font-family: 'PT Sans', sans-serif;
 text-align: left;
+@media(max-width:800px){
+   text-align:center;
+   line-height :2rem;
+  }
 
 padding: 7%;
 font-size: 0.5rem;
@@ -41,7 +45,24 @@ position:relative;
 
   @media(min-width:1440px){
     font-size: 1vw;
+  
 }
+  @media(max-width:800px){
+    opacity:0;
+    position:absolute;
+  }
+}
+p{
+  line-height: 1.2rem;
+  line-break: break-all;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-height:2.4rem;
+  @media(max-width:800px){
+    opacity:0;
+    position:absolute;
+    
+  }
 }
 
 `;

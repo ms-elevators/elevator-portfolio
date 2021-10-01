@@ -16,11 +16,12 @@ import {
   ImageBackground,
 } from "./Door.elements";
 
-import { content } from "../Data";
+import { content , screenData} from "../Data";
 import { DoorFrame } from "../../components/DoorFrame/DoorFrame";
 import Contact from "../../components/Contact/Contact";
 
 import bgi from "./office.jpg"; //Photo by <a href="https://unsplash.com/@sunday_digital?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nastuh Abootalebi</a> on <a href="https://unsplash.com/s/photos/office?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+import { StackIcon } from "../Screen/Screen.elements";
 
 // isReady- App.js에서 받아온 것
 export default function Door({ floor, isReady, contactFloor }) {
@@ -65,6 +66,13 @@ export default function Door({ floor, isReady, contactFloor }) {
     setImgIdx(0);
   }, [floor]);
 
+  //stacks 반응형 적용
+  var stack=screenData[floor].stack
+  const stacks = stack.map((s) => {
+    const icon = `fab fa-${s}`;
+    return <StackIcon key={s} className={icon}></StackIcon>;
+  });
+
   return (
     <DoorContainer>
       <FloorBackground src={bgi} alt="background" />
@@ -76,8 +84,11 @@ export default function Door({ floor, isReady, contactFloor }) {
       ) : (
         <DoorInnerContent>
           <ImageBackground>
+          <p>{screenData[floor].title}</p>
             <ContentImgSection>
               {/* 이전 버튼 */}
+              
+
               <ImgChangeButton onClick={() => handlePrev()}>
                 <i className="fas fa-chevron-left"></i>
               </ImgChangeButton>
@@ -87,7 +98,7 @@ export default function Door({ floor, isReady, contactFloor }) {
                 <i className="fas fa-chevron-right"></i>
               </ImgChangeButton>
             </ContentImgSection>
-
+            <div className="stacks">{stacks}</div>
             <IndicatorContainer>
               {Array.from({ length: imgLen }).map((item, dotIdx) => (
                 <ContainerDot

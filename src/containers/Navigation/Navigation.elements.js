@@ -46,11 +46,8 @@ export const ContactButton = styled.button`
   color:  ${theme.White};
   border: 1px solid ${(props) => (props.destination ? `${theme.StyleButtonBorder1}` : `${theme.StyleButtonBorder2}`)};
 
- {/* color: ${theme.White};
-  border: 1px solid
-    ${(props) =>
-      props.destination ? theme.StyleButtonBorder1 : theme.StyleButtonBorder2};*/}
 
+ 
   box-sizing: border-box;
   box-shadow: 0.3px 0.3px 1px 0.5px rgba(100, 100, 100, 0.25),
     ${(props) => (props.destination ? `0px 0px 10px #99EDFF,` : "")} inset 1.3px
@@ -79,6 +76,14 @@ export const DoorButtonContainer = styled.div`
 
   display:flex;
   justify-content: center;
+  i{
+    @media(max-width:900px){
+      font-size:5px;
+    }
+
+   
+
+  }
 
   @media(min-width:1440px){
     justify-content: space-around;
@@ -96,6 +101,7 @@ export const DoorButton = styled.button`
   z-index: 0;
   background: ${theme.StyleButton};
   border: 1px solid ${theme.StyleButtonBorder2};
+  height:5%;
 
   box-sizing: border-box;
   box-shadow: 0.3px 0.3px 1px 0.5px rgba(100, 100, 100, 0.25),
@@ -103,10 +109,7 @@ export const DoorButton = styled.button`
     inset -1.3px -1.3px 4px 2px rgba(220, 232, 231, 0.6);
   border-radius: 5px;
 
-  @media(max-width:1024px){
-    height:30px;
-    width:50%;
-  }
+  
 
   @media(min-width:1440px){
     font-size : 1vw;
@@ -124,3 +127,29 @@ export const DoorButton = styled.button`
     left: 0;
   }
 `;
+export const SocialContainer = styled.div`
+  border: solid 2px ${theme.Black};
+  margin: 2rem auto;
+  padding: 0.5rem;
+  align-self: flex-end;
+  background-color: ${theme.SoundState};
+  box-shadow: 1px 1px 1px ${theme.Black};
+  transform: rotate(5deg);
+  @media(min-width:800px){
+    opacity:0;
+
+  }
+`;
+
+export const SocialIcon = styled.i`
+  font-size: 1.5rem;
+  margin: 0.3rem;
+  padding: 0.3rem;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 2vw;
+  }
+
+  @media screen and (max-width: 1024px) {
+    font-size: 1rem;
+  }`

@@ -17,6 +17,10 @@ export const DoorContainer = styled.div`
   margin: 0;
   position: relative;
   overflow: hidden;
+  @media(max-width:800px){
+    margin-left:3%;
+    width:74%;
+  }
 `;
 
 export const DoorInnerContent = styled.div`
@@ -31,6 +35,24 @@ export const ImageBackground = styled.div`
   height: 58vh;
   background: rgba(255, 255, 255, 0.47);
   margin: 3% auto 0 auto;
+  p{
+    opacity:0;
+  }
+  .stacks{
+    opacity:0;
+    position:absolute;
+  }
+  @media(max-width:800px){
+    p{
+      opacity:1;
+      font-size:3rem;
+      padding-top:4rem;
+    }
+    .stacks{
+      opacity:1;
+      position: relative;
+    }
+  }
 `;
 
 export const ContentImgSection = styled.section`
@@ -38,9 +60,12 @@ export const ContentImgSection = styled.section`
   overflow: hidden;
   width: 100%;
   margin: auto;
+  height:60%;
+  
   @media(max-width:1024px){
   margin-top:3rem;
   }
+  
 `;
 
 // 이전, 다음 버튼
@@ -56,6 +81,7 @@ export const ContentImgContainer = styled.section`
   position: relative;
   overflow: hidden;
   margin: 2% auto 0 auto;
+  
 `;
 
 export const ContentImg = styled.img`

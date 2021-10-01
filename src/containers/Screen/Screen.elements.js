@@ -8,6 +8,10 @@ export const LeftContainer = styled.section`
   align-self: flex-start;
   font-family: "Pretendard-Regular";
   line-height: 1.5;
+  @media(max-width:800px){
+    opacity:0;
+    position:absolute
+  }
 `;
 
 export const ScreenOutline = styled.div`
@@ -23,6 +27,7 @@ export const ScreenOutline = styled.div`
     height:25vh;
     
   }
+  
 `;
 
 export const ScreenContainer = styled.div`

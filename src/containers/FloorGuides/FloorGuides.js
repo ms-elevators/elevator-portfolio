@@ -20,13 +20,15 @@ export default function FloorGuides({ floor, totalFloors }) {
     );
     guides.push(guide);
   }
-  const last=" ";
+
+  // pass last prop to set no border for last block
+  const last = true;
   const contactFloor = (
     <FloorGuide
       floor={totalFloors}
       key={totalFloors}
       projectname="Contact"
-      currentColor={totalFloors*1 === floor ? "#FCFF608A" : ""} 
+      currentColor={totalFloors * 1 === floor ? "#FCFF608A" : ""}
       last={last}
     >
       Do you want to contact me?

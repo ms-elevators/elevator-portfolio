@@ -9,6 +9,7 @@ import {
   ContentImgSection,
   ContentImgContainer,
   ContentImg,
+  StackIcon,
 } from "./ProjectContent.elements";
 
 import { content } from "../Data";
@@ -55,6 +56,13 @@ const ProjectContent = ({
     setImgIdx(imgIdx); // Dot 눌렀을 때 이미지 변환 여부를 결정 -> 해당 코드 없으면 Dot은 눌려도 이미지는 바뀌지 않음.
     setSlideIdx(imgIdx); // Dot 눌림 여부를 결정
   };
+
+  //stacks 반응형 적용
+  var stack = content[floor].stack;
+  const stacks = stack.map((s) => {
+    const icon = `fab fa-${s}`;
+    return <StackIcon key={s} className={icon}></StackIcon>;
+  });
 
   return (
     <>

@@ -104,3 +104,12 @@ export const Indicator = styled.div`
   height: ${(props) => (props.active === "dotActive" ? "11px" : "10px")};
   cursor: pointer;
 `;
+
+export const StackIcon = styled.i`
+  font-size: 1.5rem;
+
+  @media (min-width: 1440px) {
+    margin-top: 0.5vw;
+    font-size: 2.2vw;
+  }
+`;

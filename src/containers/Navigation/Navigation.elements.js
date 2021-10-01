@@ -49,7 +49,7 @@ export const FloorButtonsContainer = styled.div`
 
 export const ContactButton = styled.button`
   padding: 0.5rem;
-  margin: 1rem auto;
+  margin: 0.5rem auto;
   cursor: pointer;
   position: relative;
   z-index: 0;
@@ -70,6 +70,10 @@ export const ContactButton = styled.button`
   @media (min-width: 1440px) {
     margin: 1.2vw auto;
     transform: scale(1.2);
+  }
+
+  @media (max-width: 1024px) {
+    margin: 1rem auto;
   }
 
   // prevent hover crash for contact button with overlay

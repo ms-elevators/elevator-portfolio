@@ -14,21 +14,16 @@ export const StyledButton = styled.button`
   z-index: 0;
   background: ${theme.StyleButton};
 
-  border: 1px solid ${(props) => (props.destination ? `${theme.StyleButtonBorder1}` : `${theme.StyleButtonBorder2}`)};
-  box-sizing: border-box;
-  box-shadow: 0.3px 0.3px 1px 0.5px rgba(100, 100, 100, 0.25),
-    ${(props) => (props.destination ? `0px 0px 10px ${theme.StyleButtonBorder1},` : "")} inset 1.3px
-      1.3px 2px rgba(35, 35, 35, 0.18),
-
-  {/*border: 1px solid
+  border: 1px solid
     ${(props) =>
-      props.destination ? theme.StyleButtonBorder1 : theme.StyleButtonBorder2};
+      props.destination
+        ? `${theme.StyleButtonBorder1}`
+        : `${theme.StyleButtonBorder2}`};
   box-sizing: border-box;
   box-shadow: 0.3px 0.3px 1px 0.5px rgba(100, 100, 100, 0.25),
     ${(props) =>
         props.destination ? `0px 0px 10px ${theme.StyleButtonBorder1},` : ""}
-      inset 1.3px 1.3px 2px rgba(35, 35, 35, 0.18),*/}
-
+      inset 1.3px 1.3px 2px rgba(35, 35, 35, 0.18),
     inset -1.3px -1.3px 4px 2px rgba(220, 232, 231, 0.6);
   border-radius: 5px;
 

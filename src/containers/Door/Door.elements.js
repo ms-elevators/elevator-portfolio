@@ -1,5 +1,4 @@
 import styled from "styled-components";
-// import theme(colors)
 import theme from "../../style/theme";
 
 export const FloorBackground = styled.img`
@@ -38,8 +37,8 @@ export const ContentImgSection = styled.section`
   overflow: hidden;
   width: 100%;
   margin: auto;
-  @media(max-width:1024px){
-  margin-top:3rem;
+  @media (max-width: 1024px) {
+    margin-top: 3rem;
   }
 `;
 
@@ -66,21 +65,21 @@ export const ContentImg = styled.img`
   left: 0;
   transition: opacity 1s ease-in-out;
   object-fit: cover;
-  @media(max-width:1024px){
-  padding:1rem;
-  height:60%;
+  @media (max-width: 1024px) {
+    padding: 1rem;
+    height: 60%;
   }
 `;
 
 export const ContentButtonContainer = styled.section`
   width: 100%;
-  height:10vh;
+  height: 10vh;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  @media(min-width:1440px){
+  @media (min-width: 1440px) {
     justify-content: space-around;
     padding: 0 10%;
   }
@@ -98,7 +97,7 @@ export const ContentLink = styled.a`
   width: 10rem;
   font-weight: 500;
 
-  @media(min-width:1440px){
+  @media (min-width: 1440px) {
     font-size: 1.2vw;
   }
 

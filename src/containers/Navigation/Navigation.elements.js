@@ -1,5 +1,4 @@
 import styled from "styled-components";
-// import theme(colors)
 import theme from "../../style/theme";
 
 export const NavContentsContainer = styled.div`

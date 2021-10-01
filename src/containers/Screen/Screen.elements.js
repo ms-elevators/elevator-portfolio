@@ -1,5 +1,4 @@
 import styled from "styled-components";
-// import theme(colors)
 import theme from "../../style/theme";
 
 export const LeftContainer = styled.section`
@@ -19,9 +18,8 @@ export const ScreenOutline = styled.div`
   align-self: flex-start;
   background-color: ${theme.ScreenOutline};
   box-shadow: 1px 3px 3px ${theme.Black};
-  @media (max-width:1080px){
-    height:25vh;
-    
+  @media (max-width: 1080px) {
+    height: 25vh;
   }
 `;
 
@@ -62,7 +60,6 @@ export const ScreenDesc = styled.p`
   @media (min-width: 1440px) {
     font-size: 1.2vw;
   }
-
 
   /* Hide scrollbar for Chrome, Safari and Opera */
   &::-webkit-scrollbar {

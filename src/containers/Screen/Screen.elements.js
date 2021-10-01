@@ -2,14 +2,17 @@ import styled from "styled-components";
 import theme from "../../style/theme";
 
 export const LeftContainer = styled.section`
+  font-family: "Montserrat", "Pretendard-ExtraLight", sans-serif;
   width: 18%;
   padding: 1rem;
   align-self: flex-start;
   line-height: 1.5;
+
   @media (max-width: 800px) {
     display: none;
     position: absolute;
   }
+
   @media (max-width: 1024px) {
     height: 80%;
   }
@@ -24,6 +27,7 @@ export const ScreenOutline = styled.div`
   align-self: flex-start;
   background-color: ${theme.ScreenOutline};
   box-shadow: 1px 3px 3px ${theme.Black};
+
   @media (max-width: 1024px) {
     height: 70%;
   }

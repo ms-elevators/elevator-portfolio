@@ -25,6 +25,7 @@ export const StyledButton = styled.button`
     inset -1.3px -1.3px 4px 2px rgba(220, 232, 231, 0.6);
   border-radius: 5px;
 
+  font-family: "Digital Numbers Regular";
   font-size: 1.1rem;
 
   @media (max-width: 1024px) {

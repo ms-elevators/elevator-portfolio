@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export const FloorGuideStyle = styled.div`
-  @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap");
-  font-family: "PT Sans", sans-serif;
-  font-family: "PT Sans", sans-serif;
+  font-family: "Montserrat", "Pretendard-ExtraLight", sans-serif;
   text-align: left;
 
   padding: 7%;

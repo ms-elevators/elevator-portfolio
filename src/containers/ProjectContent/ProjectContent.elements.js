@@ -86,6 +86,7 @@ export const ContentLink = styled.a`
   border: ${theme.LightGray} 2px solid;
   width: 10rem;
   font-weight: 500;
+  font-family: "Montserrat", "Pretendard-ExtraLight", sans-serif;
   @media (min-width: 1440px) {
     font-size: 1.2vw;
   }

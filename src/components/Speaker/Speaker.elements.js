@@ -6,6 +6,7 @@ export const SpeakerContainer = styled.div`
   width: 12%;
   top: 8%;
   left: 7%;
+  font-family: "Montserrat", "Pretendard-ExtraLight", sans-serif;
 
   display: flex;
   justify-content: space-between;

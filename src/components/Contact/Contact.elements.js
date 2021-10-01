@@ -3,6 +3,7 @@ import "./fonts.css";
 import theme from "../../style/theme";
 
 export const Wrap = styled.div`
+  font-family: "Montserrat", "Pretendard-ExtraLight", sans-serif;
   display: flex;
   justify-content: center;
 
@@ -30,7 +31,6 @@ export const Title = styled.div`
   #title {
     font-size: 1.6rem;
     color: ${theme.Title};
-    font-family: "ONE-Mobile-Title";
 
     @media (min-width: 1440px) {
       font-size: 1.8vw;
@@ -96,7 +96,6 @@ export const Form = styled.form`
   }
 
   #reply {
-    font-family: Arial, Helvetica, sans-serif;
     color: ${theme.Reply};
 
     @media (min-width: 1440px) {
@@ -109,7 +108,6 @@ export const Form = styled.form`
     height: 35px;
     cursor: pointer;
     font-size: 1.2rem;
-    font-family: Arial, Helvetica, sans-serif;
     color: ${theme.Button};
 
     background-color: rgba(9, 9, 10, 0.8);
@@ -139,7 +137,6 @@ export const Form = styled.form`
 
   input {
     ::placeholder {
-      font-family: Arial, Helvetica, sans-serif;
       color: rgba(85, 85, 85, 0.8);
     }
     padding: 5px 10px;
@@ -151,7 +148,6 @@ export const Form = styled.form`
 
   textarea {
     ::placeholder {
-      font-family: Arial, Helvetica, sans-serif;
       color: rgba(85, 85, 85, 0.8);
     }
     padding: 10px 10px;

@@ -2,7 +2,6 @@ import React from "react";
 import {
   SpeakerContainer,
   SoundStateContainer,
-  SoundLED,
   SoundSwitch,
 } from "./Speaker.elements";
 import speakerImg from "../../image/Speaker.png";

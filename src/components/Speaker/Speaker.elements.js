@@ -1,6 +1,5 @@
 import styled from "styled-components";
-// import theme(colors)
-import theme from "../../style/theme";
+// import theme from "../../style/theme";
 
 export const SpeakerContainer = styled.div`
   position: fixed;

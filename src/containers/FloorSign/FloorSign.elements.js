@@ -12,7 +12,7 @@ export const FloorSignStyle = styled.div`
   }
 
   position: relative;
-  
+
   margin: auto;
   width: 7rem;
   height: 4rem;
@@ -30,7 +30,7 @@ export const FloorSignStyle = styled.div`
   }
 
   p {
-    margin: 0 ;
+    margin: 0;
     position: absolute;
     right: 2rem;
     top: 0.5rem;
@@ -51,5 +51,4 @@ export const FloorSignStyle = styled.div`
     color: ${theme.FloorSignGray};
     z-index: 0;
   }
-
 `;

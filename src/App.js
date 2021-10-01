@@ -193,9 +193,9 @@ function App() {
 
   return (
     <div>
-      <ThemeProvider theme = {theme}>
+      <ThemeProvider theme={theme}>
         <GlobalStyle />
-      {/* if sound state is null, show buttons */}
+        {/* if sound state is null, show buttons */}
         {sound === null ? (
           <SoundButtons initialSoundSettings={initialSoundSettings} />
         ) : (
@@ -216,11 +216,9 @@ function App() {
             />
           </>
         )}
-
       </ThemeProvider>
     </div>
-    
-    );
-  }
+  );
+}
 
 export default App;

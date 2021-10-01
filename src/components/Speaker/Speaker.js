@@ -12,17 +12,24 @@ const Speaker = ({ sound, soundToggle }) => {
     <SpeakerContainer>
       <img src={speakerImg} alt="speaker"></img>
       <SoundStateContainer>
-        <SoundLED light={sound ? "on" : "off"} />
         <SoundSwitch
           onClick={() => {
             soundToggle(sound);
           }}
-        />
-        <p>
-          Sound
-          {/* <br />
-          Switch */}
-        </p>
+          light={sound ? "on" : "off"}
+        >
+          {sound ? (
+            <>
+              <i class="fas fa-volume-up"></i>
+              <p>On</p>
+            </>
+          ) : (
+            <>
+              <i class="fas fa-volume-mute"></i>
+              <p>Off</p>
+            </>
+          )}
+        </SoundSwitch>
       </SoundStateContainer>
     </SpeakerContainer>
   );

@@ -5,60 +5,59 @@ import theme from "../../style/theme";
 
 export const SpeakerContainer = styled.div`
   position: fixed;
-  width: 10%;
+  width: 12%;
   top: 8%;
-  left: 8%;
+  left: 7%;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   img {
-    width: 55%;
-    height: 55%;
+    width: 50%;
+    height: 59%;
   }
 `;
 
 export const SoundStateContainer = styled.div`
   width: 40%;
-
-  p,
-  i {
-    margin: 0;
-
-    color: #494949;
-    font-size: 0.7rem;
-  }
-`;
-
-export const SoundLED = styled.div`
-  width: 2vh;
-  padding-bottom: 1.5vh;
-  margin: 20% auto;
-
-  border-radius: 100%;
-  border: 2px solid ${(props) => (props.light === "on" ? "#00ff00" : "#ff0000")};
-
-  background-color: ${(props) =>
-    props.light === "on" ? "#00ff00ee" : "#ff0000ee"};
-  box-shadow: 0 0 3px 3px
-    ${(props) => (props.light === "on" ? "#00ff00aa" : "#ff0000aa")};
 `;
 
 export const SoundSwitch = styled.div`
-  width: 1.8vh;
-  padding-bottom: 1.3vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.3rem 0.5rem;
   margin: 30% auto 10% auto;
-
-  border-radius: 100%;
-  border: 2px solid #aaaaaa;
-
-  background-color: ${theme.GrebeGray};
-  box-shadow: 0 0 3px 1px #333333ef;
-
   cursor: pointer;
+  background: #b4bec1;
 
+  border: 1px solid #c9cdce;
+
+  border-radius: 3px;
+
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
   &:active {
     box-shadow: none;
+  }
+
+  i,
+  p {
+    font-size: 1.3rem;
+    color: ${(props) => (props.light === "on" ? "#3C9D46ee" : "#DB3A24ee")};
+    filter: drop-shadow(
+      0 0 0.5px ${(props) => (props.light === "on" ? "#3C9D46ee" : "#DB3A24ee")}
+    );
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+  p {
+    margin: 0;
+    margin-left: 15%;
+    padding: 0;
+    font-size: 0.8rem;
   }
 `;

@@ -73,7 +73,8 @@ export const ContactButton = styled.button`
 
 export const DoorButtonContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  width: 100%;
 
   @media (min-width: 1440px) {
     justify-content: space-around;
@@ -84,7 +85,7 @@ export const DoorButtonContainer = styled.div`
 export const DoorButton = styled.button`
   padding: 0.3rem 0.5rem;
   display: flex;
-  margin: 0 0.5rem;
+  justify-content: space-between;
   cursor: pointer;
   position: relative;
   z-index: 0;
@@ -97,13 +98,19 @@ export const DoorButton = styled.button`
     inset -1.3px -1.3px 4px 2px rgba(220, 232, 231, 0.6);
   border-radius: 5px;
 
+  font-size: 1.3rem;
+  width: 35%;
+  i {
+    margin: 0 10%;
+  }
+
   @media (max-width: 1024px) {
     height: 30px;
     width: 50%;
   }
 
   @media (min-width: 1440px) {
-    font-size: 1vw;
+    font-size: 2rem;
   }
 
   // prevent hover crash for contact button with overlay

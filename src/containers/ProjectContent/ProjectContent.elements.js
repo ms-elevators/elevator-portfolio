@@ -1,22 +1,23 @@
 import styled from "styled-components";
 import theme from "../../style/theme";
 
+export const FloorTitle = styled.h1`
+  display: none;
+
+  @media (max-width: 800px) {
+    display: block;
+    font-size: 4rem;
+    padding-top: 1rem;
+    margin: 0;
+  }
+`;
+
 // 이미지를 감싸고 있는 불투명한 흰색 배경화면
 export const ImageBackground = styled.div`
   width: 90%;
   height: 58vh;
   background: rgba(255, 255, 255, 0.47);
-  margin: 3% auto 0 auto;
-`;
-
-export const ContentImgSection = styled.section`
-  display: flex;
-  overflow: hidden;
-  width: 100%;
-  margin: auto;
-  @media (max-width: 1024px) {
-    margin-top: 3rem;
-  }
+  margin: 5% auto 2% auto;
 `;
 
 // 이전, 다음 버튼
@@ -28,12 +29,25 @@ export const ImgChangeButton = styled.div`
   cursor: pointer;
 `;
 
+export const ContentImgSection = styled.section`
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  margin: 3% auto;
+  height: 80%;
+
+  @media (max-width: 800px) {
+    height: 40%;
+  }
+`;
+
 export const ContentImgContainer = styled.section`
   width: 80%;
-  height: 50vh;
+  height: 100%;
   position: relative;
   overflow: hidden;
-  margin: 2% auto 0 auto;
+  margin: auto;
+  padding: 3%;
 `;
 
 export const ContentImg = styled.img`
@@ -44,23 +58,21 @@ export const ContentImg = styled.img`
   left: 0;
   transition: opacity 1s ease-in-out;
   object-fit: cover;
-  @media (max-width: 1024px) {
-    padding: 1rem;
-    height: 60%;
-  }
 `;
 
 export const ContentButtonContainer = styled.section`
   width: 100%;
-  height: 10vh;
+  height: 5vh;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-
   @media (min-width: 1440px) {
     justify-content: space-around;
     padding: 0 10%;
+  }
+  @media (max-width: 800px) {
+    height: 5vh;
   }
 `;
 
@@ -69,17 +81,14 @@ export const ContentLink = styled.a`
   padding: 0.5rem;
   text-decoration: none;
   background-color: ${theme.ContentLink};
-
   color: ${theme.LightGray};
   border-radius: 5px;
   border: ${theme.LightGray} 2px solid;
   width: 10rem;
   font-weight: 500;
-
   @media (min-width: 1440px) {
     font-size: 1.2vw;
   }
-
   &:hover {
     transform: scale(1.1);
     background-color: ${theme.White};
@@ -106,10 +115,49 @@ export const Indicator = styled.div`
 `;
 
 export const StackIcon = styled.i`
-  font-size: 1.5rem;
+  font-size: 2.5rem;
+`;
 
-  @media (min-width: 1440px) {
-    margin-top: 0.5vw;
-    font-size: 2.2vw;
+export const StackList = styled.div`
+  width: 60%;
+  margin: 5% auto;
+  display: none;
+
+  @media (max-width: 800px) {
+    display: grid;
+    grid-template-columns: ${(props) => {
+      return `repeat(${props.length}, 1fr);`;
+    }};
+  }
+`;
+
+export const ScreenDesc = styled.p`
+  display: none;
+  margin: 0 5%;
+  padding: 0 5%;
+  height: 15%;
+  text-align: left;
+  overflow-y: scroll;
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    width: 0.3rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${theme.GrebeGray};
+    outline: 1px solid ${theme.LightGray};
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  @media (max-width: 800px) {
+    display: block;
   }
 `;

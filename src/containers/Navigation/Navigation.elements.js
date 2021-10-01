@@ -17,8 +17,15 @@ export const NavbarSection = styled.section`
   border-radius: 10px;
   box-shadow: 0px 0px 5px 2px ${theme.Navbar1} inset;
   box-shadow: 1px 1px 4px 0px ${theme.Navbar2};
+
+  @media (max-width: 800px) {
+    margin: 10% auto;
+    height: 65%;
+  }
+
   @media (max-width: 1024px) {
-    height: auto;
+    padding: 0.7rem;
+    height: 70%;
   }
 `;
 
@@ -29,8 +36,14 @@ export const FloorButtonsContainer = styled.div`
   flex-direction: column-reverse;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-content: center;
+
+  @media (max-width: 800px) {
+    height: 70%;
+  }
+
   @media (max-width: 1024px) {
-    flex-wrap: nowrap;
+    height: 70%;
   }
 `;
 
@@ -78,20 +91,20 @@ export const DoorButtonContainer = styled.div`
 
   display: flex;
   justify-content: center;
-  i {
-    @media (max-width: 900px) {
-      font-size: 5px;
-    }
-  }
 
   @media (min-width: 1440px) {
-    justify-content: space-around;
     padding: 0 10%;
+  }
+  @media (max-width: 800px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
   }
 `;
 
 export const DoorButton = styled.button`
   padding: 0.3rem 0.5rem;
+  margin: 0.5rem;
   display: flex;
   justify-content: space-between;
   cursor: pointer;
@@ -114,12 +127,16 @@ export const DoorButton = styled.button`
   }
 
   @media (max-width: 1024px) {
-    height: 30px;
     width: 50%;
   }
 
   @media (min-width: 1440px) {
     font-size: 2rem;
+  }
+
+  @media (max-width: 800px) {
+    padding: 0.5rem 0.3rem;
+    margin: 5% 0;
   }
 
   // prevent hover crash for contact button with overlay
@@ -156,6 +173,6 @@ export const SocialIcon = styled.i`
   }
 
   @media screen and (max-width: 1024px) {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 `;

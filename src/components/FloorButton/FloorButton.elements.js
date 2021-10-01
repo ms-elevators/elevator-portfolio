@@ -5,6 +5,7 @@ export const StyledButton = styled.button`
   padding: 0.5rem 1rem;
   height: 23%;
   margin: 7% 5%;
+  width: 45%;
 
   cursor: pointer;
   position: relative;
@@ -25,8 +26,16 @@ export const StyledButton = styled.button`
   border-radius: 5px;
 
   font-size: 1.1rem;
+
   @media (max-width: 1024px) {
-    width: 5rem;
+    height: 12%;
+    margin: 2% 5%;
+    width: 70%;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 800px) {
+    font-size: 1.2rem;
   }
 
   @media (min-width: 1440px) {

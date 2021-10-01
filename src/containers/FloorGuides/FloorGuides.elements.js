@@ -13,9 +13,12 @@ export const FloorGuidesStyle = styled.div`
   border: solid ${theme.GrebeGray} 3px;
   background-color: ${theme.FloorGuides};
   @media (max-width: 1024px) {
-    margin-top: 5vh;
-    height: 6vh;
+    height: 10vh;
     width: 70%;
   }
- 
+
+  @media (max-width: 800px) {
+    margin: auto;
+    height: 7vh;
+  }
 `;

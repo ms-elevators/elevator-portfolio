@@ -44,4 +44,19 @@ export const FloorGuideStyle = styled.div`
       font-size: 1vw;
     }
   }
+
+  @media (max-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+      margin-left: 0;
+      font-size: 1rem;
+    }
+
+    p {
+      display: none;
+    }
+  }
 `;

@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  FloorTitle,
   ImageBackground,
   ImgChangeButton,
   IndicatorContainer,
@@ -9,7 +10,9 @@ import {
   ContentImgSection,
   ContentImgContainer,
   ContentImg,
+  StackList,
   StackIcon,
+  ScreenDesc,
 } from "./ProjectContent.elements";
 
 import { content } from "../Data";
@@ -67,6 +70,7 @@ const ProjectContent = ({
   return (
     <>
       <ImageBackground>
+        <FloorTitle>{content[floor].name}</FloorTitle>
         <ContentImgSection>
           {/* 이전 버튼 */}
           <ImgChangeButton onClick={() => handlePrev()}>
@@ -78,16 +82,18 @@ const ProjectContent = ({
             <i className="fas fa-chevron-right"></i>
           </ImgChangeButton>
         </ContentImgSection>
-
         <IndicatorContainer>
           {Array.from({ length: imgLen }).map((item, dotIdx) => (
             <Indicator
               onClick={() => changeIndicator(dotIdx)}
               active={slideIdx === dotIdx ? "dotActive" : "dotInactive"}
               key={dotIdx}
-            ></Indicator>
+            />
           ))}
         </IndicatorContainer>
+
+        <StackList length={stack.length}>{stacks}</StackList>
+        <ScreenDesc>{content[floor].description}</ScreenDesc>
       </ImageBackground>
 
       <ContentButtonContainer>

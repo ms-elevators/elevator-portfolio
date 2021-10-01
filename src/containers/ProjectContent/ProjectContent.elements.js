@@ -102,7 +102,7 @@ export const IndicatorContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 2%;
+  margin-top: 5%;
 `;
 
 export const Indicator = styled.div`

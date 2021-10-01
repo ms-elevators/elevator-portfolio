@@ -76,22 +76,15 @@ export const DoorButtonContainer = styled.div`
   justify-content: space-around;
   width: 100%;
 
-<<<<<<< HEAD
-  @media (min-width: 1440px) {
-=======
-  display:flex;
+  display: flex;
   justify-content: center;
-  i{
-    @media(max-width:900px){
-      font-size:5px;
+  i {
+    @media (max-width: 900px) {
+      font-size: 5px;
     }
-
-   
-
   }
 
-  @media(min-width:1440px){
->>>>>>> b34fb3a31e068fe088c49d933e3ae2489ab55e82
+  @media (min-width: 1440px) {
     justify-content: space-around;
     padding: 0 10%;
   }
@@ -106,7 +99,7 @@ export const DoorButton = styled.button`
   z-index: 0;
   background: ${theme.StyleButton};
   border: 1px solid ${theme.StyleButtonBorder2};
-  height:5%;
+  height: 5%;
 
   box-sizing: border-box;
   box-shadow: 0.3px 0.3px 1px 0.5px rgba(100, 100, 100, 0.25),
@@ -114,15 +107,11 @@ export const DoorButton = styled.button`
     inset -1.3px -1.3px 4px 2px rgba(220, 232, 231, 0.6);
   border-radius: 5px;
 
-<<<<<<< HEAD
   font-size: 1.3rem;
   width: 35%;
   i {
     margin: 0 10%;
   }
-=======
-  
->>>>>>> b34fb3a31e068fe088c49d933e3ae2489ab55e82
 
   @media (max-width: 1024px) {
     height: 30px;

@@ -6,6 +6,10 @@ export const LeftContainer = styled.section`
   padding: 1rem;
   align-self: flex-start;
   line-height: 1.5;
+  @media(max-width:800px){
+    opacity:0;
+    position:absolute
+  }
 `;
 
 export const ScreenOutline = styled.div`
@@ -20,6 +24,7 @@ export const ScreenOutline = styled.div`
   @media (max-width: 1080px) {
     height: 25vh;
   }
+  
 `;
 
 export const ScreenContainer = styled.div`

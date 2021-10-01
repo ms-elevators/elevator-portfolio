@@ -12,6 +12,8 @@ import {
   FloorButtonsContainer,
   NavbarSection,
   ContactButton,
+  SocialContainer,
+  SocialIcon,
 } from "./Navigation.elements";
 
 export default function Navigation({
@@ -22,6 +24,7 @@ export default function Navigation({
   contactFloor,
   destination,
   doorActivate,
+  
 }) {
   // dynamically create floor buttons
   const FloorButtons = [];
@@ -67,6 +70,11 @@ export default function Navigation({
           </DoorButton>
         </DoorButtonContainer>
       </NavbarSection>
+      <SocialContainer>
+        <SocialIcon key="instagram" className="fab fa-instagram"></SocialIcon>
+        <SocialIcon key="github" className="fab fa-github"></SocialIcon>
+        <SocialIcon key="linkedin" className="fab fa-linkedin"></SocialIcon>
+      </SocialContainer>
     </NavContentsContainer>
   );
 }

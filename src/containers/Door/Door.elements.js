@@ -16,6 +16,10 @@ export const DoorContainer = styled.div`
   margin: 0;
   position: relative;
   overflow: hidden;
+  @media (max-width: 800px) {
+    margin-left: 3%;
+    width: 74%;
+  }
 `;
 
 export const DoorInnerContent = styled.div`

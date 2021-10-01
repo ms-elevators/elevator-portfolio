@@ -24,6 +24,13 @@ export default function Door({ floor, isReady, contactFloor }) {
     setImgIdx(0);
   }, [floor]);
 
+  //stacks 반응형 적용
+  var stack = screenData[floor].stack;
+  const stacks = stack.map((s) => {
+    const icon = `fab fa-${s}`;
+    return <StackIcon key={s} className={icon}></StackIcon>;
+  });
+
   return (
     <DoorContainer>
       <FloorBackground src={bgi} alt="background" />

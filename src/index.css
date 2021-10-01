@@ -1,11 +1,16 @@
-@media (max-width: 900px){
+@media (max-width: 800px){
   html{
     font-size:13px;
   }
-@media(max-width:450px){
+@media(max-width:650px){
   html{
     font-size:9px;
   }
+@media(max-width:400px){
+  html{
+    font-size:4px;
+  }
+}
 }
 }
 body {

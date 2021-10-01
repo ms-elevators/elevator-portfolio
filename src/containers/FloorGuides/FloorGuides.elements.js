@@ -17,6 +17,5 @@ export const FloorGuidesStyle = styled.div`
     height: 6vh;
     width: 70%;
   }
-  @media (max-width: 900px) {
-  }
+ 
 `;

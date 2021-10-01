@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ThemeProvider } from "styled-components";
 // import theme(colors)
 import theme from "../../style/theme";
 
@@ -14,6 +13,10 @@ export const SoundSettingContainer = styled.div`
 
 export const SoundSettingTitle = styled.h1`
   color: ${theme.White};
+
+  @media (min-width: 1440px){
+    font-size: 2vw;
+  }
 `;
 
 export const SoundSettingButtonWrapper = styled.div``;
@@ -27,4 +30,9 @@ export const SoundSettingButton = styled.input`
   background-color: ${theme.DavyGray};
   color: ${theme.White};
   font-weight: 600;
+
+  @media (min-width: 1440px){
+    font-size: 1vw;
+    width: 4vw;
+  }
 `;

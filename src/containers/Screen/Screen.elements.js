@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ThemeProvider } from "styled-components";
 // import theme(colors)
 import theme from "../../style/theme";
 
@@ -41,14 +40,14 @@ export const ScreenTitle = styled.h1`
   padding: 0;
   margin: 0;
   border-bottom: solid 3px ${theme.DavyGray};
-  font-size: 2.5rem;
-
-  @media screen and (max-width: 1400px) {
-    font-size: 1.5rem;
-  }
+  font-size: 1.5rem;
 
   @media screen and (max-width: 1024px) {
     font-size: 1rem;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 1.7vw;
   }
 `;
 
@@ -59,6 +58,10 @@ export const ScreenDesc = styled.p`
   text-align: left;
   overflow-y: scroll;
   word-break: break-all;
+
+  @media (min-width: 1440px) {
+    font-size: 1.2vw;
+  }
 
 
   /* Hide scrollbar for Chrome, Safari and Opera */
@@ -91,6 +94,11 @@ export const StackList = styled.div`
 
 export const StackIcon = styled.i`
   font-size: 1.5rem;
+
+  @media (min-width: 1440px) {
+    margin-top: 0.5vw;
+    font-size: 2.2vw;
+  }
 `;
 
 export const SocialContainer = styled.div`
@@ -104,12 +112,12 @@ export const SocialContainer = styled.div`
 `;
 
 export const SocialIcon = styled.i`
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   margin: 0.3rem;
   padding: 0.3rem;
 
-  @media screen and (max-width: 1400px) {
-    font-size: 1.5rem;
+  @media screen and (min-width: 1440px) {
+    font-size: 2vw;
   }
 
   @media screen and (max-width: 1024px) {

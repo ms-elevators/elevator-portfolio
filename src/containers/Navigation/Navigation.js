@@ -24,7 +24,6 @@ export default function Navigation({
   contactFloor,
   destination,
   doorActivate,
-  
 }) {
   // dynamically create floor buttons
   const FloorButtons = [];
@@ -65,8 +64,8 @@ export default function Navigation({
           <DoorButton
             onClick={() => (destination ? {} : doorActivate("close"))}
           >
-            <i class="fas fa-caret-right"></i>
-            <i class="fas fa-caret-left"></i>
+            <i className="fas fa-caret-right"></i>
+            <i className="fas fa-caret-left"></i>
           </DoorButton>
         </DoorButtonContainer>
       </NavbarSection>

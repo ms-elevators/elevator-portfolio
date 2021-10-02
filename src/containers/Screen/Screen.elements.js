@@ -27,6 +27,7 @@ export const ScreenOutline = styled.div`
   align-self: flex-start;
   background-color: ${theme.ScreenOutline};
   box-shadow: 1px 3px 3px ${theme.Black};
+  position:relative;
 
   @media (max-width: 1024px) {
     height: 70%;
@@ -42,6 +43,18 @@ export const ScreenContainer = styled.div`
   justify-content: space-around;
   background-color: ${theme.ScreenContainer};
 `;
+
+export const WaitingPic = styled.div`
+  width:90%;
+  height:95%;
+  transition:0.5s;
+  position:absolute;
+  opacity:${(props)=>props.wait};
+  left:5%;
+  top:2.5%;
+  background-color: white;
+
+`
 
 export const ScreenTitle = styled.h1`
   padding: 0;

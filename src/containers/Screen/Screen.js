@@ -1,4 +1,5 @@
 import React from "react";
+import WaitingAnimation from "../../components/WaitingAnimation/WaitingAnimation";
 import { content } from "../Data";
 
 // import styled components
@@ -12,9 +13,10 @@ import {
   StackIcon,
   SocialContainer,
   SocialIcon,
+  WaitingPic,
 } from "./Screen.elements";
 
-export default function Screen({ hoverValue }) {
+export default function Screen({ hoverValue, wait , diff}) {
   // deconstruct content
   const { name, description, stack } = content[hoverValue];
 
@@ -27,6 +29,9 @@ export default function Screen({ hoverValue }) {
   return (
     <LeftContainer>
       <ScreenOutline>
+        <WaitingPic wait={wait}>
+          <WaitingAnimation diff={diff}/>
+        </WaitingPic>
         <ScreenContainer>
           <ScreenTitle>{name}</ScreenTitle>
           <ScreenDesc>{description}</ScreenDesc>

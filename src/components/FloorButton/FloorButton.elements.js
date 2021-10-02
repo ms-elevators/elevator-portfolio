@@ -30,29 +30,27 @@ export const StyledButton = styled.button`
   font-family: "Digital Numbers Regular";
   font-size: 1.1rem;
 
-
   :hover{
-      transform: translateY(-0.6px);
-      box-shadow: 
-      inset 1.3px 1.3px 2px rgba(35, 35, 35, 0.18),
+    transform: translateY(-1px);
+    box-shadow: 
+    inset 1.3px 1.3px 2px rgba(35, 35, 35, 0.18),
 
-      5px 6px 2px rgba(0, 0, 0, 0.2);
+    5px 9px 2px rgba(0, 0, 0, 0.2);
 
-      // 1px 4px 0 rgba(100, 100, 100, 0.5),
-      color: rgba(9, 149, 137, 1);
+    // 1px 4px 0 rgba(100, 100, 100, 0.5),
 
 }
 
-  :active {
-      position: relative; 
-      top:4px;
-      box-shadow: 
-      inset 1.3px 1.3px 2px rgba(35, 35, 35, 0.18),
+:active {
+    position: relative; 
+    top:4px;
+    box-shadow: 
+    inset 1.3px 1.3px 2px rgba(35, 35, 35, 0.18),
 
-      1px 4px 0 rgba(100, 100, 100, 0.5); 
-      color: rgba(78, 244, 230, 1);
+    1px 4px 0 rgba(100, 100, 100, 0.5); 
+    color:rgba(192, 191, 191, 1);
 
-  }
+}
 
 
 

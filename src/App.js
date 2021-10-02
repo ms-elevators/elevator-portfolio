@@ -38,6 +38,10 @@ function App() {
   // bgm hook
   const [bgm, { stop }] = useSound(bgmSrc, { volume: 0.3, interrupt: true });
 
+  //waitingPic
+  const [wait, setwait] = useState(0);
+  const [headedTo, setheadedTo] = useState(0)
+
   // set sound state and play bgm if sound is true
   const initialSoundSettings = (allow) => {
     setSound(allow);
@@ -88,6 +92,7 @@ function App() {
 
         // close door when open
         await closeDoor();
+        await waitPic();
 
         // if destination is higher floor, go up, else go down
         diff > 0 ? await upEachFloor(floorNum) : await downEachFloor(floorNum);
@@ -95,6 +100,7 @@ function App() {
         await setFloorData(diff, floorNum);
 
         await openDoor();
+        await dontwaitPic();
       } catch (err) {
         console.log(err);
       }
@@ -105,6 +111,7 @@ function App() {
   function upEachFloor(floorNum) {
     return new Promise((resolve, reject) => {
       if (sound) movePlay();
+      setheadedTo(1);
       // call function on every floor until destination
       for (let i = floor; i <= floorNum; i++) {
         delayedFloorChange(i, "up");
@@ -112,11 +119,14 @@ function App() {
       resolve("success");
     });
   }
+ 
 
   // go down floors
   function downEachFloor(floorNum) {
     return new Promise((resolve, reject) => {
       if (sound) movePlay();
+      setheadedTo(null);
+
       // call function on every floor until destination
       for (let i = floor; i >= floorNum; i--) {
         delayedFloorChange(i, "down");
@@ -183,6 +193,22 @@ function App() {
   const onButtonHoverOut = (e) => {
     setHover(floor);
   };
+   //waitingPic
+   function waitPic(){
+    return new Promise((resolve, reject)=>{
+      setwait(1);
+      resolve("success");
+    });
+
+  }
+
+  function dontwaitPic(){
+    return new Promise((resolve, reject)=>{
+      setwait(0);
+      resolve("success");
+    });
+
+  }
 
   return (
     <div>
@@ -205,6 +231,9 @@ function App() {
             onButtonHoverOut={onButtonHoverOut}
             destination={destination}
             doorActivate={doorActivate}
+            wait={wait}
+            diff={headedTo}
+            
           />
         </>
       )}

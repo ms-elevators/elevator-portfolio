@@ -4,27 +4,30 @@ import styled from "styled-components";
  width:100%;
  height:100%;
  padding-top:10%;
+ div{
+     height:80%;
+     display:flex;
+     flex-direction:column;
+     justify-content: center;
+ }
 p{
     font-size:2rem;
     color:#fff;
     margin:0;
+    margin-bottom:20%;
 }
  .m_scroll_arrows
 {
+margin-top:100%;
   display: block;
   width: 4vw;
   height: 4vw;
-  -ms-transform: rotate(225deg); /* IE 9 */
-  -webkit-transform: rotate(225deg); /* Chrome, Safari, Opera */
-  transform: rotate(225deg);
-  ${(props) =>
-    props.diff===null?    
-    `                     
-    -ms-transform: rotate(45deg); /* IE 9 */
-  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-  transform: rotate(45deg);
-
-    `:""}
+  
+  -ms-transform: ${(props)=>props.diff}; /* IE 9 */
+  -webkit-transform: ${(props)=>props.diff}; /* Chrome, Safari, Opera */
+  transform: ${(props)=>props.diff};
+  
+  
    
   border-right: 0.5rem solid white;
   border-bottom: 0.5rem solid white;

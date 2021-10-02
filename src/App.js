@@ -40,7 +40,7 @@ function App() {
 
   //waitingPic
   const [wait, setwait] = useState(0);
-  const [headedTo, setheadedTo] = useState(0)
+  const [headedTo, setheadedTo] = useState(1)
 
   // set sound state and play bgm if sound is true
   const initialSoundSettings = (allow) => {

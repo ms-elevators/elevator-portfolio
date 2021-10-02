@@ -29,7 +29,7 @@ export default function Screen({ hoverValue, wait , diff}) {
   return (
     <LeftContainer>
       <ScreenOutline>
-        <WaitingPic wait={1}>
+        <WaitingPic wait={wait}>
           <WaitingAnimation diff={diff}/>
         </WaitingPic>
         <ScreenContainer>

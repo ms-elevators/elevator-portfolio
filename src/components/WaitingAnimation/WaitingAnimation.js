@@ -4,8 +4,8 @@ import { WaitingAnimationStyle } from './WaitingAnimation.elements'
 
 
 
-export default function WaitingAnimation(diff) {
-    console.log(diff);
+export default function WaitingAnimation({diff}) {
+    diff=diff===1?"rotate(225deg)":"rotate(45deg)"
     return (
         <WaitingAnimationStyle diff={diff}>
             <p>Moving</p>

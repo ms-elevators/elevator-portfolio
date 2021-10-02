@@ -1,5 +1,4 @@
 import styled from "styled-components";
-// import theme(colors)
 import theme from "../../style/theme";
 
 export const MainContainer = styled.div`
@@ -15,7 +14,7 @@ export const MainContainer = styled.div`
 
 export const TopSection = styled.section`
   display: flex;
-  height:15vh;
+  height: 15vh;
 `;
 
 export const BottomSection = styled.section`

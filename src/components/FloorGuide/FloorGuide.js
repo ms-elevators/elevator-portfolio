@@ -1,18 +1,19 @@
 import React from "react";
-import {FloorGuideStyle} from "./FloorGuide.elements"
-
+import { FloorGuideStyle } from "./FloorGuide.elements";
 
 export default function FloorGuide({
   floor,
   projectname,
   children,
   currentColor,
-  last
+  last,
 }) {
-  const borderLine = (last)?0:1;
+  const borderLine = last ? 0 : 1;
+
   return (
     <FloorGuideStyle currentColor={currentColor} borderLine={borderLine}>
-      <span className="floor">{floor}F</span><span className="title">{projectname}</span> 
+      <span className="floor">{floor}F</span>
+      <span className="title">{projectname}</span>
       <p>{children}</p>
     </FloorGuideStyle>
   );

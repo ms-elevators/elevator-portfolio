@@ -1,6 +1,6 @@
 import React from "react";
 import FloorGuide from "../../components/FloorGuide/FloorGuide";
-import { guideData } from "../Data";
+import { content } from "../Data";
 import { FloorGuidesStyle } from "./FloorGuides.elements.js";
 
 export default function FloorGuides({ floor, totalFloors }) {
@@ -12,21 +12,23 @@ export default function FloorGuides({ floor, totalFloors }) {
       <FloorGuide
         floor={i}
         key={i}
-        projectname={guideData[i].name} //data.js에서 프로젝트이름, 설명 수정
+        projectname={content[i].name} //data.js에서 프로젝트이름, 설명 수정
         currentColor={i === floor ? "#FCFF608A" : ""} // props to add yellow bg color only on current floor
       >
-        {guideData[i].desc}
+        {content[i].summary}
       </FloorGuide>
     );
     guides.push(guide);
   }
-  const last=" ";
+
+  // pass last prop to set no border for last block
+  const last = true;
   const contactFloor = (
     <FloorGuide
       floor={totalFloors}
       key={totalFloors}
       projectname="Contact"
-      currentColor={totalFloors*1 === floor ? "#FCFF608A" : ""} 
+      currentColor={totalFloors * 1 === floor ? "#FCFF608A" : ""}
       last={last}
     >
       Do you want to contact me?

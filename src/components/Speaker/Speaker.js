@@ -19,12 +19,12 @@ const Speaker = ({ sound, soundToggle }) => {
         >
           {sound ? (
             <>
-              <i class="fas fa-volume-up"></i>
+              <i className="fas fa-volume-up"></i>
               <p>On</p>
             </>
           ) : (
             <>
-              <i class="fas fa-volume-mute"></i>
+              <i className="fas fa-volume-mute"></i>
               <p>Off</p>
             </>
           )}

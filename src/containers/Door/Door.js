@@ -17,11 +17,13 @@ import bgi from "./office.jpg";
 export default function Door({ floor, isReady, contactFloor }) {
   const [imgIdx, setImgIdx] = useState(0);
   const [slideIdx, setSlideIdx] = useState(0);
+  const [rotate, setRotate] = useState(0);
 
   // 층이 바뀌면 imgIdx를 초기화, 처음 그림이 표시
   useEffect(() => {
     setSlideIdx(0);
     setImgIdx(0);
+    setRotate(0);
   }, [floor]);
 
   return (
@@ -40,6 +42,8 @@ export default function Door({ floor, isReady, contactFloor }) {
             slideIdx={slideIdx}
             setSlideIdx={setSlideIdx}
             floor={floor}
+            rotate={rotate}
+            setRotate={setRotate}
           />
         </DoorInnerContent>
       )}

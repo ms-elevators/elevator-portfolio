@@ -22,6 +22,10 @@ export const FloorGuideStyle = styled.div`
     height: 70%;
   }
 
+
+
+
+
   @media (min-width: 1440px) {
     font-size: 0.7vw;
   }

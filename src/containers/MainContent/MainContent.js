@@ -26,8 +26,12 @@ const MainContent = ({
   onButtonHoverOut,
   destination,
   doorActivate,
+  wait,
+  diff
 }) => {
+  
   return (
+
     <>
       <MainContainer>
         <TopSection>
@@ -37,7 +41,7 @@ const MainContent = ({
         </TopSection>
 
         <BottomSection>
-          <Screen hoverValue={hoverValue} />
+          <Screen hoverValue={hoverValue} wait={wait} diff={diff} />
           <Door floor={floor} isReady={isReady} contactFloor={contactFloor} />
           <Navigation
             floor={floor}

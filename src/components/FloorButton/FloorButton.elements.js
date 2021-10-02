@@ -15,10 +15,12 @@ export const StyledButton = styled.button`
   border: 1px solid
     ${(props) =>
       props.destination
-        ? `${theme.StyleButtonBorder1}`
+        ? ` ${theme.StyleButtonBorder1}`
         : `${theme.StyleButtonBorder2}`};
   box-sizing: border-box;
-  box-shadow: 0.3px 0.3px 1px 0.5px rgba(100, 100, 100, 0.25),
+  box-shadow: 
+  1px 4px 0 rgba(100, 100, 100, 0.5),
+
     ${(props) =>
         props.destination ? `0px 0px 10px ${theme.StyleButtonBorder1},` : ""}
       inset 1.3px 1.3px 2px rgba(35, 35, 35, 0.18),
@@ -27,6 +29,33 @@ export const StyledButton = styled.button`
 
   font-family: "Digital Numbers Regular";
   font-size: 1.1rem;
+
+
+  :hover{
+      transform: translateY(-0.6px);
+      box-shadow: 
+      inset 1.3px 1.3px 2px rgba(35, 35, 35, 0.18),
+
+      5px 6px 2px rgba(0, 0, 0, 0.2);
+
+      // 1px 4px 0 rgba(100, 100, 100, 0.5),
+      color: rgba(9, 149, 137, 1);
+
+}
+
+  :active {
+      position: relative; 
+      top:4px;
+      box-shadow: 
+      inset 1.3px 1.3px 2px rgba(35, 35, 35, 0.18),
+
+      1px 4px 0 rgba(100, 100, 100, 0.5); 
+      color: rgba(78, 244, 230, 1);
+
+  }
+
+
+
 
   @media (max-width: 1024px) {
     height: 12%;

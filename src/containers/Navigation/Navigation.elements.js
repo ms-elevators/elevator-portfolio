@@ -1,5 +1,20 @@
-import styled from "styled-components";
+import styled , { keyframes } from "styled-components";
 import theme from "../../style/theme";
+
+
+const blink = keyframes`
+0% { 
+  background: ${theme.ContactButton};
+}
+99.9%{
+  background: rgba(246, 223, 44, 1);
+}
+
+100% {
+  background: rgba(246, 223, 44, 1);
+}
+`;
+
 
 export const NavContentsContainer = styled.div`
   width: 18%;
@@ -54,6 +69,9 @@ export const ContactButton = styled.button`
   position: relative;
   z-index: 0;
   background: ${theme.ContactButton};
+  
+  animation: ${blink} 0.5s infinite;
+  // transition: background-color 0.5s ease;
 
   color: ${theme.White};
   border: 1px solid
@@ -66,6 +84,7 @@ export const ContactButton = styled.button`
       1.3px 2px rgba(35, 35, 35, 0.18),
     inset -1px -1px 3px 1px rgba(220, 232, 231, 0.6);
   border-radius: 100%;
+////여기//
 
   @media (min-width: 1440px) {
     margin: 1.2vw auto;
@@ -129,6 +148,30 @@ export const DoorButton = styled.button`
   i {
     margin: 0 10%;
   }
+
+
+  :hover{
+    transform: translateY(-1px);
+    box-shadow: 
+    inset 1.3px 1.3px 2px rgba(35, 35, 35, 0.18),
+
+    5px 9px 2px rgba(0, 0, 0, 0.2);
+
+    // 1px 4px 0 rgba(100, 100, 100, 0.5),
+
+}
+
+:active {
+    position: relative; 
+    top:4px;
+    box-shadow: 
+    inset 1.3px 1.3px 2px rgba(35, 35, 35, 0.18),
+
+    1px 4px 0 rgba(100, 100, 100, 0.5); 
+    color:rgba(192, 191, 191, 1);
+
+}
+
 
   @media (max-width: 1024px) {
     width: 50%;

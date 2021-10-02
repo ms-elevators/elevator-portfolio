@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FloorTitle,
   ImageBackground,
@@ -23,6 +23,8 @@ const ProjectContent = ({
   slideIdx,
   setImgIdx,
   setSlideIdx,
+  rotate,
+  setRotate,
 }) => {
   const imgLen = content[floor].img.length; // 층 수 별로 다른 이미지 개수
 
@@ -30,28 +32,33 @@ const ProjectContent = ({
   const previews = [];
   if (content[floor]) {
     for (let i = 0; i < imgLen; i++) {
+      const deg = (360 / imgLen) * i;
       previews.push(
         <ContentImg
           src={content[floor].img[i]}
           alt={`img${i}`}
           key={`img${i}`}
+          deg={deg + rotate}
           current={i === imgIdx ? 1 : 0}
         />
       );
     }
   }
-
   // image change
   const handlePrev = () => {
     const prev = imgIdx === 0 ? imgLen - 1 : imgIdx - 1;
     setImgIdx(prev);
     setSlideIdx(prev);
+    let newRotate = rotate + 360 / imgLen;
+    setRotate(newRotate);
   };
 
   const handleNext = () => {
     const next = imgIdx === imgLen - 1 ? 0 : imgIdx + 1;
     setImgIdx(next);
     setSlideIdx(next);
+    let newRotate = rotate - 360 / imgLen;
+    setRotate(newRotate);
   };
 
   // Indicator change
@@ -72,17 +79,23 @@ const ProjectContent = ({
       <ImageBackground>
         <FloorTitle>{content[floor].name}</FloorTitle>
         <ContentImgSection>
-          {/* 이전 버튼 */}
-          <ImgChangeButton onClick={() => handlePrev()}>
-            <i className="fas fa-chevron-left"></i>
-          </ImgChangeButton>
-          <ContentImgContainer>{previews}</ContentImgContainer>
-          {/* 다음 버튼 */}
-          <ImgChangeButton onClick={() => handleNext()}>
-            <i className="fas fa-chevron-right"></i>
-          </ImgChangeButton>
+          <ContentImgContainer rotate={rotate}>
+            {previews}
+            {/* <ContentButtonContainer>
+              <ContentLink href={content[floor].demo} target="_blank">
+                Demo
+              </ContentLink>
+              <ContentLink href={content[floor].code} target="_blank">
+                Source Code
+              </ContentLink>
+            </ContentButtonContainer> */}
+          </ContentImgContainer>
         </ContentImgSection>
         <IndicatorContainer>
+          {/* 이전 버튼 */}
+          <ImgChangeButton onClick={() => handlePrev()} direction="left">
+            <i className="fas fa-chevron-left"></i>
+          </ImgChangeButton>
           {Array.from({ length: imgLen }).map((item, dotIdx) => (
             <Indicator
               onClick={() => changeIndicator(dotIdx)}
@@ -90,20 +103,15 @@ const ProjectContent = ({
               key={dotIdx}
             />
           ))}
+          {/* 다음 버튼 */}
+          <ImgChangeButton onClick={() => handleNext()} direction="right">
+            <i className="fas fa-chevron-right"></i>
+          </ImgChangeButton>
         </IndicatorContainer>
 
         <StackList length={stack.length}>{stacks}</StackList>
         <ScreenDesc>{content[floor].description}</ScreenDesc>
       </ImageBackground>
-
-      <ContentButtonContainer>
-        <ContentLink href={content[floor].demo} target="_blank">
-          Demo
-        </ContentLink>
-        <ContentLink href={content[floor].code} target="_blank">
-          Source Code
-        </ContentLink>
-      </ContentButtonContainer>
     </>
   );
 };

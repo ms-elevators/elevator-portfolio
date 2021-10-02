@@ -78,7 +78,7 @@ export const ContentButtonContainer = styled.section`
   align-items: center;
 
   position: absolute;
-  bottom: 15%;
+  bottom: 0%;
   @media (min-width: 1440px) {
     justify-content: space-around;
     padding: 0 10%;

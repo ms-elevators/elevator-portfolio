@@ -81,14 +81,14 @@ const ProjectContent = ({
         <ContentImgSection>
           <ContentImgContainer rotate={rotate}>
             {previews}
-            {/* <ContentButtonContainer>
+            <ContentButtonContainer>
               <ContentLink href={content[floor].demo} target="_blank">
                 Demo
               </ContentLink>
               <ContentLink href={content[floor].code} target="_blank">
                 Source Code
               </ContentLink>
-            </ContentButtonContainer> */}
+            </ContentButtonContainer>
           </ContentImgContainer>
         </ContentImgSection>
         <IndicatorContainer>

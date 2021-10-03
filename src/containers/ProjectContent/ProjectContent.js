@@ -3,7 +3,8 @@ import {
   FloorTitle,
   ImageBackground,
   ImgChangeButton,
-  IndicatorContainer,
+  IndicatorSection,
+  IndicatorWrapper,
   Indicator,
   ContentButtonContainer,
   ContentLink,
@@ -79,35 +80,33 @@ const ProjectContent = ({
       <ImageBackground>
         <FloorTitle>{content[floor].name}</FloorTitle>
         <ContentImgSection>
-          <ContentImgContainer rotate={rotate}>
-            {previews}
-            <ContentButtonContainer>
-              <ContentLink href={content[floor].demo} target="_blank">
-                Demo
-              </ContentLink>
-              <ContentLink href={content[floor].code} target="_blank">
-                Source Code
-              </ContentLink>
-            </ContentButtonContainer>
-          </ContentImgContainer>
+          <ContentImgContainer rotate={rotate}>{previews}</ContentImgContainer>
         </ContentImgSection>
-        <IndicatorContainer>
-          {/* 이전 버튼 */}
+        <ContentButtonContainer>
+          <ContentLink href={content[floor].demo} target="_blank">
+            Demo
+          </ContentLink>
+          <ContentLink href={content[floor].code} target="_blank">
+            Source Code
+          </ContentLink>
+        </ContentButtonContainer>
+        <IndicatorSection>
           <ImgChangeButton onClick={() => handlePrev()} direction="left">
             <i className="fas fa-chevron-left"></i>
           </ImgChangeButton>
-          {Array.from({ length: imgLen }).map((item, dotIdx) => (
-            <Indicator
-              onClick={() => changeIndicator(dotIdx)}
-              active={slideIdx === dotIdx ? "dotActive" : "dotInactive"}
-              key={dotIdx}
-            />
-          ))}
-          {/* 다음 버튼 */}
+          <IndicatorWrapper>
+            {Array.from({ length: imgLen }).map((item, dotIdx) => (
+              <Indicator
+                onClick={() => changeIndicator(dotIdx)}
+                active={slideIdx === dotIdx ? "dotActive" : "dotInactive"}
+                key={dotIdx}
+              />
+            ))}
+          </IndicatorWrapper>
           <ImgChangeButton onClick={() => handleNext()} direction="right">
             <i className="fas fa-chevron-right"></i>
           </ImgChangeButton>
-        </IndicatorContainer>
+        </IndicatorSection>
 
         <StackList length={stack.length}>{stacks}</StackList>
         <ScreenDesc>{content[floor].description}</ScreenDesc>

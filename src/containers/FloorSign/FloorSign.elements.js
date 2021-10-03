@@ -5,8 +5,8 @@ export const FloorSignStyle = styled.div`
   position: relative;
 
   margin: auto;
-  width: 7rem;
-  height: 4rem;
+  width: 70%;
+  height: 12%;
 
   display: flex;
   flex-direction: column;
@@ -38,6 +38,10 @@ export const FloorSignStyle = styled.div`
 
     @media (min-width: 1440px) {
       font-size: 2.1rem;
+    }
+
+    @media (min-width: 1920px) {
+      font-size: 2.5rem;
     }
   }
   .gray {

@@ -30,6 +30,12 @@ export const SoundSettingButton = styled.input`
   color: ${theme.White};
   font-weight: 600;
 
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
   @media (min-width: 1440px) {
     font-size: 1vw;
     width: 4vw;

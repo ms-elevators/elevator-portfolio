@@ -12,11 +12,14 @@ export const FloorTitle = styled.h1`
   }
 `;
 
-// 이미지를 감싸고 있는 불투명한 흰색 배경화면
 export const ImageBackground = styled.div`
   width: 90%;
   height: 70vh;
   margin: 2% auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 `;
 
 // 이전, 다음 버튼
@@ -53,10 +56,10 @@ export const ContentImgContainer = styled.section`
 `;
 
 export const ContentImg = styled.img`
-  width: 70%;
-  height: 75%;
+  width: 80vh;
+  height: 45vh;
   position: absolute;
-  left: 15%;
+  left: calc(50% - 40vh);
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 1px 1px 4px 4px #00000033;
@@ -67,6 +70,25 @@ export const ContentImg = styled.img`
   transform-origin: 50% 50% -300px;
   transform: ${(props) => `rotateY(${props.deg}deg)`};
   transition: 1s;
+
+  @media (min-width: 1440px) {
+    transform-origin: 50% 50% -500px;
+  }
+  @media (max-width: 1024px) {
+    width: 48vh;
+    height: 27vh;
+    left: calc(50% - 24vh);
+    top: calc(50% - 14vh);
+    transform-origin: 50% 50% -250px;
+  }
+
+  @media (max-width: 800px) {
+    width: 32vh;
+    height: 18vh;
+    left: calc(50% - 16vh);
+    top: calc(50% - 9vh);
+    transform-origin: 50% 50% -200px;
+  }
 `;
 
 export const ContentButtonContainer = styled.section`
@@ -76,9 +98,9 @@ export const ContentButtonContainer = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  /* 
   position: absolute;
-  bottom: 0%;
+  bottom: 3%; */
   @media (min-width: 1440px) {
     justify-content: space-around;
     padding: 0 10%;
@@ -96,7 +118,7 @@ export const ContentLink = styled.a`
   color: ${theme.LightGray};
   border-radius: 5px;
   border: ${theme.LightGray} 2px solid;
-  width: 10rem;
+  width: 25%;
   font-weight: 500;
   font-family: "Montserrat", "Pretendard-ExtraLight", sans-serif;
   @media (min-width: 1440px) {
@@ -110,12 +132,19 @@ export const ContentLink = styled.a`
   }
 `;
 
-export const IndicatorContainer = styled.div`
+export const IndicatorSection = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-top: 1%;
+`;
+
+export const IndicatorWrapper = styled.div`
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 `;
 
 export const Indicator = styled.div`

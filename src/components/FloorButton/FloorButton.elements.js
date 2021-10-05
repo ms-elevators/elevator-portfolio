@@ -18,9 +18,7 @@ export const StyledButton = styled.button`
         ? ` ${theme.StyleButtonBorder1}`
         : `${theme.StyleButtonBorder2}`};
   box-sizing: border-box;
-  box-shadow: 
-  1px 4px 0 rgba(100, 100, 100, 0.5),
-
+  box-shadow: 1px 4px 0 rgba(100, 100, 100, 0.5),
     ${(props) =>
         props.destination ? `0px 0px 10px ${theme.StyleButtonBorder1},` : ""}
       inset 1.3px 1.3px 2px rgba(35, 35, 35, 0.18),
@@ -30,44 +28,37 @@ export const StyledButton = styled.button`
   font-family: "Digital Numbers Regular";
   font-size: 1.1rem;
 
-  :hover{
+  :hover {
     transform: translateY(-1px);
-    box-shadow: 
-    inset 1.3px 1.3px 2px rgba(35, 35, 35, 0.18),
+    box-shadow: inset 1.3px 1.3px 2px rgba(35, 35, 35, 0.18),
+      5px 9px 2px rgba(0, 0, 0, 0.2);
+  }
 
-    5px 9px 2px rgba(0, 0, 0, 0.2);
+  :active {
+    position: relative;
+    top: 4px;
+    box-shadow: inset 1.3px 1.3px 2px rgba(35, 35, 35, 0.18),
+      1px 4px 0 rgba(100, 100, 100, 0.5);
+    color: rgba(192, 191, 191, 1);
+  }
 
-    // 1px 4px 0 rgba(100, 100, 100, 0.5),
-
-}
-
-:active {
-    position: relative; 
-    top:4px;
-    box-shadow: 
-    inset 1.3px 1.3px 2px rgba(35, 35, 35, 0.18),
-
-    1px 4px 0 rgba(100, 100, 100, 0.5); 
-    color:rgba(192, 191, 191, 1);
-
-}
-
-
-
-
-  @media (max-width: 1024px) {
+  /* @media (max-width: 1024px) {
     height: 12%;
     margin: 2% 5%;
     width: 70%;
     font-size: 1rem;
-  }
+  } */
 
   @media (max-width: 800px) {
-    font-size: 1.2rem;
+    margin: 2% 5%;
+    width: 70%;
+    font-size: 0.7rem;
+    height: 13%;
   }
 
   @media (min-width: 1440px) {
     font-size: 1.2vw;
+    margin: 5%;
   }
 
   // prevent hover crash for contact button with overlay
